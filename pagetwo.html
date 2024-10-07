@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huzaim Malik - Projects</title>
+    <style>
+        /* Font Import */
+        @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@400;700&display=swap');
+
+        /* Root Color Variables */
+        :root {
+            --light-bg: #efefef; /* Lightest color for background */
+            --dark-text: #ffffff; /* Light text color */
+            --accent1: #22333d; /* Darker accent color */
+            --accent2: #ac9c8d; /* Lighter accent for contrast */
+            --taupe: #7E6A55; /* Taupe color */
+        }
+
+        body {
+            font-family: 'Cascadia Code', monospace;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--accent1);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--dark-text);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 50px 0;
+        }
+
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project {
+            background-color: var(--accent1);
+            color: var(--dark-text);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            background-color: var(--accent1);
+            color: var(--dark-text);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Huzaim Malik - Projects</h1>
+            <p>Explore my various projects and contributions!</p>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-list">
+                <div class="project">
+                    <h3>Robotics Competitions (FRC 9562, 4992)</h3>
+                    <p>Lead and test driver for FRC robotics teams. Worked on engineering design, strategy, and leading the team to several top finishes.</p>
+                </div>
+                <div class="project">
+                    <h3>Hackathon Projects</h3>
+                    <p>83-time hackathon winner. Developed various software solutions, including web applications, automation tools, and AI-driven systems.</p>
+                </div>
+                <div class="project">
+                    <h3>Web Application Development</h3>
+                    <p>Created a responsive web application for managing personal tasks, featuring user authentication and a dynamic interface.</p>
+                </div>
+                <div class="project">
+                    <h3>Game Development</h3>
+                    <p>Developed a 2D platformer game using Unity and C#. Implemented character mechanics, level design, and sound integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Huzaim Malik. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
