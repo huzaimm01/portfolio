@@ -1,0 +1,139 @@
+<style>
+
+.middle{
+background-color: #7B886F;
+color: white;
+padding: 20px;
+margin-bottom: 20px;
+}
+
+.white{
+background-color: #EFF1F3;
+}
+.text{
+color: #002E2C;
+}
+.a4{
+color: #7B886F;
+}
+div{
+font-family: cascadia code;
+align: middle;
+}
+.listskill{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.blue{
+background-color: #EFF1F3;
+max-width: 1200px;
+margin: 0 auto;
+padding: 30px;
+margin-bottom: 50px;
+}
+
+.green{
+background-color: #002e2c;
+max-width: 1200px;
+margin: 0 auto;
+padding: 30px;
+margin-bottom: 50px;
+}
+.a1{
+font-family: Cascadia Code;
+color: #002e2c;
+}
+
+.a2{
+font-family: Cascadia Code light;
+color: #EFF1F3;
+margin-bottom: 50px;
+margin-top: 50px;
+}
+
+.a3{
+font-family: Cascadia Code light;
+color: #EFF1F3;
+font-size: 80px;
+}
+.white{
+background-color:#002e2c;
+}
+</style>
+
+<body class="white">
+<div class="blue">
+<h1 class="a1" align="middle">Huzaim Malik</h1>
+<h2 class="a1" align="middle">Full Stack Developer | Champion Driver <h2>
+</div>
+
+<div>
+<h2 class="a2" align="middle">About Me</h2>
+<h3 class="a2" align="middle">I am a current Computer Engineering student at the University of Toronto, class of 2029. I am very passionate about technology, coding and the like. I learned to code at the age of 7, and have been passionate about it since. I love racing, and won the 2024 Regional Formula 4 Championship <h3>
+</div>
+
+
+<div class="blue">
+<h1 class="a4">skills:</h1>
+<div class="listskill">
+              <div align="center" class="middle">html</div>
+              <div align="middle" class="middle">css</div>
+              <div align="middle" class="middle">javascript</div>
+              <div align="middle" class="middle">java</div>
+              <div align="middle" class="middle">python</div>
+              <div align="middle" class="middle">c++</div>
+              <div align="middle" class="middle">c#</div>
+              <div align="middle" class="middle">c</div>
+              <div align="middle" class="middle">swift</div>
+              <div align="middle" class="middle">ruby</div>
+              <div align="middle" class="middle">php</div>
+              <div align="middle" class="middle">latex</div>
+              <div align="middle" class="middle">matlab/octave</div>
+              <div align="middle" class="middle">.net</div>
+              <div align="middle" class="middle">sql</div>
+              <div align="middle" class="middle">arduino</div>
+              <div align="middle" class="middle">raspberry pi</div>
+              <div align="middle" class="middle">camlan</div>
+              <div align="middle" class="middle">vardb</div></div>
+              <div align="middle" class="middle">SolidWorks</div></div>
+              <div align="middle" class="middle">Fusion360</div></div>
+</div>
+
+
+
+
+<div class="blue">
+<h1 class="a4">Achievements:</h1>
+<div class="listskill">
+              <div align="center" class="middle">South Asian Formula 4 Champion</div>
+              <div align="middle" class="middle">Hackathon Winner</div>
+              <div align="middle" class="middle">Robotics Lead</div>
+              <div align="middle" class="middle">FGC Pakistan mentor</div>
+              <div align="middle" class="middle">2022, 2023 Pakistan Karting Champion</div>
+              <div align="middle" class="middle">Received a letter of recognition from the Biden administration</div>
+              <div align="middle" class="middle">Microsoft Internship</div>
+</div>
+</div>
+
+<div class="green">
+<h1 class="a2">Education:</h1>
+<div class="listskill">
+              <div align="center" >university of toronto</div>
+              <div align="middle" class="middle">Hackathon Winner</div>
+              <div align="middle" class="middle">Robotics Lead</div>
+              <div align="middle" class="middle">FGC Pakistan mentor</div>
+              <div align="middle" class="middle">2022, 2023 Pakistan Karting Champion</div>
+              <div align="middle" class="middle">Received a letter of recognition from the Biden administration</div>
+              <div align="middle" class="middle">Microsoft Internship</div>
+
+
+</body>
+
+
+
+
+
+
+
