@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+:root{
+  --blue: #2C3D50;
+  --white: #ECF0F1;
+  --silver: #BDC3C7;
+  --red: #BF392B;
+  
+}
+.div1{
+  background-color: var(--blue);
+  padding: 30px;
+}
+
+.div2{
+  background-color: var(--white);
+  margin-top: -35px;
+}
+
+.div3{
+  background-color: var(--blue);
+  margin-top: -35px;
+}
+
+.div4{
+  display: grid;
+  column-gap: 20px;
+  row-gap: 20px;
+  grid-template-columns: auto auto auto;
+}
+
+.div5{
+  display: grid;
+  column-gap: 20px;
+  row-gap: 20px;
+  grid-template-columns: auto auto;
+}
+.fira{
+  font-family: fira code;
+  text-align: center;
+}
+
+.fira1{
+  font-family: fira code;
+}
+h1{
+  font-family: Fira Code;
+}
+
+.wt{
+  color: #FFFFFF;
+}
+
+.bt{
+  color: var(--blue);
+}
+
+.red{
+  background-color: var(--red);
+}
+.white{
+  background-color: #FFFFFF;
+}
+ 
+.pad{
+  padding-top: 20px;
+}
+
+.pad1{
+  padding-bottom: 20px;
+}
+
+img{
+  width: 85%;
+  padding: 10px;
+}
+  
+.img1{
+  width:50px;
+}
+  
+a:link {
+  color: var(--blue);
+  background-color: transparent;
+  text-decoration: none;
+}
+  
+  
+  
+  
+  
+  
+  
+  
