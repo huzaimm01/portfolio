@@ -40,5 +40,288 @@
     </section>
   </div>
 </body>
-  <script src="script.js"></script>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+  color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Center vertically */
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav ul li {
+  margin: 0 1rem;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #b5d3e7;
+}
+
+#themeToggle {
+  display: flex;
+  cursor: pointer;
+}
+
+#themeIcon {
+  font-size: 1.5rem;
+  margin: 0 0.2rem;
+}
+
+#app {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  animation: fadeIn 1s ease;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #b5d3e7;
+  margin-bottom: 1rem;
+  animation: slideIn 1s ease;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.info-list li {
+  font-size: 1.2rem;
+  color: #e0e6ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin {
+  margin-right: 0.5rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background: #4d6d91;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background: #365a7f;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.proj {
+  background: #172e49;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.proj:hover {
+  transform: translateY(-10px);
+}
+
+.hidden {
+  display: none;
+}
+
+.typing-text {
+  display: inline-block;
+  color: white; /* Default color */
+}
+
+.input {
+  padding: 0.8rem;
+  width: 100%;
+  margin: 0.5rem 0;
+  border: 1px solid #4d6d91;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #000; /* Text color always black */
+  background: #fff; /* White background for input fields */
+}
+
+.dark-mode {
+    background: #0d1117; 
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode .info-list li,
+.dark-mode .btn,
+.dark-mode .typing-text {
+  color: white; /* All text in dark mode */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes delete {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+@keyframes changeColor {
+  0% { color: white; }
+  50% { color: #f4f4f4; }
+  100% { color: white; }
+}
+</style>
+  
+  <script>
+let currentTheme = 'light';
+let currentTextIndex = 0;
+const texts = [
+  "Hey, I'm",     // English
+  "Hola, soy",    // Spanish
+  "Salut, je suis", // French
+  "Hej, jeg er",  // Danish
+  "Hallo, ich bin", // German
+  "Hæ, ég er",    // Icelandic
+  "مرحبا, أنا",    // Arabic
+  "ہیلو، میں ہوں" // Urdu
+]; // Add more phrases as needed
+
+function renderHome() {
+  hideAllSections();
+  document.querySelector('.intro').classList.remove('hidden');
+  startTypingAnimation();
+}
+
+function renderAboutMe() {
+  hideAllSections();
+  document.querySelector('.about').classList.remove('hidden');
+}
+
+function renderProjects() {
+  hideAllSections();
+  document.querySelector('.projects').classList.remove('hidden');
+}
+
+function renderContact() {
+  hideAllSections();
+  document.querySelector('.contact').classList.remove('hidden');
+}
+
+function renderThanks() {
+  hideAllSections();
+  document.querySelector('.thanks').classList.remove('hidden');
+}
+
+function hideAllSections() {
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.classList.add('hidden');
+  });
+}
+
+function startTypingAnimation() {
+  const typingText = document.getElementById('typingText');
+  typingText.textContent = '';
+  typeText(texts[currentTextIndex]);
+}
+
+function typeText(text) {
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      document.getElementById('typingText').textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        currentTextIndex = (currentTextIndex + 1) % texts.length;
+        deleteText(text);
+      }, 1000);
+    }
+  }, 150);
+}
+
+function deleteText(text) {
+  let i = text.length;
+  const interval = setInterval(() => {
+    if (i > 0) {
+      document.getElementById('typingText').textContent = text.substring(0, i - 1);
+      i--;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        typeText(texts[currentTextIndex]);
+      }, 500);
+    }
+  }, 100);
+}
+
+function toggleTheme() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
+}
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+// Initial render
+renderHome();
+</script>
 </html>
