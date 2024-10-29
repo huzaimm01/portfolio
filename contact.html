@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Huzaim Malik</title>
@@ -73,5 +72,173 @@
 
 
 </body>
-  <script src="script.js"></script>
+  <style>
+    .theme-toggle {
+      cursor: pointer; /* Change cursor to pointer */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center vertically */
+      height: auto; /* Adjust height to auto */
+      padding: 20px;
+      text-align: center; /* Center text */
+    }
+
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin: 20px;
+      z-index: 10;
+      min-height: 60px; /* Ensure enough space for header items */
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap to the next line */
+    }
+
+    .nav ul li {
+      margin: 0 1rem;
+    }
+
+    .nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: #b5d3e7;
+    }
+
+    #app {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center the app contents */
+    }
+
+    h1 {
+      margin-top: 80px; /* Added margin to push heading down */
+    }
+
+    .profile-pic {
+      width: 200px; /* Width of the square */
+      height: 200px; /* Height of the square */
+      background-color: #172e49; /* Background color */
+      border-radius: 10px; /* Rounded corners */
+      overflow: hidden; /* To crop the image */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px auto; /* Center the square */
+    }
+
+    .profile-pic img {
+      width: 100%; /* Fill the square */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+      gap: 2rem; /* Increased gap */
+      margin-top: 20px;
+      width: 90%; /* Width control */
+      justify-items: center; /* Center items horizontally */
+    }
+
+    .contact-item {
+      position: relative; /* Position for tooltip */
+      background: #172e49;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s; /* Animation effect */
+      display: flex; /* Flex container */
+      justify-content: center; /* Center items horizontally */
+      align-items: center; /* Center items vertically */
+      height: 100px; /* Fixed height to help with centering */
+      width: 100px; /* Fixed width for square items */
+    }
+
+    .contact-item img {
+      width: 50px; /* Adjust the logo size */
+      height: auto;
+      cursor: pointer; /* Change cursor on hover */
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      bottom: 100%; /* Position above the icon */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      visibility: hidden; /* Hide by default */
+      opacity: 0; /* Start transparent */
+      transition: opacity 0.3s; /* Smooth transition */
+      z-index: 20; /* Above other elements */
+    }
+
+    .contact-item:hover .tooltip {
+      visibility: visible; /* Show on hover */
+      opacity: 1; /* Fade in */
+    }
+
+    .dark-mode {
+      background: #0d1117;
+    }
+
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode p {
+      color: white;
+    }
+
+    /* Dark mode styles for contact items */
+    .dark-mode .contact-item {
+      background: #FCFCFC; /* Gray background in dark mode */
+    }
+  </style>
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', currentTheme);
+      document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
+    }
+
+    document.getElementById('themeToggle').onclick = toggleTheme;
+  </script>
 </html>
