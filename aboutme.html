@@ -88,5 +88,145 @@
 
   
 </body>
-  <script src="script.js"></script>
+  <style>
+.theme-toggle {
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px; /* Add padding for better spacing */
+    }
+
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin: 20px;
+      z-index: 10; /* Ensure header stays on top */
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav ul li {
+      margin: 0 1rem;
+    }
+
+    .nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: #b5d3e7;
+    }
+
+    #app {
+      text-align: center;
+      margin-top: 100px; /* Add margin to avoid header overlap */
+      max-width: 1200px; /* Limit max width for better layout */
+      width: 100%; /* Full width */
+    }
+
+    .skills-container, .education-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      width: 100%; /* Full width for the sections */
+    }
+
+    .skills-title, .education-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #b5d3e7;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+      gap: 1rem;
+      width: 90%; /* Adjust width for grid */
+    }
+
+    .skill {
+      background: #172e49;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .education-item {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+      background: #172e49;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 90%; /* Adjust width for education items */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .education-item img {
+      width: 50px; /* Adjust image size */
+      margin-right: 1rem;
+    }
+
+    .journey-container {
+      text-align: center;
+      margin: 2rem 0;
+      width: 90%; /* Control layout */
+    }
+
+    .about-me {
+      text-align: left; /* Align text to the left for better readability */
+      line-height: 1.6; /* Improve readability */
+    }
+
+    .dark-mode {
+      background: #0d1117;
+    }
+
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode p,
+    .dark-mode .skills-title,
+    .dark-mode .education-title {
+      color: white; /* All text in dark mode */
+    }
+  </style>
+  
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', currentTheme);
+      document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
+    }
+
+    document.getElementById('themeToggle').onclick = toggleTheme;
+  </script>
 </html>
