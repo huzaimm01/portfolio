@@ -1,0 +1,165 @@
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+  color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+  background: #0d1117;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p {
+  color: white;
+}
+
+.dark-mode .contact-item {
+  background: #FCFCFC;
+}
+
+/* Header Styling */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 20px;
+  z-index: 10;
+  min-height: 60px;
+}
+
+/* Navigation Styling */
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav ul li {
+  margin: 0 1rem;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #b5d3e7;
+}
+
+/* App Container Styling */
+#app {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Typography */
+h1 {
+  margin-top: 80px;
+}
+
+/* Theme Toggle Icon */
+.theme-toggle {
+  cursor: pointer;
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  background-color: #172e49;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: auto;
+}
+
+/* Contact Grid and Items */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-top: 20px;
+  width: 90%;
+  justify-items: center;
+}
+
+.contact-item {
+  position: relative;
+  background: #172e49;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+}
+
+.contact-item img {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 20;
+}
+
+.contact-item:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
