@@ -16,26 +16,26 @@
     }
 
     .projects-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center project cards horizontally */
+      display: grid; /* Use grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+      gap: 20px; /* Space between project cards */
       width: 100%; /* Ensure it takes full width */
       max-width: 800px; /* Limit max width of the container */
     }
 
     .project-card {
-      margin: 20px;
+      margin: 0; /* Remove margin since we use grid gap */
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      width: 100%; /* Take full width */
-      max-width: 600px; /* Max width for each card */
+      background-color: #fff; /* Background color for cards */
       cursor: pointer;
       transition: background-color 0.3s; /* Optional: Transition for hover effect */
     }
 
     .project-card:hover {
       background-color: #f0f0f0; /* Change color on hover */
+      color: inherit; /* Maintain text color on hover */
     }
 
     .expanded-content {
@@ -48,8 +48,9 @@
       background-color: #f9f9f9; /* Change the background color as needed */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center; /* Center-align text */
+      color: #333; /* Change this to your preferred text color for descriptions */
     }
-    
+
     .project-card.expanded .expanded-content {
       display: block;
     }
@@ -218,7 +219,6 @@
         applyTheme(newTheme);
         localStorage.setItem('theme', newTheme); // Save preference
     });
-
   </script>
 </body>
 </html>
