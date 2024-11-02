@@ -74,3 +74,41 @@ themeToggleButton.addEventListener('click', () => {
     localStorage.setItem('theme', newTheme); // Save preference
 });
 
+
+// Function to apply the saved or default theme
+function applyTheme(theme) {
+  const body = document.body;
+  const themeIcon = document.getElementById('themeIcon');
+  
+  if (theme === 'dark') {
+    body.classList.add('dark-mode');
+    themeIcon.textContent = '🌙'; // Icon for dark mode
+  } else {
+    body.classList.remove('dark-mode');
+    themeIcon.textContent = '🔅'; // Icon for light mode
+  }
+}
+
+// Toggle theme and save the selection to localStorage
+function toggleTheme() {
+  const body = document.body;
+  const currentTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+  
+  // Toggle the dark-mode class
+  body.classList.toggle('dark-mode');
+  
+  // Update the icon
+  document.getElementById('themeIcon').textContent = currentTheme === 'dark' ? '🌙' : '🔅';
+  
+  // Save the selected theme to localStorage
+  localStorage.setItem('theme', currentTheme);
+}
+
+// Retrieve and apply the saved theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light if no theme is saved
+  applyTheme(savedTheme);
+});
+
+// Attach the toggleTheme function to the theme toggle button
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
