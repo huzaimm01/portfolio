@@ -1,3 +1,29 @@
+    // Function to apply the theme
+function applyTheme(theme) {
+    const body = document.body;
+    if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+    } else {
+        body.classList.remove('dark-mode');
+        document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+    }
+}
+
+// Load theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light'; // Default to 'light' if nothing is saved
+applyTheme(savedTheme); // Apply the saved theme on load
+
+// Toggle the theme and save preference
+document.getElementById('themeToggle').onclick = function () {
+    const currentTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme); // Save preference
+    applyTheme(currentTheme); // Apply new theme
+};
+
+
+//end of retainer code
+
 // Toggle theme and set icon based on theme
 function toggleTheme() {
   const body = document.body;
