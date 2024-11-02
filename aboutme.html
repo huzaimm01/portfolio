@@ -275,5 +275,29 @@ themeToggleButton.addEventListener('click', () => {
     localStorage.setItem('theme', newTheme); // Save preference
 });
 
+
+    // Function to apply the theme
+function applyTheme(theme) {
+    const body = document.body;
+    if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        document.getElementById('themeIcon').textContent = '🌙'; // Dark mode icon
+    } else {
+        body.classList.remove('dark-mode');
+        document.getElementById('themeIcon').textContent = '🔅'; // Light mode icon
+    }
+}
+
+// Load and apply theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light'; // Default to 'light' if nothing saved
+applyTheme(savedTheme);
+
+// Toggle theme and save new preference
+document.getElementById('themeToggle').onclick = function () {
+    const currentTheme = savedTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    applyTheme(currentTheme);
+};
+
   </script>
 </html>
