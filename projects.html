@@ -124,6 +124,27 @@
         card.innerHTML = card.innerHTML.split('<button')[0];
       }
     }
+
+    // Select the toggle button
+const themeToggleButton = document.getElementById('theme-toggle'); // Adjust this selector as needed
+
+// Function to apply the theme
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
+// Load theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+
+// Toggle the theme and save preference
+themeToggleButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme); // Save preference
+});
+
   </script>
 </body>
 </html>
