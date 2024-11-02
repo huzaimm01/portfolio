@@ -159,6 +159,70 @@ h1 {
   z-index: 20;
 }
 
+
+/* Project Card Styles */
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.project-card {
+  background-color: #2d3a4f;
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #f4f4f4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background: rgba(45, 58, 79, 0.9);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 8px;
+  margin: 3px;
+  border-radius: 4px;
+  background-color: #ffffff; /* Cool white background for all tags */
+  color: #22333D; /* Text color for all tags */
+  font-size: 0.8em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tag:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}
+
+
 .contact-item:hover .tooltip {
   visibility: visible;
   opacity: 1;
