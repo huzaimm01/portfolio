@@ -6,6 +6,14 @@
   <title>Projects | Huzaim Malik</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <style>
+    .expanded-content {
+      display: none;
+    }
+    .project-card.expanded .expanded-content {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
@@ -29,77 +37,112 @@
     <div class="projects-container">
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Portfolio Website</h2>
-        <p>HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.</p>
-        <div class="tags">
-          <span class="tag html">HTML</span>
-          <span class="tag css">CSS</span>
-          <span class="tag js">JavaScript</span>
+        <div class="expanded-content">
+          <p>HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.</p>
+          <div class="tags">
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+            <span class="tag js">JavaScript</span>
+          </div>
         </div>
       </div>
       
       <div class="project-card" onclick="toggleProject(this)">
         <h2>UofT Comp Eng Notes</h2>
-        <p>Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.</p>
-        <div class="tags">
-          <span class="tag cplusplus">C++</span>
-          <span class="tag python">Python</span>
-          <span class="tag latex">LaTeX</span>
+        <div class="expanded-content">
+          <p>Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.</p>
+          <div class="tags">
+            <span class="tag cplusplus">C++</span>
+            <span class="tag python">Python</span>
+            <span class="tag latex">LaTeX</span>
+          </div>
         </div>
       </div>
       
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Programming Reference Sheet</h2>
-        <p>A comprehensive syntax reference for various programming languages, useful for learners at all levels.</p>
-        <div class="tags">
-          <span class="tag html">HTML</span>
-          <span class="tag css">CSS</span>
-          <span class="tag js">JavaScript</span>
-          <span class="tag python">Python</span>
-          <span class="tag ruby">Ruby</span>
-          <span class="tag php">PHP</span>
-          <span class="tag sql">SQL</span>
-          <span class="tag node">Node.js</span>
+        <div class="expanded-content">
+          <p>A comprehensive syntax reference for various programming languages, useful for learners at all levels.</p>
+          <div class="tags">
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+            <span class="tag js">JavaScript</span>
+            <span class="tag python">Python</span>
+            <span class="tag ruby">Ruby</span>
+            <span class="tag php">PHP</span>
+            <span class="tag sql">SQL</span>
+            <span class="tag node">Node.js</span>
+          </div>
         </div>
       </div>
       
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Polar - Arduino Web Server</h2>
-        <p>A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.</p>
-        <div class="tags">
-          <span class="tag arduino">Arduino</span>
-          <span class="tag html">HTML</span>
-          <span class="tag css">CSS</span>
-          <span class="tag js">JavaScript</span>
+        <div class="expanded-content">
+          <p>A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.</p>
+          <div class="tags">
+            <span class="tag arduino">Arduino</span>
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+            <span class="tag js">JavaScript</span>
+          </div>
         </div>
       </div>
 
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Game Development Suite</h2>
-        <p>Custom-built games using Unity and Unreal Engine, with advanced gameplay mechanics for an engaging experience.</p>
-        <div class="tags">
-          <span class="tag csharp">C#</span>
-          <span class="tag html">HTML</span>
-          <span class="tag css">CSS</span>
+        <div class="expanded-content">
+          <p>Custom-built games using Unity and Unreal Engine, with advanced gameplay mechanics for an engaging experience.</p>
+          <div class="tags">
+            <span class="tag csharp">C#</span>
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+          </div>
         </div>
       </div>
 
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Personal Finance Tracker</h2>
-        <p>A web app to help users manage their finances, track expenses, and set budgets.</p>
-        <div class="tags">
-          <span class="tag js">JavaScript</span>
-          <span class="tag html">HTML</span>
-          <span class="tag css">CSS</span>
+        <div class="expanded-content">
+          <p>A web app to help users manage their finances, track expenses, and set budgets.</p>
+          <div class="tags">
+            <span class="tag js">JavaScript</span>
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+          </div>
         </div>
       </div>
 
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Quiz Application</h2>
-        <p>A fun and interactive quiz application that allows users to test their knowledge across various subjects.</p>
-        <div class="tags">
-          <span class="tag js">JavaScript</span>
-          <span class="tag html">HTML</span>
-          <span class="tag css">CSS</span>
+        <div class="expanded-content">
+          <p>A fun and interactive quiz application that allows users to test their knowledge across various subjects.</p>
+          <div class="tags">
+            <span class="tag js">JavaScript</span>
+            <span class="tag html">HTML</span>
+            <span class="tag css">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleProject(this)">
+        <h2>FIRST Robotics Challenge</h2>
+        <div class="expanded-content">
+          <p>Mechanical Lead. Helped program and build the robot, in charge of 3D printing parts. Helped the team attain multiple top finishes up to Nationals.</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleProject(this)">
+        <h2>FIRST Global Challenge</h2>
+        <div class="expanded-content">
+          <p>Mentor and test driver. Helped the team build and program the robot, as well as working on documentation. Helped attain a global top 8 finish.</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="toggleProject(this)">
+        <h2>Formula 4</h2>
+        <div class="expanded-content">
+          <p>Won 5 out of 10 races and 1 sprint, winning by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.</p>
         </div>
       </div>
     </div>
@@ -110,41 +153,31 @@
   <script>
     function toggleProject(card) {
       card.classList.toggle('expanded');
-      const isExpanded = card.classList.contains('expanded');
-
-      if (isExpanded) {
-        card.innerHTML += `
-          <button onclick="this.parentNode.classList.remove('expanded')">Close</button>
-          <div class="expanded-content">
-            <h3>Details:</h3>
-            <p>This project demonstrates key skills in web development and programming, focusing on creating dynamic and user-friendly applications.</p>
-            <img src="path/to/your/image.jpg" alt="Project Image" class="project-image" style="display: block;" />
-          </div>
-        `;
-      } else {
-        card.innerHTML = card.innerHTML.split('<button')[0];
+      const expandedContent = card.querySelector('.expanded-content');
+      if (expandedContent) {
+        expandedContent.style.display = card.classList.contains('expanded') ? 'block' : 'none';
       }
     }
 
     // Select the toggle button
-const themeToggleButton = document.getElementById('theme-toggle'); // Adjust this selector as needed
+    const themeToggleButton = document.getElementById('themeToggle'); // Adjust this selector as needed
 
-// Function to apply the theme
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-}
+    // Function to apply the theme
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
 
-// Load theme preference on page load
-const savedTheme = localStorage.getItem('theme') || 'light';
-applyTheme(savedTheme);
+    // Load theme preference on page load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
 
-// Toggle the theme and save preference
-themeToggleButton.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme); // Save preference
-});
+    // Toggle the theme and save preference
+    themeToggleButton.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme); // Save preference
+    });
 
   </script>
 </body>
