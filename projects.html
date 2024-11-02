@@ -8,47 +8,47 @@
   <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
   <style>
     body {
-      font-family: 'Roboto', sans-serif; /* Ensure the body font matches */
+      font-family: 'Roboto', sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center all items horizontally */
+      align-items: center;
       padding: 20px;
+      color: #ffffff; /* Ensure text is white throughout */
     }
 
     .projects-container {
-      display: grid; /* Use grid layout */
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-      gap: 20px; /* Space between project cards */
-      width: 100%; /* Ensure it takes full width */
-      max-width: 800px; /* Limit max width of the container */
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 800px;
     }
 
     .project-card {
-      margin: 0; /* Remove margin since we use grid gap */
+      margin: 0;
       padding: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #172e49;
       border-radius: 8px;
-      background-color: #fff; /* Background color for cards */
+      background-color: #172e49; /* Set background to #172e49 */
+      color: #ffffff; /* Set text color to white */
       cursor: pointer;
-      transition: background-color 0.3s; /* Optional: Transition for hover effect */
+      transition: background-color 0.3s;
     }
 
     .project-card:hover {
-      background-color: #f0f0f0; /* Change color on hover */
-      color: #333; /* Keep the text color consistent on hover */
+      background-color: #172e49; /* Keep background consistent on hover */
     }
 
     .expanded-content {
       display: none;
       margin: 20px auto;
       padding: 20px;
-      max-width: 100%; /* Allow it to fill the card */
-      border: 1px solid #ccc;
+      max-width: 100%;
+      border: 1px solid #172e49;
       border-radius: 8px;
-      background-color: #f9f9f9; /* Change the background color as needed */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center; /* Center-align text */
-      color: #333; /* Change this to your preferred text color for descriptions */
+      background-color: #172e49;
+      color: #ffffff; /* Ensure text color remains white */
+      text-align: center;
     }
 
     .project-card.expanded .expanded-content {
@@ -201,7 +201,7 @@
     }
 
     // Select the toggle button
-    const themeToggleButton = document.getElementById('themeToggle'); // Adjust this selector as needed
+    const themeToggleButton = document.getElementById('themeToggle');
 
     // Function to apply the theme
     function applyTheme(theme) {
@@ -217,9 +217,8 @@
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         applyTheme(newTheme);
-        localStorage.setItem('theme', newTheme); // Save preference
+        localStorage.setItem('theme', newTheme);
     });
-
   </script>
 </body>
 </html>
