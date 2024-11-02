@@ -7,16 +7,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
   <style>
+    body {
+      font-family: 'Roboto', sans-serif; /* Ensure the body font matches */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center all items horizontally */
+      padding: 20px;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center project cards horizontally */
+      width: 100%; /* Ensure it takes full width */
+      max-width: 800px; /* Limit max width of the container */
+    }
+
     .project-card {
       margin: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%; /* Take full width */
+      max-width: 600px; /* Max width for each card */
       cursor: pointer;
+      transition: background-color 0.3s; /* Optional: Transition for hover effect */
+    }
+
+    .project-card:hover {
+      background-color: #f0f0f0; /* Change color on hover */
     }
 
     .expanded-content {
       display: none;
       margin: 20px auto;
       padding: 20px;
-      max-width: 600px; /* Adjust the max width as needed */
+      max-width: 100%; /* Allow it to fill the card */
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: #f9f9f9; /* Change the background color as needed */
