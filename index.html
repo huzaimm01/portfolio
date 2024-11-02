@@ -35,7 +35,6 @@
         <li><span class="pin">🥋</span> Black-Belt Martial Artist</li>
         <li><span class="pin">🎂</span> 18 Years Old</li>
         <li><span class="pin">📍</span> Based in Toronto, Ontario</li>
-        
       </ul>
     </section>
   </div>
@@ -201,7 +200,7 @@ h2 {
   color: white; /* All text in dark mode */
 }
 
-    /* Light Theme */
+/* Light Theme */
 :root {
     /* Light theme variables */
 }
@@ -210,7 +209,6 @@ h2 {
 [data-theme='dark'] {
     /* Dark theme variables */
 }
-
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -238,10 +236,9 @@ h2 {
   100% { color: white; }
 }
 </style>
-  
-  <script>
 
-        // Function to apply the theme
+<script>
+// Function to apply the theme
 function applyTheme(theme) {
     const body = document.body;
     if (theme === 'dark') {
@@ -264,8 +261,8 @@ document.getElementById('themeToggle').onclick = function () {
     applyTheme(currentTheme); // Apply new theme
 };
 
-
-//end of retainer code
+// Initial render
+renderHome();
 let currentTheme = 'light';
 let currentTextIndex = 0;
 const texts = [
@@ -306,80 +303,37 @@ function renderThanks() {
 }
 
 function hideAllSections() {
-  const sections = document.querySelectorAll('section');
-  sections.forEach(section => {
-    section.classList.add('hidden');
-  });
+  document.querySelector('.intro').classList.add('hidden');
+  document.querySelector('.about').classList.add('hidden');
+  document.querySelector('.projects').classList.add('hidden');
+  document.querySelector('.contact').classList.add('hidden');
+  document.querySelector('.thanks').classList.add('hidden');
 }
 
 function startTypingAnimation() {
   const typingText = document.getElementById('typingText');
-  typingText.textContent = '';
-  typeText(texts[currentTextIndex]);
+  typingText.textContent = ''; // Clear existing text
+  typeText(typingText, texts[currentTextIndex]);
 }
 
-function typeText(text) {
-  let i = 0;
-  const interval = setInterval(() => {
-    if (i < text.length) {
-      document.getElementById('typingText').textContent += text.charAt(i);
-      i++;
-    } else {
-      clearInterval(interval);
-      setTimeout(() => {
-        currentTextIndex = (currentTextIndex + 1) % texts.length;
-        deleteText(text);
-      }, 1000);
-    }
-  }, 150);
+function typeText(element, text, index = 0) {
+  if (index < text.length) {
+    element.textContent += text.charAt(index);
+    setTimeout(() => typeText(element, text, index + 1), 150); // Type character by character
+  } else {
+    setTimeout(() => {
+      deleteText(element, text);
+    }, 1500); // Wait before starting to delete
+  }
 }
 
-function deleteText(text) {
-  let i = text.length;
-  const interval = setInterval(() => {
-    if (i > 0) {
-      document.getElementById('typingText').textContent = text.substring(0, i - 1);
-      i--;
-    } else {
-      clearInterval(interval);
-      setTimeout(() => {
-        typeText(texts[currentTextIndex]);
-      }, 500);
-    }
-  }, 100);
+function deleteText(element, text, index = text.length) {
+  if (index >= 0) {
+    element.textContent = text.substring(0, index);
+    setTimeout(() => deleteText(element, text, index - 1), 100); // Delete character by character
+  } else {
+    currentTextIndex = (currentTextIndex + 1) % texts.length; // Move to the next text
+    setTimeout(() => typeText(element, texts[currentTextIndex]), 500); // Wait before starting to type the next text
+  }
 }
-
-function toggleTheme() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-  document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
-}
-
-document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-
-// Initial render
-renderHome();
-
-      // Select the toggle button
-const themeToggleButton = document.getElementById('theme-toggle'); // Adjust this selector as needed
-
-// Function to apply the theme
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-}
-
-// Load theme preference on page load
-const savedTheme = localStorage.getItem('theme') || 'light';
-applyTheme(savedTheme);
-
-// Toggle the theme and save preference
-themeToggleButton.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme); // Save preference
-});
-
 </script>
-</html>
