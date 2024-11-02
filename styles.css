@@ -1,11 +1,11 @@
-/* Universal Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body Styling */
+
 body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
@@ -19,7 +19,7 @@ body {
   text-align: center;
 }
 
-/* Dark Mode Styling */
+
 .dark-mode {
   background: #0d1117;
 }
@@ -34,7 +34,7 @@ body {
   background: #FCFCFC;
 }
 
-/* Header Styling */
+
 .header {
   position: absolute;
   top: 0;
@@ -50,7 +50,6 @@ body {
   min-height: 60px;
 }
 
-/* Navigation Styling */
 .nav ul {
   list-style: none;
   display: flex;
@@ -71,7 +70,7 @@ body {
   color: #b5d3e7;
 }
 
-/* App Container Styling */
+
 #app {
   max-width: 1200px;
   width: 100%;
@@ -80,17 +79,16 @@ body {
   align-items: center;
 }
 
-/* Typography */
 h1 {
   margin-top: 80px;
 }
 
-/* Theme Toggle Icon */
+
 .theme-toggle {
   cursor: pointer;
 }
 
-/* Profile Picture Styling */
+
 .profile-pic {
   width: 200px;
   height: 200px;
@@ -108,7 +106,7 @@ h1 {
   height: auto;
 }
 
-/* Contact Grid and Items */
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -142,7 +140,7 @@ h1 {
   transform: translateY(-5px);
 }
 
-/* Tooltip Styling */
+
 .tooltip {
   position: absolute;
   bottom: 100%;
@@ -160,7 +158,7 @@ h1 {
 }
 
 
-/* Project Card Styles */
+
 .projects-container {
   display: flex;
   flex-wrap: wrap;
@@ -212,18 +210,28 @@ h1 {
   padding: 5px 8px;
   margin: 3px;
   border-radius: 4px;
-  background-color: #ffffff; /* Cool white background for all tags */
-  color: #22333D; /* Text color for all tags */
+  background-color: #ffffff; 
+  color: #22333D; 
   font-size: 0.8em;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .tag:hover {
-  background-color: #f0f0f0; /* Light gray on hover */
+  background-color: #f0f0f0; 
 }
 
 
 .contact-item:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+
+:root {
+    
+}
+
+
+[data-theme='dark'] {
+    
 }
