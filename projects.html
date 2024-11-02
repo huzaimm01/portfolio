@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Huzaim Malik</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="path/to/your/css/file.css"> <!-- Update this path -->
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
   <div id="app">
@@ -105,6 +105,25 @@
     
   </div>
 
-  <script src="path/to/your/js/file.js"></script> <!-- Update this path -->
+  <script src="script.js"></script> <!-- Link to your JavaScript file -->
+  <script>
+    function toggleProject(card) {
+      card.classList.toggle('expanded');
+      const isExpanded = card.classList.contains('expanded');
+
+      if (isExpanded) {
+        card.innerHTML += `
+          <button onclick="this.parentNode.classList.remove('expanded')">Close</button>
+          <div class="expanded-content">
+            <h3>Details:</h3>
+            <p>This project demonstrates key skills in web development and programming, focusing on creating dynamic and user-friendly applications.</p>
+            <img src="path/to/your/image.jpg" alt="Project Image" class="project-image" style="display: block;" />
+          </div>
+        `;
+      } else {
+        card.innerHTML = card.innerHTML.split('<button')[0];
+      }
+    }
+  </script>
 </body>
 </html>
