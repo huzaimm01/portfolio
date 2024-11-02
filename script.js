@@ -20,7 +20,7 @@ function toggleProject(card) {
       <div class="expanded-content">
         <h3>Details:</h3>
         <p>This project demonstrates key skills in web development and programming, focusing on creating dynamic and user-friendly applications.</p>
-        <img src="path/to/your/image.jpg" alt="Project Image" class="project-image" style="display: block;" />
+        <img src="portfolio.png" alt="Project Image" class="project-image" style="display: block;" />
       </div>
     `;
   } else {
