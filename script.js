@@ -28,23 +28,29 @@ function toggleProject(card) {
   }
 }
 
-// Select the toggle button
-const themeToggleButton = document.getElementById('theme-toggle'); // Adjust this selector as needed
-
 // Function to apply the theme
 function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
+  const body = document.body;
+  if (theme === 'dark') {
+    body.classList.add('dark-mode');
+    document.getElementById('themeIcon').textContent = '🌙'; // Set icon for dark mode
+  } else {
+    body.classList.remove('dark-mode');
+    document.getElementById('themeIcon').textContent = '🔅'; // Set icon for light mode
+  }
 }
 
 // Load theme preference on page load
 const savedTheme = localStorage.getItem('theme') || 'light';
 applyTheme(savedTheme);
 
+// Select the toggle button
+const themeToggleButton = document.getElementById('themeToggle'); // Adjust this selector as needed
+
 // Toggle the theme and save preference
 themeToggleButton.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme); // Save preference
+  const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(newTheme);
+  localStorage.setItem('theme', newTheme); // Save preference
 });
-
