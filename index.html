@@ -240,7 +240,6 @@ h2 {
 </style>
   
   <script>
-
 let currentTheme = 'light';
 let currentTextIndex = 0;
 const texts = [
@@ -324,37 +323,30 @@ function deleteText(text) {
   }, 100);
 }
 
-function toggleTheme() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-  document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
-}
-
-document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-
-// Initial render
-renderHome();
-
-      // Select the toggle button
-const themeToggleButton = document.getElementById('theme-toggle'); // Adjust this selector as needed
-
-// Function to apply the theme
 function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
+  const body = document.body;
+  if (theme === 'dark') {
+    body.classList.add('dark-mode');
+    document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+  } else {
+    body.classList.remove('dark-mode');
+    document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+  }
 }
 
 // Load theme preference on page load
 const savedTheme = localStorage.getItem('theme') || 'light';
 applyTheme(savedTheme);
 
-// Toggle the theme and save preference
-themeToggleButton.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(newTheme);
-    localStorage.setItem('theme', newTheme); // Save preference
+// Toggle theme and save preference
+document.getElementById('themeToggle').addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+  localStorage.setItem('theme', currentTheme); // Save preference
 });
+
+// Initial render
+renderHome();
 
 </script>
 </html>
