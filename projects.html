@@ -13,12 +13,13 @@
       flex-direction: column;
       align-items: center; /* Center all items horizontally */
       padding: 20px;
+      transition: background-color 0.3s; /* Smooth transition for background color */
     }
 
-    /* Dark mode styles */
+    /* Dark mode adjustments */
     body.dark-mode {
-      background-color: #0D1117; /* Dark background for the body */
-      color: #ffffff; /* Light text for the body in dark mode */
+      background-color: #0D1117; /* Dark mode background */
+      color: #FFF; /* General text color for dark mode */
     }
 
     .projects-container {
@@ -32,71 +33,102 @@
     .project-card {
       margin: 0; /* Remove margin since we use grid gap */
       padding: 20px;
-      border: 1px solid #ccc; /* Light border for cards */
+      border: 1px solid #ccc;
       border-radius: 8px;
       background-color: #fff; /* Background color for cards */
       cursor: pointer;
-      color: #22333d; /* Set default text color */
-      transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+      transition: background-color 0.3s; /* Optional: Transition for hover effect */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content in the card */
     }
 
-    /* Dark mode for project cards */
-    body.dark-mode .project-card {
-      background-color: #1f1f2f; /* Darker background for project cards */
-      border: 1px solid #3f3f5f; /* Darker border */
-      color: #00bfff; /* Blue text color */
+    /* Text color for light mode */
+    .project-card h2 {
+      color: #333; /* Title color */
     }
 
-    body.dark-mode .project-card:hover {
-      background-color: #2a2a3d; /* Slightly lighter on hover */
+    /* General description styling */
+    .card-description {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+      color: #000; /* Default color for light mode */
+    }
+
+    /* Dark mode adjustments for descriptions */
+    body.dark-mode .card-description {
+      color: #1E90FF; /* Blue color for dark mode */
     }
 
     .expanded-content {
       display: none;
-      margin: 20px auto; /* Center the margin */
+      margin: 20px auto;
       padding: 20px;
       max-width: 100%; /* Allow it to fill the card */
-      border: 1px solid #ccc; /* Light border for expanded content */
+      border: 1px solid #ccc;
       border-radius: 8px;
       background-color: #f9f9f9; /* Change the background color as needed */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center; /* Center-align text */
-      color: #22333d; /* Always use this text color */
+      color: #333; /* Change this to your preferred text color for descriptions */
     }
 
-    /* Dark mode for expanded content */
     body.dark-mode .expanded-content {
-      background-color: #1f1f2f; /* Darker background for expanded content */
-      color: #00bfff; /* Blue text color */
+      background-color: #1e1e1e; /* Dark mode background for expanded content */
+      color: #1E90FF; /* Text color for dark mode */
     }
 
-    .single-text-box {
+    .project-card.expanded .expanded-content {
+      display: block;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 15px; /* Space between links */
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: inherit; /* Inherit color from parent */
       padding: 10px;
-      border-radius: 5px;
-      border: none; /* No border for a cleaner look */
-      background-color: #fff; /* Background color for the text box */
-      color: #22333d; /* Text color */
-      margin-top: 10px; /* Add some spacing */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-      display: inline-block; /* Center the text box */
-      width: 100%; /* Make it full width */
+      transition: color 0.3s; /* Smooth transition for link color */
     }
 
-    /* Dark mode for single text box */
-    body.dark-mode .single-text-box {
-      background-color: #292929; /* Darker background for the text box */
-      color: #00bfff; /* Blue text color */
+    nav ul li a:hover {
+      color: #1E90FF; /* Hover color for links */
     }
 
-    /* Tags in dark mode */
-    body.dark-mode .tag {
-      background-color: #3f3f5f; /* Darker background for tags */
-      color: #ffffff; /* Light text for tags */
+    .theme-toggle {
+      cursor: pointer;
     }
 
-    body.dark-mode .tag:hover {
-      background-color: #00bfff; /* Blue background for tag hover */
-      color: #0D1117; /* Dark text color on tag hover */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none; /* Hide regular nav on mobile */
+      }
+
+      nav .menu {
+        display: block; /* Show menu button */
+      }
+
+      nav.active ul {
+        display: flex; /* Show the menu when active */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff; /* Background for dropdown */
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -114,6 +146,7 @@
           <li><a href="projects.html">Projects</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div class="menu" id="menuToggle">☰</div> <!-- Menu button for mobile -->
       </nav>
     </header>
     
@@ -121,161 +154,100 @@
     
     <div class="projects-container">
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Portfolio Website</h2>
+        <h2 class="project-title">Portfolio Website</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.
-          </div>
-          <div class="tags">
-            <span class="tag html">HTML</span>
-            <span class="tag css">CSS</span>
-            <span class="tag js">JavaScript</span>
-          </div>
+          <p class="card-description">HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.</p>
         </div>
       </div>
       
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>UofT Comp Eng Notes</h2>
+        <h2 class="project-title">UofT Comp Eng Notes</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.
-          </div>
-          <div class="tags">
-            <span class="tag cplusplus">C++</span>
-            <span class="tag python">Python</span>
-            <span class="tag latex">LaTeX</span>
-          </div>
+          <p class="card-description">Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.</p>
         </div>
       </div>
       
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Programming Reference Sheet</h2>
+        <h2 class="project-title">Programming Reference Sheet</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            A comprehensive syntax reference for various programming languages, useful for learners at all levels.
-          </div>
-          <div class="tags">
-            <span class="tag html">HTML</span>
-            <span class="tag css">CSS</span>
-            <span class="tag js">JavaScript</span>
-            <span class="tag python">Python</span>
-            <span class="tag ruby">Ruby</span>
-            <span class="tag php">PHP</span>
-            <span class="tag sql">SQL</span>
-            <span class="tag node">Node.js</span>
-          </div>
+          <p class="card-description">A comprehensive syntax reference for various programming languages, useful for learners at all levels.</p>
         </div>
       </div>
       
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Polar - Arduino Web Server</h2>
+        <h2 class="project-title">Polar - Arduino Web Server</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.
-          </div>
-          <div class="tags">
-            <span class="tag arduino">Arduino</span>
-            <span class="tag javascript">JavaScript</span>
-          </div>
+          <p class="card-description">A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.</p>
         </div>
       </div>
-      
+
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Game Development Suite</h2>
+        <h2 class="project-title">Game Development Suite</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            A collection of projects made using Unity and Unreal Engine, showcasing my skills in game development.
-          </div>
-          <div class="tags">
-            <span class="tag unity">Unity</span>
-            <span class="tag unreal">Unreal Engine</span>
-            <span class="tag csharp">C#</span>
-            <span class="tag html">HTML</span>
-            <span class="tag css">CSS</span>
-          </div>
+          <p class="card-description">Custom-built games using Unity and Unreal Engine, with advanced gameplay mechanics for an engaging experience.</p>
         </div>
       </div>
-      
+
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Personal Finance Tracker</h2>
+        <h2 class="project-title">Personal Finance Tracker</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            A web application that helps users track their personal finances, featuring data visualization and analysis tools.
-          </div>
-          <div class="tags">
-            <span class="tag javascript">JavaScript</span>
-            <span class="tag html">HTML</span>
-            <span class="tag css">CSS</span>
-          </div>
+          <p class="card-description">A web app to help users manage their finances, track expenses, and set budgets.</p>
         </div>
       </div>
-      
+
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Quiz Application</h2>
+        <h2 class="project-title">Quiz Application</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            An interactive quiz application that engages users with various trivia questions and tracks their scores.
-          </div>
-          <div class="tags">
-            <span class="tag javascript">JavaScript</span>
-            <span class="tag html">HTML</span>
-            <span class="tag css">CSS</span>
-          </div>
+          <p class="card-description">A fun and interactive quiz application that allows users to test their knowledge across various subjects.</p>
         </div>
       </div>
-      
+
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>FIRST Robotics Challenge</h2>
+        <h2 class="project-title">FIRST Robotics Challenge</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            Participated as Mechanical Lead, contributing to the design, programming, and building of the robot for competitions.
-          </div>
+          <p class="card-description">Mechanical Lead. Helped program and build the robot, in charge of 3D printing parts. Helped the team attain multiple top finishes up to Nationals.</p>
         </div>
       </div>
-      
+
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>FIRST Global Challenge</h2>
+        <h2 class="project-title">FIRST Global Challenge</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            Mentored and test-drove a team in building and programming a robot, leading to a global top 8 finish.
-          </div>
+          <p class="card-description">Mentor and test driver. Helped the team build and program the robot, as well as working on documentation. Helped attain a global top 8 finish.</p>
         </div>
       </div>
-      
+
       <div class="project-card" onclick="toggleProject(this)">
-        <h2>Formula 4</h2>
+        <h2 class="project-title">Formula 4</h2>
         <div class="expanded-content">
-          <div class="single-text-box">
-            Engineering for a junior karting race and helped work on and develop my own car. Achieved victory by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.
-          </div>
+          <p class="card-description">Won 5 out of 10 races and 1 sprint, winning by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.</p>
         </div>
       </div>
     </div>
+    
   </div>
 
   <script src="script.js"></script> <!-- Link to your JavaScript file -->
   <script>
-    // Function to toggle project expansion
     function toggleProject(card) {
       card.classList.toggle("expanded");
     }
 
-    // Theme toggle script (optional)
+    // Theme toggle functionality
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = document.getElementById('themeIcon');
 
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       themeIcon.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '🔅';
-      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
 
-    // Check local storage for theme preference
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      document.body.classList.toggle('dark-mode', storedTheme === 'dark');
-      themeIcon.textContent = storedTheme === 'dark' ? '🌙' : '🔅';
-    }
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.querySelector('nav');
+
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
