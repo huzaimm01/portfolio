@@ -218,23 +218,33 @@
   </div>
 
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.body;
+   <script>
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const body = document.body;
 
-    // Load the saved theme from localStorage
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-      body.classList.toggle('dark-mode', currentTheme === 'dark');
-      themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '🔅';
-    }
+  // Load the saved theme from localStorage
+  const currentTheme = localStorage.getItem('theme');
 
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      const isDarkMode = body.classList.contains('dark-mode');
-      themeIcon.textContent = isDarkMode ? '🌙' : '🔅';
-      // Save the current theme to localStorage
-      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  if (currentTheme) {
+    body.classList.toggle('dark-mode', currentTheme === 'dark');
+    themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '🔅';
+  } else {
+    // Set default to light mode if no theme is saved
+    body.classList.remove('dark-mode');
+    themeIcon.textContent = '🔅';
+    localStorage.setItem('theme', 'light'); // Set light as the default theme
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    const isDarkMode = body.classList.contains('dark-mode');
+    themeIcon.textContent = isDarkMode ? '🌙' : '🔅';
+    // Save the current theme to localStorage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  });
+</script>
+
     });
   </script>
 </body>
