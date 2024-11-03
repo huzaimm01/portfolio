@@ -55,15 +55,17 @@
       display: block;
     }
 
-    /* Style for the combined text box */
-    .combined-text-box {
+    /* Style for the single text box in expanded content */
+    .single-text-box {
       padding: 10px;
       border-radius: 5px;
-      border: 1px solid #ccc;
+      border: none; /* No border for a cleaner look */
       background-color: #fff; /* Background color for the text box */
       color: #22333d; /* Text color */
       margin-top: 10px; /* Add some spacing */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+      display: inline-block; /* Center the text box */
+      width: 100%; /* Make it full width */
     }
   </style>
 </head>
@@ -90,7 +92,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Portfolio Website</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.
           </div>
           <div class="tags">
@@ -104,7 +106,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>UofT Comp Eng Notes</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.
           </div>
           <div class="tags">
@@ -118,7 +120,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Programming Reference Sheet</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             A comprehensive syntax reference for various programming languages, useful for learners at all levels.
           </div>
           <div class="tags">
@@ -137,7 +139,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Polar - Arduino Web Server</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.
           </div>
           <div class="tags">
@@ -152,7 +154,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Game Development Suite</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             Custom-built games using Unity and Unreal Engine, with advanced gameplay mechanics for an engaging experience.
           </div>
           <div class="tags">
@@ -166,7 +168,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Personal Finance Tracker</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             A web app to help users manage their finances, track expenses, and set budgets.
           </div>
           <div class="tags">
@@ -180,7 +182,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Quiz Application</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             A fun and interactive quiz application that allows users to test their knowledge across various subjects.
           </div>
           <div class="tags">
@@ -194,7 +196,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>FIRST Robotics Challenge</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             Mechanical Lead. Helped program and build the robot, in charge of 3D printing parts. Helped the team attain multiple top finishes up to Nationals.
           </div>
         </div>
@@ -203,7 +205,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>FIRST Global Challenge</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             Mentor and test driver. Helped the team build and program the robot, as well as working on documentation. Helped attain a global top 8 finish.
           </div>
         </div>
@@ -212,7 +214,7 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Formula 4</h2>
         <div class="expanded-content">
-          <div class="combined-text-box">
+          <div class="single-text-box">
             Racing experience, winning 5 out of 10 races and 1 sprint. Achieved victory by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.
           </div>
         </div>
