@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,12 +30,12 @@
       border-radius: 8px;
       background-color: #fff; /* Background color for cards */
       cursor: pointer;
-      transition: background-color 0.3s; /* Optional: Transition for hover effect */
+      color: #22333d; /* Set default text color */
     }
 
     .project-card:hover {
       background-color: #f0f0f0; /* Change color on hover */
-      color: #333; /* Keep the text color consistent on hover */
+      /* Removed color change to maintain visibility */
     }
 
     .expanded-content {
@@ -49,11 +48,22 @@
       background-color: #f9f9f9; /* Change the background color as needed */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center; /* Center-align text */
-      color: #333; /* Change this to your preferred text color for descriptions */
+      color: #22333d; /* Always use this text color */
     }
 
     .project-card.expanded .expanded-content {
       display: block;
+    }
+
+    /* Style for the combined text box */
+    .combined-text-box {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff; /* Background color for the text box */
+      color: #22333d; /* Text color */
+      margin-top: 10px; /* Add some spacing */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
     }
   </style>
 </head>
@@ -80,7 +90,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Portfolio Website</h2>
         <div class="expanded-content">
-          <p>HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.</p>
+          <div class="combined-text-box">
+            HTML, CSS, and JavaScript bring together a professional and responsive website to showcase my work.
+          </div>
           <div class="tags">
             <span class="tag html">HTML</span>
             <span class="tag css">CSS</span>
@@ -92,7 +104,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>UofT Comp Eng Notes</h2>
         <div class="expanded-content">
-          <p>Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.</p>
+          <div class="combined-text-box">
+            Comprehensive notes covering first-year courses at UofT, essential for Computer Engineering studies.
+          </div>
           <div class="tags">
             <span class="tag cplusplus">C++</span>
             <span class="tag python">Python</span>
@@ -104,7 +118,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Programming Reference Sheet</h2>
         <div class="expanded-content">
-          <p>A comprehensive syntax reference for various programming languages, useful for learners at all levels.</p>
+          <div class="combined-text-box">
+            A comprehensive syntax reference for various programming languages, useful for learners at all levels.
+          </div>
           <div class="tags">
             <span class="tag html">HTML</span>
             <span class="tag css">CSS</span>
@@ -121,7 +137,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Polar - Arduino Web Server</h2>
         <div class="expanded-content">
-          <p>A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.</p>
+          <div class="combined-text-box">
+            A Twitter-like platform where users can post to a private message board, create profiles with profile pictures, and bios.
+          </div>
           <div class="tags">
             <span class="tag arduino">Arduino</span>
             <span class="tag html">HTML</span>
@@ -134,7 +152,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Game Development Suite</h2>
         <div class="expanded-content">
-          <p>Custom-built games using Unity and Unreal Engine, with advanced gameplay mechanics for an engaging experience.</p>
+          <div class="combined-text-box">
+            Custom-built games using Unity and Unreal Engine, with advanced gameplay mechanics for an engaging experience.
+          </div>
           <div class="tags">
             <span class="tag csharp">C#</span>
             <span class="tag html">HTML</span>
@@ -146,7 +166,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Personal Finance Tracker</h2>
         <div class="expanded-content">
-          <p>A web app to help users manage their finances, track expenses, and set budgets.</p>
+          <div class="combined-text-box">
+            A web app to help users manage their finances, track expenses, and set budgets.
+          </div>
           <div class="tags">
             <span class="tag js">JavaScript</span>
             <span class="tag html">HTML</span>
@@ -158,7 +180,9 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Quiz Application</h2>
         <div class="expanded-content">
-          <p>A fun and interactive quiz application that allows users to test their knowledge across various subjects.</p>
+          <div class="combined-text-box">
+            A fun and interactive quiz application that allows users to test their knowledge across various subjects.
+          </div>
           <div class="tags">
             <span class="tag js">JavaScript</span>
             <span class="tag html">HTML</span>
@@ -170,64 +194,55 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2>FIRST Robotics Challenge</h2>
         <div class="expanded-content">
-          <p>Mechanical Lead. Helped program and build the robot, in charge of 3D printing parts. Helped the team attain multiple top finishes up to Nationals.</p>
+          <div class="combined-text-box">
+            Mechanical Lead. Helped program and build the robot, in charge of 3D printing parts. Helped the team attain multiple top finishes up to Nationals.
+          </div>
         </div>
       </div>
 
       <div class="project-card" onclick="toggleProject(this)">
         <h2>FIRST Global Challenge</h2>
         <div class="expanded-content">
-          <p>Mentor and test driver. Helped the team build and program the robot, as well as working on documentation. Helped attain a global top 8 finish.</p>
+          <div class="combined-text-box">
+            Mentor and test driver. Helped the team build and program the robot, as well as working on documentation. Helped attain a global top 8 finish.
+          </div>
         </div>
       </div>
 
       <div class="project-card" onclick="toggleProject(this)">
         <h2>Formula 4</h2>
         <div class="expanded-content">
-          <p>Won 5 out of 10 races and 1 sprint, winning by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.</p>
+          <div class="combined-text-box">
+            Racing experience, winning 5 out of 10 races and 1 sprint. Achieved victory by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.
+          </div>
         </div>
       </div>
     </div>
-    
   </div>
 
   <script src="script.js"></script> <!-- Link to your JavaScript file -->
   <script>
-function toggleProject(card) {
-  card.classList.toggle('expanded');
-  const expandedContent = card.querySelector('.expanded-content');
-  if (expandedContent) {
-    expandedContent.style.display = card.classList.contains('expanded') ? 'block' : 'none';
-  }
-}
+    // Function to toggle project expansion
+    function toggleProject(card) {
+      card.classList.toggle("expanded");
+    }
 
-// Function to apply the theme
-function applyTheme(theme) {
-  const body = document.body;
-  if (theme === 'dark') {
-    body.classList.add('dark-mode');
-    document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
-  } else {
-    body.classList.remove('dark-mode');
-    document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
-  }
-}
+    // Theme toggle script (optional)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
 
-// Load theme preference on page load
-const savedTheme = localStorage.getItem('theme') || 'light';
-applyTheme(savedTheme);
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeIcon.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '🔅';
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
 
-// Select the toggle button
-const themeToggleButton = document.getElementById('themeToggle'); // Adjust this selector as needed
-
-// Toggle the theme and save preference
-themeToggleButton.addEventListener('click', () => {
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-  applyTheme(newTheme);
-  localStorage.setItem('theme', newTheme); // Save preference
-});
-
+    // Check local storage for theme preference
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      document.body.classList.toggle('dark-mode', storedTheme === 'dark');
+      themeIcon.textContent = storedTheme === 'dark' ? '🌙' : '🔅';
+    }
   </script>
 </body>
 </html>
