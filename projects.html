@@ -15,6 +15,7 @@
       align-items: center;
       padding: 20px;
       color: #ffffff; /* Ensure text is white throughout */
+      background-color: #121212; /* Dark mode background */
     }
 
     .projects-container {
@@ -37,7 +38,7 @@
     }
 
     .project-card:hover {
-      background-color: #172e49; /* Keep background consistent on hover */
+      background-color: #0a192f; /* Darker on hover for contrast */
     }
 
     .expanded-content {
@@ -208,6 +209,8 @@
     // Function to apply the theme
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
+        document.body.style.backgroundColor = theme === 'dark' ? '#121212' : '#ffffff';
+        document.body.style.color = theme === 'dark' ? '#ffffff' : '#000000';
     }
 
     // Load theme preference on page load
@@ -217,10 +220,12 @@
     // Toggle the theme and save preference
     themeToggleButton.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(newTheme);
         localStorage.setItem('theme', newTheme);
+        document.getElementById('themeIcon').innerText = newTheme === 'dark' ? '🔅' : '🌙';
     });
+    
   </script>
 </body>
 </html>
