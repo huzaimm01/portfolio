@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Huzaim Malik</title>
+  <link rel="icon" type="image/png" href="favicon.png" sizes="any">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🔅</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <h1>About Me</h1>
+
+    <section class="skills-container">
+      <h2 class="skills-title">Skills</h2>
+      <div class="skills-grid">
+        <!-- Skill items -->
+        <div class="skill"><img src="html.png" alt="HTML"><p>HTML</p></div>
+        <div class="skill"><img src="css.png" alt="CSS"><p>CSS</p></div>
+        <div class="skill"><img src="js.png" alt="JavaScript"><p>JavaScript</p></div>
+        <div class="skill"><img src="java.png" alt="Java"><p>Java</p></div>
+        <div class="skill"><img src="C.png" alt="C"><p>C</p></div>
+        <!-- Add other skill items here -->
+      </div>
+    </section>
+
+    <section class="education-container">
+      <h2 class="education-title">Education</h2>
+      <div class="education-item">
+        <img src="uoft.png" alt="University of Toronto">
+        <h4>University of Toronto, Computer Engineering, Class of 2029</h4>
+      </div>
+      <!-- Add other education items here -->
+    </section>
+
+    <div class="journey-container">
+      <h3>My Journey</h3>
+      <div class="about-me">
+        <p>I started coding with code blocks at age 5 and started toying around with web dev at 7, quickly finding I was passionate...</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin: 20px;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+    .nav ul li {
+      margin: 0 1rem;
+    }
+    .nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav ul li a:hover {
+      color: #b5d3e7;
+    }
+    #app {
+      text-align: center;
+      margin-top: 100px;
+      max-width: 1200px;
+      width: 100%;
+      transition: color 0.3s;
+    }
+    .skills-container, .education-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      width: 100%;
+    }
+    .skills-title, .education-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #b5d3e7;
+      transition: color 0.3s;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 1rem;
+      width: 90%;
+    }
+    .skill, .education-item {
+      background: #172e49;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: #FCFCFC;
+      color: #22333D;
+    }
+    .dark-mode .header {
+      background: #FCFCFC;
+    }
+    .dark-mode .skills-title, 
+    .dark-mode .education-title {
+      color: #22333D;
+    }
+    .dark-mode .skill, 
+    .dark-mode .education-item {
+      background: #FCFCFC;
+      color: #22333D;
+    }
+  </style>
+
+  <script>
+    // Dark mode toggle function
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', currentTheme);
+      document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
+    }
+
+    // Event listener for theme toggle
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // Load saved theme on page load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('themeIcon').textContent = '🌙';
+    }
+  </script>
+</body>
+</html>
 
