@@ -15,14 +15,14 @@ function toggleProject(card) {
   const isExpanded = card.classList.contains('expanded');
 
   if (isExpanded) {
-    card.innerHTML += 
+    card.innerHTML += `
       <button onclick="this.parentNode.classList.remove('expanded')">Close</button>
       <div class="expanded-content">
         <h3>Details:</h3>
         <p>This project demonstrates key skills in web development and programming, focusing on creating dynamic and user-friendly applications.</p>
-        <img src="portfolio.png" alt="Project Image" class="project-image" style="display: block;" />
+        <img src="path/to/your/image.jpg" alt="Project Image" class="project-image" style="display: block;" />
       </div>
-    ;
+    `;
   } else {
     card.innerHTML = card.innerHTML.split('<button')[0];
   }
@@ -47,3 +47,4 @@ themeToggleButton.addEventListener('click', () => {
     applyTheme(newTheme);
     localStorage.setItem('theme', newTheme); // Save preference
 });
+
