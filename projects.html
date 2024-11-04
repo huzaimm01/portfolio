@@ -13,7 +13,9 @@
       flex-direction: column;
       align-items: center; /* Center all items horizontally */
       padding: 20px;
-      transition: background-color 0.3s, color 0.3s; /* Smooth transition for background color and text */
+      background-color: #fff; /* Default light background */
+      color: #000; /* Default light text color */
+      transition: none; /* Remove transition for background and text color */
     }
 
     /* Dark mode adjustments */
@@ -37,7 +39,6 @@
       border-radius: 8px;
       background-color: #fff; /* Background color for cards */
       cursor: pointer;
-      transition: background-color 0.3s; /* Optional: Transition for hover effect */
       display: flex;
       flex-direction: column;
       align-items: center; /* Center content in the card */
@@ -68,7 +69,6 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       background-color: #f9f9f9; /* Change the background color as needed */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: center; /* Center-align text */
       color: #333; /* Change this to your preferred text color for descriptions */
     }
@@ -111,13 +111,14 @@
       cursor: pointer;
     }
 
+    /* Mobile styles */
+    .menu {
+      display: none; /* Hidden by default */
+    }
+
     @media (max-width: 768px) {
       nav ul {
         display: none; /* Hide regular nav on mobile */
-      }
-
-      nav .menu {
-        display: block; /* Show menu button */
       }
 
       nav.active ul {
@@ -129,14 +130,7 @@
         background: #fff; /* Background for dropdown */
         width: 100%;
       }
-    }
 
-    /* Ensure the mobile menu button is hidden on larger screens */
-    .menu {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
       .menu {
         display: block; /* Show menu button only on mobile */
       }
@@ -241,40 +235,35 @@
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const themeIcon = document.getElementById('themeIcon');
-
-    // Check and apply saved theme preference
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-      body.classList.toggle('dark-mode', currentTheme === 'dark');
-      themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '🔅';
-    }
-
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('dark-mode');
-      const isDarkMode = body.classList.contains('dark-mode');
-      themeIcon.textContent = isDarkMode ? '🌙' : '🔅';
-      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    });
-
-    // Function to toggle project expansion
-    function toggleProject(projectCard) {
-      projectCard.classList.toggle('expanded');
-    }
-
-    // Menu toggle for mobile
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.querySelector('nav');
 
+    // Load theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeIcon.textContent = currentTheme === 'dark-mode' ? '🌙' : '🔅';
+    }
+
+    // Toggle theme
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const newTheme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+      localStorage.setItem('theme', newTheme);
+      themeIcon.textContent = newTheme === 'dark-mode' ? '🌙' : '🔅';
+    });
+
+    // Toggle mobile menu
     menuToggle.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
 
-    // Optional: Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
-        nav.classList.remove('active');
-      }
-    });
+    // Function to toggle expanded content in project cards
+    function toggleProject(card) {
+      card.classList.toggle('expanded');
+      const content = card.querySelector('.expanded-content');
+      content.style.display = content.style.display === 'block' ? 'none' : 'block'; // Toggle display
+    }
   </script>
 </body>
 </html>
