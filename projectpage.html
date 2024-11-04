@@ -238,34 +238,6 @@
         });
     }
 
-     // Function to apply the theme
-    function applyTheme(theme) {
-        const body = document.body;
-        if (theme === 'dark') {
-            body.classList.add('dark-mode');
-            document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
-        } else {
-            body.classList.remove('dark-mode');
-            document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
-        }
-    }
-
-    // Load theme preference on page load
-    const savedTheme = localStorage.getItem('theme') || 'light'; // Fallback to light if not set
-    applyTheme(savedTheme);
-
-    // Select the toggle button if it exists
-    const themeToggleButton = document.getElementById('themeToggle'); // Ensure this ID matches your HTML
-
-    // Toggle theme and save preference
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener('click', () => {
-            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme); // Save preference
-        });
-    }
-
+    
   </script>
 </html>
