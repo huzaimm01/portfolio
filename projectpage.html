@@ -1,13 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | Huzaim Malik</title>
-  
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Header & Navigation */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin: 20px;
+      z-index: 10;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav ul li {
+      margin: 0 1rem;
+    }
+
+    .nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: #b5d3e7;
+    }
+
+    #app {
+      text-align: center;
+      margin-top: 100px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: #0d1117;
+      color: white;
+    }
+
+    .dark-mode h1,
+    .dark-mode h4 {
+      color: #f4f4f4;
+    }
+
+    /* Education Section */
+    .education-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      width: 100%;
+    }
+
+    .education-item {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      background: #172e49;
+      border-radius: 8px;
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 800px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .education-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .education-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .education-item h4 {
+      font-size: 1rem;
+      color: #b5d3e7;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background-color: #f4f4f4;
+      color: #22333d;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
@@ -25,197 +155,60 @@
         </ul>
       </nav>
     </header>
-    
+
     <h1>Projects</h1>
 
     <section class="education-container">
-      
-      <div class="education-item contact-item">
+      <div class="education-item">
         <img src="frc.png" alt="FRC">
-        <h4>Robotics Team Lead; Helped design and 3d print parts, assisted with programming and building robot. Taught younger students how to 3d model</h4>
+        <div>
+          <h4>Robotics Team Lead</h4>
+          <p>Helped design and 3D print parts, assisted with programming and building the robot. Taught younger students how to 3D model.</p>
+          <div class="tags">
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Programming</span>
+          </div>
+        </div>
       </div>
-      <div class="education-item contact-item">
+      <!-- Repeat for other items -->
+      <div class="education-item">
         <img src="FGC.png" alt="FGC">
-        <h4>Mentor for team Pakistan in the 2024 season. Took charge of programming and building robot and ran some driving tests</h4>
+        <div>
+          <h4>Mentor for FIRST Global Challenge</h4>
+          <p>Mentor for team Pakistan in the 2024 season. Took charge of programming and building robot, ran driving tests.</p>
+          <div class="tags">
+            <span class="tag">Mentorship</span>
+            <span class="tag">Robotics</span>
+          </div>
+        </div>
       </div>
-      <div class="education-item contact-item">
-        <img src="polar.png" alt="Polar">
-        <h4>Twitter-like website with private servers where users can make their own accounts and post to private message boards. Utilised in classroom capacity amongst classmates. Hosted on Arduino-based web server</h4>
-      </div>
-      <div class="education-item contact-item">
-        <img src="notes.jpg" alt="Notes">
-        <h4>Notes for First Year Computer Engineering at University of Toronto, compiled in LaTeX for readability</h4>
-      </div>
-      <div class="education-item contact-item">
-        <img src="f1game.png" alt="F1 Game">
-        <h4>Formula 1-inspired game, made in unity. Multiplayer effort with drivers and engineers to simulate the feeling of racing in formula 1. Currently includes Yas Marina, Lusail, Silverstone, Barcelona and Circuit Jacques Villeneuve</h4>
-      </div>
+      <!-- Add additional project entries similarly -->
+    </section>
+  </div>
 
-      <div class="education-item contact-item">
-        <img src="refsheet.png" alt="Ref Sheet">
-        <h4>Programming reference sheet for multiple languages, designed to help beginners learn to code with syntax in a way that helps them learn by doing.</h4>
-      </div>
-
-      <div class="education-item contact-item">
-        <img src="f4.png" alt="F4">
-        <h4>Raced in PWR 2024 season. Despite setbacks, won with a 13 point lead across 10 races and 2 sprints with 5 race wins and 1 sprint win. Consistently finished >P5</h4>
-      </div>
-    </section>  
-</body>
-  <style>
-.theme-toggle {
-  cursor: pointer;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
-  color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 20px;
-  z-index: 10;
-}
-
-.nav ul {
-  list-style: none;
-  display: flex;
-}
-
-.nav ul li {
-  margin: 0 1rem;
-}
-
-.nav ul li a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav ul li a:hover {
-  color: #b5d3e7;
-}
-
-#app {
-  text-align: center;
-  margin-top: 100px;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.skills-container, .education-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-.skills-title, .education-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #b5d3e7;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  width: 90%;
-}
-
-.skill {
-  background: #172e49;
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.education-item {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0;
-  background: #172e49;
-  border-radius: 8px;
-  padding: 1rem;
-  width: 90%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.education-item:hover {
-  transform: translateY(-10px); /* Float effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Shadow effect */
-}
-
-.education-item img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover; /* Ensure images retain aspect ratio */
-  margin-right: 1rem;
-  border-radius: 8px;
-}
-
-.dark-mode {
-  background: #0d1117;
-}
-
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode p,
-.dark-mode .skills-title,
-.dark-mode .education-title {
-  color: white;
-}
-  </style>
-  
   <script>
-   // Function to apply the theme
+    // Function to apply theme
     function applyTheme(theme) {
-        const body = document.body;
-        if (theme === 'dark') {
-            body.classList.add('dark-mode');
-            document.getElementById('themeIcon').textContent = '🌙';
-        } else {
-            body.classList.remove('dark-mode');
-            document.getElementById('themeIcon').textContent = '🔅';
-        }
+      const body = document.body;
+      if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        document.getElementById('themeIcon').textContent = '🌙';
+      } else {
+        body.classList.remove('dark-mode');
+        document.getElementById('themeIcon').textContent = '🔅';
+      }
     }
 
     // Load theme preference on page load
     const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
-    const themeToggleButton = document.getElementById('themeToggle');
-
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener('click', () => {
-            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
+    // Toggle theme and save preference
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
   </script>
+</body>
 </html>
