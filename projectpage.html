@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,33 +30,33 @@
 
     <section class="education-container">
       
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="frc.png" alt="FRC">
         <h4>Robotics Team Lead; Helped design and 3d print parts, assisted with programming and building robot. Taught younger students how to 3d model</h4>
       </div>
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="FGC.png" alt="FGC">
         <h4>Mentor for team Pakistan in the 2024 season. Took charge of programming and building robot and ran some driving tests</h4>
       </div>
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="polar.png" alt="Polar">
         <h4>Twitter-like website with private servers where users can make their own accounts and post to private message boards. Utilised in classroom capacity amongst classmates. Hosted on Arduino-based web server</h4>
       </div>
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="notes.jpg" alt="Notes">
         <h4>Notes for First Year Computer Engineering at University of Toronto, compiled in LaTeX for readibility</h4>
       </div>
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="f1game.png" alt="F1 Game">
         <h4>Formula 1-inspired game, made in unity. Multiplayer effort with drivers and engineers to simulate the feeling of racing in formula 1. Currently includes Yas Marina, Lusail, Silverstone, Barcelona and Circuit Jacques Villeneuve</h4>
       </div>
 
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="refsheet.png" alt="Ref Sheet">
         <h4>Programming reference sheet for multiple languages, designed to help beginners learn to code with syntax in a way that helps them learn by doing.</h4>
       </div>
 
-      <div class="education-item">
+      <div class="education-item contact-item">
         <img src="f4.png" alt="F4">
         <h4>Raced in PWR 2024 season. Despite setbacks, won with a 13 point lead across 10 races and 2 sprints with 5 race wins and 1 sprint win. Consistently finished >P5</h4>
       </div>
@@ -212,6 +210,35 @@
   
   <script>
    // Function to apply the theme
+    function applyTheme(theme) {
+        const body = document.body;
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+        } else {
+            body.classList.remove('dark-mode');
+            document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+        }
+    }
+
+    // Load theme preference on page load
+    const savedTheme = localStorage.getItem('theme') || 'light'; // Fallback to light if not set
+    applyTheme(savedTheme);
+
+    // Select the toggle button if it exists
+    const themeToggleButton = document.getElementById('themeToggle'); // Ensure this ID matches your HTML
+
+    // Toggle theme and save preference
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme); // Save preference
+        });
+    }
+
+     // Function to apply the theme
     function applyTheme(theme) {
         const body = document.body;
         if (theme === 'dark') {
