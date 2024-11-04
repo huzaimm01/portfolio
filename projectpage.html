@@ -76,8 +76,8 @@
       color: #f4f4f4;
     }
 
-    /* Education Section */
-    .education-container {
+    /* Project Section */
+    .project-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -85,7 +85,7 @@
       width: 100%;
     }
 
-    .education-item {
+    .project-item {
       display: flex;
       align-items: center;
       margin: 1.5rem 0;
@@ -98,12 +98,12 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .education-item:hover {
+    .project-item:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
-    .education-item img {
+    .project-item img {
       width: 100px;
       height: 100px;
       object-fit: cover;
@@ -111,7 +111,7 @@
       border-radius: 8px;
     }
 
-    .education-item h4 {
+    .project-item h4 {
       font-size: 1rem;
       color: #b5d3e7;
       margin-bottom: 0.5rem;
@@ -158,56 +158,150 @@
 
     <h1>Projects</h1>
 
-    <section class="education-container">
-      <div class="education-item">
-        <img src="frc.png" alt="FRC">
+    <section class="project-container">
+      <!-- Project 1 -->
+      <div class="project-item">
+        <img src="portfolio.png" alt="Portfolio Website">
         <div>
-          <h4>Robotics Team Lead</h4>
-          <p>Helped design and 3D print parts, assisted with programming and building the robot. Taught younger students how to 3D model.</p>
+          <h4>Portfolio Website</h4>
+          <p>A personal portfolio website showcasing my projects, skills, and achievements.</p>
           <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Project 2 -->
+      <div class="project-item">
+        <img src="comp_eng_notes.png" alt="UofT Comp Eng Notes">
+        <div>
+          <h4>UofT Comp Eng Notes</h4>
+          <p>Comprehensive notes for University of Toronto's first-year computer engineering courses.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">LaTeX</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-item">
+        <img src="reference_sheet.png" alt="Programming Reference Sheet">
+        <div>
+          <h4>Programming Reference Sheet</h4>
+          <p>A reference sheet covering syntax for various programming languages and tools.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Ruby</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-item">
+        <img src="arduino_web_server.png" alt="Arduino Web Server">
+        <div>
+          <h4>Arduino Web Server (Polar)</h4>
+          <p>A Twitter-like web server using Arduino that allows users to post on a private message board.</p>
+          <div class="tags">
+            <span class="tag">Arduino</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-item">
+        <img src="finance_tracker.png" alt="Personal Finance Tracker">
+        <div>
+          <h4>Personal Finance Tracker</h4>
+          <p>A web application to track personal finances and manage budgets.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-item">
+        <img src="quiz_app.png" alt="Quiz Application">
+        <div>
+          <h4>Quiz Application</h4>
+          <p>An interactive quiz application with a variety of topics and score tracking.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Robotics Projects -->
+      <div class="project-item">
+        <img src="frc.png" alt="FIRST Robotics Challenge">
+        <div>
+          <h4>FIRST Robotics Challenge</h4>
+          <p>Mechanical lead for the FRC team, handling 3D modeling and robot construction.</p>
+          <div class="tags">
+            <span class="tag">Robotics</span>
             <span class="tag">3D Modeling</span>
             <span class="tag">Programming</span>
           </div>
         </div>
       </div>
-      <!-- Repeat for other items -->
-      <div class="education-item">
-        <img src="FGC.png" alt="FGC">
+
+      <div class="project-item">
+        <img src="fgc.png" alt="FIRST Global Challenge">
         <div>
-          <h4>Mentor for FIRST Global Challenge</h4>
-          <p>Mentor for team Pakistan in the 2024 season. Took charge of programming and building robot, ran driving tests.</p>
+          <h4>FIRST Global Challenge Mentor</h4>
+          <p>Mentor and test driver for Team Pakistan, overseeing programming and building.</p>
           <div class="tags">
             <span class="tag">Mentorship</span>
             <span class="tag">Robotics</span>
           </div>
         </div>
       </div>
-      <!-- Add additional project entries similarly -->
+
+      <!-- Formula 4 Project -->
+      <div class="project-item">
+        <img src="formula4.png" alt="Formula 4">
+        <div>
+          <h4>Formula 4 Racing</h4>
+          <p>Race car engineering and racing experience in Formula 4.</p>
+          <div class="tags">
+            <span class="tag">Racing</span>
+            <span class="tag">Engineering</span>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 
   <script>
-    // Function to apply theme
-    function applyTheme(theme) {
-      const body = document.body;
-      if (theme === 'dark') {
-        body.classList.add('dark-mode');
-        document.getElementById('themeIcon').textContent = '🌙';
-      } else {
-        body.classList.remove('dark-mode');
-        document.getElementById('themeIcon').textContent = '🔅';
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      themeIcon.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "🔅";
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+
+    window.addEventListener("load", () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        themeIcon.textContent = "🌙";
       }
-    }
-
-    // Load theme preference on page load
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    applyTheme(savedTheme);
-
-    // Toggle theme and save preference
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
-      applyTheme(newTheme);
-      localStorage.setItem('theme', newTheme);
     });
   </script>
 </body>
