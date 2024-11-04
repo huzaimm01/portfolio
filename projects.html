@@ -13,7 +13,7 @@
       flex-direction: column;
       align-items: center; /* Center all items horizontally */
       padding: 20px;
-      transition: background-color 0.3s; /* Smooth transition for background color */
+      transition: background-color 0.3s, color 0.3s; /* Smooth transition for background color and text */
     }
 
     /* Dark mode adjustments */
@@ -130,6 +130,17 @@
         width: 100%;
       }
     }
+
+    /* Ensure the mobile menu button is hidden on larger screens */
+    .menu {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: block; /* Show menu button only on mobile */
+      }
+    }
   </style>
 </head>
 <body>
@@ -212,41 +223,57 @@
       <div class="project-card" onclick="toggleProject(this)">
         <h2 class="project-title">FIRST Global Challenge</h2>
         <div class="expanded-content">
-          <p class="card-description">Mentor and test driver. Helped the team build and program the robot, as well as working on documentation. Helped attain a global top 8 finish.</p>
+          <p class="card-description">Mentor and test driver. Helped the team build and program the robot, as well as documentation. Achieved a global top 8 finish.</p>
         </div>
       </div>
 
       <div class="project-card" onclick="toggleProject(this)">
         <h2 class="project-title">Formula 4</h2>
         <div class="expanded-content">
-          <p class="card-description">Won 5 out of 10 races and 1 sprint, winning by a 13-point lead despite a crash at over 160 km/h and an engine fire due to sabotage.</p>
+          <p class="card-description">Race engineer and competitor. Helped develop the car and strategy for various races, achieving significant victories.</p>
         </div>
       </div>
     </div>
-    
   </div>
 
-  <script src="script.js"></script> <!-- Link to your JavaScript file -->
+  <script src="script.js"></script> <!-- Link to your JS file -->
   <script>
-    function toggleProject(card) {
-      card.classList.toggle("expanded");
-    }
-
-    // Theme toggle functionality
     const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
     const themeIcon = document.getElementById('themeIcon');
 
+    // Check and apply saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.toggle('dark-mode', currentTheme === 'dark');
+      themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '🔅';
+    }
+
     themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      themeIcon.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '🔅';
+      body.classList.toggle('dark-mode');
+      const isDarkMode = body.classList.contains('dark-mode');
+      themeIcon.textContent = isDarkMode ? '🌙' : '🔅';
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     });
 
-    // Mobile menu toggle
+    // Function to toggle project expansion
+    function toggleProject(projectCard) {
+      projectCard.classList.toggle('expanded');
+    }
+
+    // Menu toggle for mobile
     const menuToggle = document.getElementById('menuToggle');
     const nav = document.querySelector('nav');
 
     menuToggle.addEventListener('click', () => {
       nav.classList.toggle('active');
+    });
+
+    // Optional: Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+        nav.classList.remove('active');
+      }
     });
   </script>
 </body>
