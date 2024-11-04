@@ -44,7 +44,7 @@
       </div>
       <div class="education-item contact-item">
         <img src="notes.jpg" alt="Notes">
-        <h4>Notes for First Year Computer Engineering at University of Toronto, compiled in LaTeX for readibility</h4>
+        <h4>Notes for First Year Computer Engineering at University of Toronto, compiled in LaTeX for readability</h4>
       </div>
       <div class="education-item contact-item">
         <img src="f1game.png" alt="F1 Game">
@@ -64,148 +64,130 @@
 </body>
   <style>
 .theme-toggle {
-  cursor: pointer; /* Change cursor to pointer */
+  cursor: pointer;
 }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
-      color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px; /* Add padding for better spacing */
-    }
-
-    .header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      margin: 20px;
-      z-index: 10; /* Ensure header stays on top */
-    }
-
-    .nav ul {
-      list-style: none;
-      display: flex;
-    }
-
-    .nav ul li {
-      margin: 0 1rem;
-    }
-
-    .nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .nav ul li a:hover {
-      color: #b5d3e7;
-    }
-
-    #app {
-      text-align: center;
-      margin-top: 100px; /* Add margin to avoid header overlap */
-      max-width: 1200px; /* Limit max width for better layout */
-      width: 100%; /* Full width */
-    }
-
-    .skills-container, .education-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 2rem 0;
-      width: 100%; /* Full width for the sections */
-    }
-
-    .skills-title, .education-title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #b5d3e7;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-      gap: 1rem;
-      width: 90%; /* Adjust width for grid */
-    }
-
-    .skill {
-      background: #172e49;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .education-item {
-      display: flex;
-      align-items: center;
-      margin: 1rem 0;
-      background: #172e49;
-      border-radius: 8px;
-      padding: 1rem;
-      width: 90%; /* Adjust width for education items */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .education-item img {
-      width: 50px; /* Adjust image size */
-      margin-right: 1rem;
-    }
-
-    .journey-container {
-      text-align: center;
-      margin: 2rem 0;
-      width: 90%; /* Control layout */
-    }
-
-    .about-me {
-      text-align: left; /* Align text to the left for better readability */
-      line-height: 1.6; /* Improve readability */
-    }
-
-    .dark-mode {
-      background: #0d1117;
-    }
-
-    .dark-mode h1,
-    .dark-mode h2,
-    .dark-mode p,
-    .dark-mode .skills-title,
-    .dark-mode .education-title {
-      color: white; /* All text in dark mode */
-    }
-
-    img{
-      width: 500px;
-      height: 500px;
-    }
-
-    /* Light Theme */
-:root {
-    /* Light theme variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Dark Theme */
-[data-theme='dark'] {
-    /* Dark theme variables */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+  color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 20px;
+  z-index: 10;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav ul li {
+  margin: 0 1rem;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #b5d3e7;
+}
+
+#app {
+  text-align: center;
+  margin-top: 100px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.skills-container, .education-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.skills-title, .education-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #b5d3e7;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  width: 90%;
+}
+
+.skill {
+  background: #172e49;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.education-item {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  background: #172e49;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.education-item:hover {
+  transform: translateY(-10px); /* Float effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Shadow effect */
+}
+
+.education-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover; /* Ensure images retain aspect ratio */
+  margin-right: 1rem;
+  border-radius: 8px;
+}
+
+.dark-mode {
+  background: #0d1117;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p,
+.dark-mode .skills-title,
+.dark-mode .education-title {
+  color: white;
+}
   </style>
   
   <script>
@@ -214,30 +196,26 @@
         const body = document.body;
         if (theme === 'dark') {
             body.classList.add('dark-mode');
-            document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+            document.getElementById('themeIcon').textContent = '🌙';
         } else {
             body.classList.remove('dark-mode');
-            document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+            document.getElementById('themeIcon').textContent = '🔅';
         }
     }
 
     // Load theme preference on page load
-    const savedTheme = localStorage.getItem('theme') || 'light'; // Fallback to light if not set
+    const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
-    // Select the toggle button if it exists
-    const themeToggleButton = document.getElementById('themeToggle'); // Ensure this ID matches your HTML
+    const themeToggleButton = document.getElementById('themeToggle');
 
-    // Toggle theme and save preference
     if (themeToggleButton) {
         themeToggleButton.addEventListener('click', () => {
             const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme); // Save preference
+            localStorage.setItem('theme', newTheme);
         });
     }
-
-    
   </script>
 </html>
