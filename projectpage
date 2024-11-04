@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Huzaim Malik</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🔅</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+          <li><a href="projectpage.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <h1>Projects</h1>
+
+    <section class="education-container">
+      
+      <div class="education-item">
+        <img src="frc.png" alt="FRC">
+        <h4>Robotics Team Lead; Helped design and 3d print parts, assisted with programming and building robot. Taught younger students how to 3d model</h4>
+      </div>
+      <div class="education-item">
+        <img src="FGC.png" alt="FGC">
+        <h4>Mentor for team Pakistan in the 2024 season. Took charge of programming and building robot and ran some driving tests</h4>
+      </div>
+      <div class="education-item">
+        <img src="polar.png" alt="Polar">
+        <h4>Twitter-like website with private servers where users can make their own accounts and post to private message boards. Utilised in classroom capacity amongst classmates. Hosted on Arduino-based web server</h4>
+      </div>
+      <div class="education-item">
+        <img src="notes.jpg" alt="Notes">
+        <h4>Notes for First Year Computer Engineering at University of Toronto, compiled in LaTeX for readibility</h4>
+      </div>
+      <div class="education-item">
+        <img src="f1game.png" alt="F1 Game">
+        <h4>Formula 1-inspired game, made in unity. Multiplayer effort with drivers and engineers to simulate the feeling of racing in formula 1. Currently includes Yas Marina, Lusail, Silverstone, Barcelona and Circuit Jacques Villeneuve</h4>
+      </div>
+
+      <div class="education-item">
+        <img src="refsheet.png" alt="Ref Sheet">
+        <h4>Programming reference sheet for multiple languages, designed to help beginners learn to code with syntax in a way that helps them learn by doing.</h4>
+      </div>
+
+      <div class="education-item">
+        <img src="f4.png" alt="F4">
+        <h4>Raced in PWR 2024 season. Despite setbacks, won with a 13 point lead across 10 races and 2 sprints with 5 race wins and 1 sprint win. Consistently finished >P5</h4>
+      </div>
+    </section>
+
+    <div class="journey-container">
+      <h3>My Journey</h3>
+      <div class="about-me">
+        <p>I started coding with code blocks at age 5 and started toying around with web dev at 7, quickly finding I was passionate. I started building robots with my best friend in grade 6 and realized I had found my career path.</p>
+        <p>I also started racing when I was 6 years old and saw go-karts for the first time, which led me to start racing myself. Eventually, I started watching F1 and dreaming of making it to F1, ultimately getting me interested in aerospace engineering.</p>
+        <p>I've continued my journey through computers, coding, and mechanical engineering, and look forward to seeing where I go next!</p>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+  <style>
+.theme-toggle {
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px; /* Add padding for better spacing */
+    }
+
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin: 20px;
+      z-index: 10; /* Ensure header stays on top */
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav ul li {
+      margin: 0 1rem;
+    }
+
+    .nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: #b5d3e7;
+    }
+
+    #app {
+      text-align: center;
+      margin-top: 100px; /* Add margin to avoid header overlap */
+      max-width: 1200px; /* Limit max width for better layout */
+      width: 100%; /* Full width */
+    }
+
+    .skills-container, .education-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      width: 100%; /* Full width for the sections */
+    }
+
+    .skills-title, .education-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #b5d3e7;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+      gap: 1rem;
+      width: 90%; /* Adjust width for grid */
+    }
+
+    .skill {
+      background: #172e49;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .education-item {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+      background: #172e49;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 90%; /* Adjust width for education items */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .education-item img {
+      width: 50px; /* Adjust image size */
+      margin-right: 1rem;
+    }
+
+    .journey-container {
+      text-align: center;
+      margin: 2rem 0;
+      width: 90%; /* Control layout */
+    }
+
+    .about-me {
+      text-align: left; /* Align text to the left for better readability */
+      line-height: 1.6; /* Improve readability */
+    }
+
+    .dark-mode {
+      background: #0d1117;
+    }
+
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode p,
+    .dark-mode .skills-title,
+    .dark-mode .education-title {
+      color: white; /* All text in dark mode */
+    }
+
+    img{
+      width:50px;
+      height: 50px;
+    }
+
+    /* Light Theme */
+:root {
+    /* Light theme variables */
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+    /* Dark theme variables */
+}
+
+  </style>
+  
+  <script>
+   // Function to apply the theme
+    function applyTheme(theme) {
+        const body = document.body;
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+        } else {
+            body.classList.remove('dark-mode');
+            document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+        }
+    }
+
+    // Load theme preference on page load
+    const savedTheme = localStorage.getItem('theme') || 'light'; // Fallback to light if not set
+    applyTheme(savedTheme);
+
+    // Select the toggle button if it exists
+    const themeToggleButton = document.getElementById('themeToggle'); // Ensure this ID matches your HTML
+
+    // Toggle theme and save preference
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme); // Save preference
+        });
+    }
+
+  </script>
+</html>
