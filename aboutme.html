@@ -370,5 +370,17 @@ themeToggleButton.addEventListener('click', () => {
     localStorage.setItem('theme', newTheme); // Save preference
 });
 
+    // Load theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+
+// Toggle theme and save preference
+document.getElementById('themeToggle').addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+  localStorage.setItem('theme', currentTheme); // Save preference
+});
+
+
   </script>
 </html>
