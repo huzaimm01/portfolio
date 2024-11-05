@@ -15,7 +15,7 @@
     img {
       width: 1000px; /* Or a specific percentage, e.g., 80% */
       height: auto; /* Maintain aspect ratio */
-      max-width: 500px; /* Adjust this to set a maximum width */
+      max-width: 1000px; /* Adjust this to set a maximum width */
       border-radius: 8px; /* Optional: for styling */
       transition: transform 0.3s ease; /* Optional: for hover effect */
     }
@@ -74,7 +74,7 @@
       text-align: center;
       margin-top: 100px;
       max-width: 1200px;
-      width: 100%;
+      width: 90%; /* Set width to 90% */
     }
 
     /* Project Section */
@@ -93,7 +93,7 @@
       background: #172e49;
       border-radius: 8px;
       padding: 1.5rem;
-      width: 90%;
+      width: 90%; /* Set width to 90% */
       max-width: 800px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s;
@@ -104,8 +104,8 @@
     }
 
     .project-item img {
-      width: 100px;
-      height: 100px;
+      width: 200px; /* Increase size by a factor of 2 */
+      height: 200px; /* Increase size by a factor of 2 */
       object-fit: cover;
       margin-right: 1.5rem;
       border-radius: 8px;
@@ -257,10 +257,10 @@
 
       <!-- Project 7: Programming Reference Sheet -->
       <div class="project-item">
-        <img src="refsheet.png" alt="Programming Reference Sheet">
+        <img src="reference.png" alt="Programming Reference Sheet">
         <div>
           <h4>Programming Reference Sheet</h4>
-          <p>A reference sheet covering various programming languages and frameworks.</p>
+          <p>A comprehensive reference sheet covering syntax for various programming languages.</p>
           <div class="tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -269,18 +269,18 @@
             <span class="tag">Ruby</span>
             <span class="tag">PHP</span>
             <span class="tag">SQL</span>
+            <span class="tag">C#</span>
             <span class="tag">Swift</span>
-            <span class="tag">Node.js</span>
           </div>
         </div>
       </div>
 
       <!-- Project 8: Game Development Suite -->
       <div class="project-item">
-        <img src="gamedesign.png" alt="Game Development Suite">
+        <img src="gamesuite.png" alt="Game Development Suite">
         <div>
           <h4>Game Development Suite</h4>
-          <p>A suite of tools and applications developed for game creation and design.</p>
+          <p>A toolkit for game development using Unity and Unreal Engine, with sample projects.</p>
           <div class="tags">
             <span class="tag">Unity</span>
             <span class="tag">Unreal Engine</span>
@@ -296,7 +296,7 @@
         <img src="finance.png" alt="Personal Finance Tracker">
         <div>
           <h4>Personal Finance Tracker</h4>
-          <p>A web application to track personal finances and budgeting.</p>
+          <p>A web application for tracking personal finances and budgeting.</p>
           <div class="tags">
             <span class="tag">JavaScript</span>
             <span class="tag">HTML</span>
@@ -307,10 +307,10 @@
 
       <!-- Project 10: Quiz Application -->
       <div class="project-item">
-        <img src="quiz.png" alt="Quiz Application">
+        <img src="quizapp.png" alt="Quiz Application">
         <div>
           <h4>Quiz Application</h4>
-          <p>An interactive web application for creating and taking quizzes.</p>
+          <p>An interactive web-based quiz application with various question types.</p>
           <div class="tags">
             <span class="tag">JavaScript</span>
             <span class="tag">HTML</span>
@@ -320,27 +320,18 @@
       </div>
     </section>
   </div>
-
   <script>
-    // Theme toggling logic
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
+    const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
+    const themeIcon = document.getElementById('themeIcon');
 
-    // Check for saved theme in localStorage
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme) {
-      body.classList.remove("light-mode", "dark-mode");
-      body.classList.add(currentTheme);
-      themeIcon.textContent = currentTheme === "dark-mode" ? "🌙" : "🔅";
-    }
-
-    themeToggle.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      body.classList.toggle("light-mode");
-      const theme = body.classList.contains("dark-mode") ? "dark-mode" : "light-mode";
-      localStorage.setItem("theme", theme);
-      themeIcon.textContent = theme === "dark-mode" ? "🌙" : "🔅";
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '🌙'; // Moon icon for dark mode
+      } else {
+        themeIcon.textContent = '🔅'; // Sun icon for light mode
+      }
     });
   </script>
 </body>
