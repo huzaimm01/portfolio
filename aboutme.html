@@ -1,12 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Huzaim Malik</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        .theme-toggle {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Huzaim Malik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 200px; /* Keep image size */
+      height: 200px; /* Keep image size */
+      object-fit: cover; /* Maintain aspect ratio */
+      border-radius: 8px; /* Optional: for styling */
+      transition: transform 0.3s ease; /* Optional: for hover effect */
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      transition: background 0s;
+    }
+
+    /* Background Gradient for Light Mode */
+    body.light-mode {
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #0d1117;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: #0d1117;
+      color: #f4f4f4;
+    }
+
+    /* Header & Navigation */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin: 20px;
+      z-index: 10;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav ul li {
+      margin: 0 1rem;
+    }
+
+    .nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #app {
+      text-align: center;
+      margin-top: 100px;
+      max-width: 1200px; /* Set max width */
+      width: 90%; /* Set width to 90% */
+    }
+
+    /* Project Section */
+    .project-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      width: 100%; /* Full width of the parent container */
+    }
+
+    .project-item {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      background: #172e49;
+      border-radius: 8px;
+      padding: 2rem; /* Increased padding for more width */
+      width: 100%; /* Make each project item take full width */
+      max-width: 1200px; /* Increase max width */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .project-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .project-item img {
+      margin-right: 1.5rem;
+    }
+
+    .project-item h4 {
+      font-size: 1.25rem; /* Slightly increase font size */
+      color: #b5d3e7;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag {
+      background-color: #f4f4f4;
+      color: #22333d;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    /* Title Styling */
+    h1 {
+      color: white;
+      margin-bottom: 1.5rem;
+    }
+    
+    .theme-toggle {
             cursor: pointer; /* Change cursor to pointer */
         }
 
@@ -131,26 +269,26 @@
             width: 50px;
             height: 50px;
         }
-    </style>
+  </style>
 </head>
-<body>
-    <div id="app">
-        <header class="header">
-            <div class="theme-toggle" id="themeToggle">
-                <span id="themeIcon">🔅</span>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="aboutme.html">About Me</a></li>
-                    <li><a href="resume.html">Résumé</a></li>
-                    <li><a href="projectpage.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+<body class="light-mode">
+  <div id="app">
+    <header class="header">
+      <div class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🔅</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+<!-- About Me Section -->
 
-        <h1>About Me</h1>
+<h1>About Me</h1>
 
         <section class="skills-container">
             <h2 class="skills-title">Skills</h2>
@@ -200,34 +338,149 @@
             </div>
         </section>
 
-        <div class="journey-container">
-            <h3>My Journey</h3>
-            <div class="about-me">
-                <p>I started coding with code blocks at age 5 and started toying around with web dev at 7, quickly finding I was passionate. I started building robots with my best friend in grade 6 and realized I had found my career path.</p>
-                <p>I also started racing when I was 6 years old and saw go-karts for the first time, which led me to start racing myself. Eventually, I started watching F1 and fell in love with the sport, leading to a fascination with the engineering behind racing.</p>
-                <p>I hope to combine my passions in computer engineering and racing by innovating in the motorsport industry and bringing something new to the table.</p>
-            </div>
+<!-- Projects -->
+    <h1>Projects</h1>
+
+    <section class="project-container">
+      <!-- Project 1: FIRST Robotics Challenge -->
+      <div class="project-item">
+        <img src="frc.png" alt="FIRST Robotics Challenge">
+        <div>
+          <h4>FIRST Robotics Challenge</h4>
+          <p>Mechanical lead for the FRC team, handling 3D modeling and robot construction.</p>
+          <div class="tags">
+            <span class="tag">WPIlib</span>
+            <span class="tag">Solidworks</span>
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Java</span>
+            <span class="tag">Python</span>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <script>
-        // Set initial theme based on local storage
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
+      <!-- Project 2: Arduino Web Server (Polar) -->
+      <div class="project-item">
+        <img src="polarsc.png" alt="Polar">
+        <div>
+          <h4>Arduino Web Server (Polar)</h4>
+          <p>A Twitter-like website that allows users to post on a private message board, hosted on an Arduino-based web server</p>
+          <div class="tags">
+            <span class="tag">Arduino</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
 
-        // Check local storage for theme preference
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.body.classList.toggle('dark-mode', currentTheme === 'dark');
-            themeIcon.textContent = currentTheme === 'dark' ? '🌙' : '🔅';
-        }
+      <!-- Project 3: UofT Comp Eng Notes -->
+      <div class="project-item">
+        <img src="uninotes.png" alt="UofT Comp Eng Notes">
+        <div>
+          <h4>UofT Comp Eng Notes</h4>
+          <p>Comprehensive notes for University of Toronto's first-year computer engineering courses.</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">LaTeX</span>
+          </div>
+        </div>
+      </div>
 
-        themeToggle.addEventListener('click', () => {
-            // Toggle dark mode
-            const isDark = document.body.classList.toggle('dark-mode');
-            themeIcon.textContent = isDark ? '🌙' : '🔅';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light'); // Save preference
-        });
-    </script>
+      <!-- Project 4: Portfolio Website -->
+      <div class="project-item">
+        <img src="portfolio.png" alt="Portfolio Website">
+        <div>
+          <h4>Portfolio Website</h4>
+          <p>A personal portfolio website showcasing my projects, skills, and achievements.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: FIRST Global Challenge Mentor -->
+      <div class="project-item">
+        <img src="fgc.png" alt="FIRST Global Challenge">
+        <div>
+          <h4>FIRST Global Challenge Mentor</h4>
+          <p>Mentor and test driver for Team Pakistan, overseeing programming and building.</p>
+          <div class="tags">
+            <span class="tag">Mentorship</span>
+            <span class="tag">Robotics</span>
+            <span class="tag">Programming</span>
+            <span class="tag">Team Management</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6: Formula 4 -->
+      <div class="project-item">
+        <img src="formula4.jpg" alt="Formula 4">
+        <div>
+          <h4>Formula 4</h4>
+          <p>Professional Formula 4 racing experience with multiple victories and a strong finish in the championship.</p>
+          <div class="tags">
+            <span class="tag">Racing</span>
+            <span class="tag">Mechanical Engineering</span>
+            <span class="tag">High Speed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7: Programming Reference Sheet -->
+      <div class="project-item">
+        <img src="refsheet.png" alt="Programming Reference Sheet">
+        <div>
+          <h4>Programming Reference Sheet</h4>
+          <p>A comprehensive reference sheet covering syntax for various programming languages.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Ruby</span>
+            <span class="tag">PHP</span>
+            <span class="tag">SQL</span>
+            <span class="tag">C#</span>
+            <span class="tag">Swift</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8: F1 Game -->
+      <div class="project-item">
+        <img src="redbullrb18.png" alt="F1 Game (screenshot from Fusion360 while designing assets)">
+        <div>
+          <h4>Game Development Suite</h4>
+          <p>A toolkit for game development using Unity and Unreal Engine, with sample projects.</p>
+          <div class="tags">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">C++</span>
+            <span class="tag">Photon</span>
+            <span class="tag">Fusion360</span>
+          </div>
+        </div>
+      </div>
+
+   
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const themeIcon = document.getElementById('themeIcon');
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '🌙'; // Moon icon for dark mode
+      } else {
+        themeIcon.textContent = '🔅'; // Sun icon for light mode
+      }
+    });
+  </script>
 </body>
 </html>
