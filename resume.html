@@ -1,5 +1,242 @@
 
 <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+  color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.dark-mode {
+  background: #0d1117;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode p {
+  color: white;
+}
+
+.dark-mode .contact-item {
+  background: #FCFCFC;
+}
+
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 20px;
+  z-index: 10;
+  min-height: 60px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav ul li {
+  margin: 0 1rem;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #b5d3e7;
+}
+
+
+#app {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-top: 80px;
+}
+
+
+.theme-toggle {
+  cursor: pointer;
+}
+
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  background-color: #172e49;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: auto;
+}
+
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-top: 20px;
+  width: 90%;
+  justify-items: center;
+}
+
+.contact-item {
+  position: relative;
+  background: #FCFCFC;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+}
+
+.contact-item img {
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+}
+
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 20;
+}
+
+
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.project-card {
+  background-color: #2d3a4f;
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #f4f4f4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-card.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background: rgba(45, 58, 79, 0.9);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 8px;
+  margin: 3px;
+  border-radius: 4px;
+  background-color: #ffffff; 
+  color: #22333D; 
+  font-size: 0.8em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tag:hover {
+  background-color: #f0f0f0; 
+}
+
+
+.contact-item:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+:root {
+    
+}
+
+
+[data-theme='dark'] {
+    
+}
 .resume-container {
   width: 90%;
   max-width: 800px;
@@ -11,7 +248,78 @@
 
 .header {
   margin-bottom: 20px; /* Optional: Add more space below the header */
+  
+  
 }
+
+
+/* Hamburger icon styling */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem; /* Reduced padding for smaller size */
+}
+
+.hamburger div {
+  width: 30px; /* Adjust width for a smaller look */
+  height: 3px;
+  background-color: white;
+  margin: 3px 0; /* Adjust margin for spacing */
+  transition: 0.4s;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .nav ul {
+    display: none; /* Hide regular navbar links */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+}
+
+/* Full-screen overlay menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 17, 23, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  margin: 1rem 0;
+}
+
+/* Close button styling */
+.overlay .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
 
 </style>
 <!DOCTYPE html>
@@ -48,6 +356,92 @@
     </div>
   </div>
 
-  <script src="script.js"></script> <!-- Link to your JavaScript file -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  // Select the header where we will append the hamburger icon
+  const header = document.querySelector('.header');
+  
+  // Create the hamburger menu
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; // Hamburger icon lines
+  header.appendChild(hamburger);
+
+  // Create the overlay menu
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  overlay.innerHTML = `
+    <span class="close-btn">&times;</span> <!-- Close button -->
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="resume.html">Résumé</a>
+    <a href="projectpage.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  `;
+  document.body.appendChild(overlay);
+
+  // Toggle overlay visibility on hamburger click
+  hamburger.addEventListener('click', () => {
+    overlay.classList.toggle('show');
+  });
+
+  // Close overlay when clicking the close button
+  const closeBtn = overlay.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+});
+
+
+// Function to toggle the theme and set the icon based on the current theme
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', currentTheme);
+    document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
+}
+
+// Function to apply the theme based on the saved preference
+function applyTheme(theme) {
+    const body = document.body;
+    if (theme === 'dark') {
+        body.classList.add('dark-mode');
+        document.getElementById('themeIcon').textContent = '🌙'; // Set icon for dark mode
+    } else {
+        body.classList.remove('dark-mode');
+        document.getElementById('themeIcon').textContent = '🔅'; // Set icon for light mode
+    }
+}
+
+// Load theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light'; // Default to 'light' if not set
+applyTheme(savedTheme);
+
+// Assign the toggle function to the button
+document.getElementById('themeToggle').onclick = toggleTheme;
+
+// Function to toggle project expansion
+function toggleProject(card) {
+    card.classList.toggle('expanded');
+    const isExpanded = card.classList.contains('expanded');
+
+    if (isExpanded) {
+        card.innerHTML += `
+            <button onclick="this.parentNode.classList.remove('expanded')">Close</button>
+            <div class="expanded-content">
+                <h3>Details:</h3>
+                <p>This project demonstrates key skills in web development and programming, focusing on creating dynamic and user-friendly applications.</p>
+                <img src="path/to/your/image.jpg" alt="Project Image" class="project-image" style="display: block;" />
+            </div>
+        `;
+    } else {
+        const buttonIndex = card.innerHTML.indexOf('<button');
+        if (buttonIndex !== -1) {
+            card.innerHTML = card.innerHTML.slice(0, buttonIndex); // Remove the expanded content
+        }
+    }
+}
+  </script> <!-- Link to your JavaScript file -->
 </body>
 </html>
