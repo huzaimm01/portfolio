@@ -359,7 +359,9 @@
 
    
   <script>
-    const themeToggle = document.getElementById('themeToggle');
+ /* Insurance Policy:
+ 
+ const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const themeIcon = document.getElementById('themeIcon');
 
@@ -407,6 +409,155 @@
   });
 });
 
+  */
+
+
+    //Maybe this JS will work?
+
+    document.addEventListener('DOMContentLoaded', () => {
+  // Select the header where we will append the hamburger icon
+  const header = document.querySelector('.header');
+  
+  // Create the hamburger menu
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; // Hamburger icon lines
+  header.appendChild(hamburger);
+
+  // Create the overlay menu
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  overlay.innerHTML = `
+    <span class="close-btn">&times;</span> <!-- Close button -->
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="resume.html">Résumé</a>
+    <a href="projectpage.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  `;
+  document.body.appendChild(overlay);
+
+  // Toggle overlay visibility on hamburger click
+  hamburger.addEventListener('click', () => {
+    overlay.classList.toggle('show');
+  });
+
+  // Close overlay when clicking the close button
+  const closeBtn = overlay.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+});
+
+// Stable JS below:
+
+let currentTheme = 'light';
+let currentTextIndex = 0;
+const texts = [
+  "Hey, I'm",     // English
+  "Hola, soy",    // Spanish
+  "Salut, je suis", // French
+  "Hej, jeg er",  // Danish
+  "Hallo, ich bin", // German
+  "Hæ, ég er",    // Icelandic
+  "مرحبا, أنا",    // Arabic
+  "ہیلو، میں ہوں" // Urdu
+]; // Add more phrases as needed
+
+function renderHome() {
+  hideAllSections();
+  document.querySelector('.intro').classList.remove('hidden');
+  startTypingAnimation();
+}
+
+function renderAboutMe() {
+  hideAllSections();
+  document.querySelector('.about').classList.remove('hidden');
+}
+
+function renderProjects() {
+  hideAllSections();
+  document.querySelector('.projects').classList.remove('hidden');
+}
+
+function renderContact() {
+  hideAllSections();
+  document.querySelector('.contact').classList.remove('hidden');
+}
+
+function renderThanks() {
+  hideAllSections();
+  document.querySelector('.thanks').classList.remove('hidden');
+}
+
+function hideAllSections() {
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.classList.add('hidden');
+  });
+}
+
+function startTypingAnimation() {
+  const typingText = document.getElementById('typingText');
+  typingText.textContent = '';
+  typeText(texts[currentTextIndex]);
+}
+
+function typeText(text) {
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      document.getElementById('typingText').textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        currentTextIndex = (currentTextIndex + 1) % texts.length;
+        deleteText(text);
+      }, 1000);
+    }
+  }, 150);
+}
+
+function deleteText(text) {
+  let i = text.length;
+  const interval = setInterval(() => {
+    if (i > 0) {
+      document.getElementById('typingText').textContent = text.substring(0, i - 1);
+      i--;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        typeText(texts[currentTextIndex]);
+      }, 500);
+    }
+  }, 100);
+}
+
+function applyTheme(theme) {
+  const body = document.body;
+  if (theme === 'dark') {
+    body.classList.add('dark-mode');
+    document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+  } else {
+    body.classList.remove('dark-mode');
+    document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+  }
+}
+
+// Load theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+
+// Toggle theme and save preference
+document.getElementById('themeToggle').addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+  localStorage.setItem('theme', currentTheme); // Save preference
+});
+
+// Initial render
+renderHome();
   </script>
 </body>
 </html>
