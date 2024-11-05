@@ -28,7 +28,7 @@
     </header>
     
 <div class="resume-container">
-      <iframe src="resume.pdf" width="100%" height="800px" style="border:none;"></iframe>
+      <iframe src="resume.pdf" width="100%" height="800px" style="border:none;"  class="resume-iframe"></iframe>
     </div>
   
 </body>
@@ -241,6 +241,21 @@
   font-size: 1.5rem;
   color: white;
   cursor: pointer;
+}
+
+    .resume-container {
+    position: relative; /* Make sure the container can position the border */
+    overflow: hidden; /* Hide any overflow from the iframe */
+}
+
+.resume-iframe {
+    height: 85vh; /* Set the height to 85% of the viewport height */
+    border-radius: 12px; /* Make the corners rounded */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Translucent border */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional: Add some shadow for depth */
+    /* Ensure iframe content fills its container */
+    width: 100%;
+    display: block; /* Removes extra space below the iframe */
 }
 
 
