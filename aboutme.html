@@ -90,7 +90,7 @@
 </body>
   <style>
 .theme-toggle {
-  cursor: pointer; /* Change cursor to pointer */
+  cursor: pointer; 
 }
 
     * {
@@ -106,7 +106,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px; /* Add padding for better spacing */
+      padding: 20px; 
     }
 
     .header {
@@ -120,7 +120,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       margin: 20px;
-      z-index: 10; /* Ensure header stays on top */
+      z-index: 10; 
     }
 
     .nav ul {
@@ -144,9 +144,9 @@
 
     #app {
       text-align: center;
-      margin-top: 100px; /* Add margin to avoid header overlap */
-      max-width: 1200px; /* Limit max width for better layout */
-      width: 100%; /* Full width */
+      margin-top: 100px; 
+      max-width: 1200px; 
+      width: 100%; 
     }
 
     .skills-container, .education-container {
@@ -154,7 +154,7 @@
       flex-direction: column;
       align-items: center;
       margin: 2rem 0;
-      width: 100%; /* Full width for the sections */
+      width: 100%; 
     }
 
     .skills-title, .education-title {
@@ -165,9 +165,9 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
       gap: 1rem;
-      width: 90%; /* Adjust width for grid */
+      width: 90%; 
     }
 
     .skill {
@@ -185,24 +185,24 @@
       background: #172e49;
       border-radius: 8px;
       padding: 1rem;
-      width: 90%; /* Adjust width for education items */
+      width: 90%; 
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .education-item img {
-      width: 50px; /* Adjust image size */
+      width: 50px; 
       margin-right: 1rem;
     }
 
     .journey-container {
       text-align: center;
       margin: 2rem 0;
-      width: 90%; /* Control layout */
+      width: 90%; 
     }
 
     .about-me {
-      text-align: left; /* Align text to the left for better readability */
-      line-height: 1.6; /* Improve readability */
+      text-align: left; 
+      line-height: 1.6; 
     }
 
     .dark-mode {
@@ -214,7 +214,7 @@
     .dark-mode p,
     .dark-mode .skills-title,
     .dark-mode .education-title {
-      color: white; /* All text in dark mode */
+      color: white; 
     }
 
     img{
@@ -222,44 +222,44 @@
       height: 50px;
     }
 
-    /* Light Theme */
+    
 :root {
-    /* Light theme variables */
+    
 }
 
 /* Dark Theme */
 [data-theme='dark'] {
-    /* Dark theme variables */
+   
 }
 
-/* Hamburger icon styling */
+
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  padding: 0.5rem; /* Reduced padding for smaller size */
+  padding: 0.5rem;
 }
 
 .hamburger div {
-  width: 30px; /* Adjust width for a smaller look */
+  width: 30px; 
   height: 3px;
   background-color: white;
-  margin: 3px 0; /* Adjust margin for spacing */
+  margin: 3px 0;
   transition: 0.4s;
 }
 
-/* Responsive behavior */
+
 @media (max-width: 768px) {
   .nav ul {
-    display: none; /* Hide regular navbar links */
+    display: none; 
   }
 
   .hamburger {
-    display: flex; /* Show hamburger icon */
+    display: flex; 
   }
 }
 
-/* Full-screen overlay menu */
+
 .overlay {
   position: fixed;
   top: 0;
@@ -289,7 +289,7 @@
   margin: 1rem 0;
 }
 
-/* Close button styling */
+
 .overlay .close-btn {
   position: absolute;
   top: 20px;
@@ -305,16 +305,16 @@
   <script>
   
 document.addEventListener('DOMContentLoaded', () => {
-  // Select the header where we will append the hamburger icon
+ 
   const header = document.querySelector('.header');
   
-  // Create the hamburger menu
+  
   const hamburger = document.createElement('div');
   hamburger.classList.add('hamburger');
-  hamburger.innerHTML = `<div></div><div></div><div></div>`; // Hamburger icon lines
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; 
   header.appendChild(hamburger);
 
-  // Create the overlay menu
+  
   const overlay = document.createElement('div');
   overlay.classList.add('overlay');
   overlay.innerHTML = `
@@ -327,12 +327,12 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.body.appendChild(overlay);
 
-  // Toggle overlay visibility on hamburger click
+  
   hamburger.addEventListener('click', () => {
     overlay.classList.toggle('show');
   });
 
-  // Close overlay when clicking the close button
+  
   const closeBtn = overlay.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
     overlay.classList.remove('show');
@@ -352,7 +352,7 @@ const texts = [
   "Hæ, ég er",    // Icelandic
   "مرحبا, أنا",    // Arabic
   "ہیلو، میں ہوں" // Urdu
-]; // Add more phrases as needed
+]; // Add more
 
 function renderHome() {
   hideAllSections();
@@ -428,25 +428,25 @@ function applyTheme(theme) {
   const body = document.body;
   if (theme === 'dark') {
     body.classList.add('dark-mode');
-    document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+    document.getElementById('themeIcon').textContent = '🌙'; 
   } else {
     body.classList.remove('dark-mode');
-    document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+    document.getElementById('themeIcon').textContent = '🔅'; 
   }
 }
 
-// Load theme preference on page load
+
 const savedTheme = localStorage.getItem('theme') || 'light';
 applyTheme(savedTheme);
 
-// Toggle theme and save preference
+
 document.getElementById('themeToggle').addEventListener('click', () => {
   currentTheme = currentTheme === 'light' ? 'dark' : 'light';
   applyTheme(currentTheme);
-  localStorage.setItem('theme', currentTheme); // Save preference
+  localStorage.setItem('theme', currentTheme); 
 });
 
-// Initial render
+
 renderHome();
 
   </script>
