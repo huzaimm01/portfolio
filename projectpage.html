@@ -12,10 +12,11 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     img {
-      width: 1000px; /* Or a specific percentage, e.g., 80% */
-      height: auto; /* Maintain aspect ratio */
-      max-width: 1000px; /* Adjust this to set a maximum width */
+      width: 200px; /* Keep image size */
+      height: 200px; /* Keep image size */
+      object-fit: cover; /* Maintain aspect ratio */
       border-radius: 8px; /* Optional: for styling */
       transition: transform 0.3s ease; /* Optional: for hover effect */
     }
@@ -73,7 +74,7 @@
     #app {
       text-align: center;
       margin-top: 100px;
-      max-width: 1200px;
+      max-width: 1200px; /* Set max width */
       width: 90%; /* Set width to 90% */
     }
 
@@ -83,7 +84,7 @@
       flex-direction: column;
       align-items: center;
       margin: 2rem 0;
-      width: 100%;
+      width: 100%; /* Full width of the parent container */
     }
 
     .project-item {
@@ -92,9 +93,9 @@
       margin: 1.5rem 0;
       background: #172e49;
       border-radius: 8px;
-      padding: 1.5rem;
-      width: 90%; /* Set width to 90% */
-      max-width: 800px;
+      padding: 2rem; /* Increased padding for more width */
+      width: 100%; /* Make each project item take full width */
+      max-width: 1200px; /* Increase max width */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s;
     }
@@ -104,15 +105,11 @@
     }
 
     .project-item img {
-      width: 200px; /* Increase size by a factor of 2 */
-      height: 200px; /* Increase size by a factor of 2 */
-      object-fit: cover;
       margin-right: 1.5rem;
-      border-radius: 8px;
     }
 
     .project-item h4 {
-      font-size: 1rem;
+      font-size: 1.25rem; /* Slightly increase font size */
       color: #b5d3e7;
       margin-bottom: 0.5rem;
     }
@@ -283,43 +280,16 @@
           <p>A toolkit for game development using Unity and Unreal Engine, with sample projects.</p>
           <div class="tags">
             <span class="tag">Unity</span>
-            <span class="tag">Unreal Engine</span>
             <span class="tag">C#</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">C++</span>
+            <span class="tag">Photon</span>
+            <span class="tag">Fusion360</span>
           </div>
         </div>
       </div>
 
-      <!-- Project 9: Personal Finance Tracker -->
-      <div class="project-item">
-        <img src="finance.png" alt="Personal Finance Tracker">
-        <div>
-          <h4>Personal Finance Tracker</h4>
-          <p>A web application for tracking personal finances and budgeting.</p>
-          <div class="tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 10: Quiz Application -->
-      <div class="project-item">
-        <img src="quizapp.png" alt="Quiz Application">
-        <div>
-          <h4>Quiz Application</h4>
-          <p>An interactive web-based quiz application with various question types.</p>
-          <div class="tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+   
   <script>
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
