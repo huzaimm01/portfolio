@@ -17,14 +17,14 @@
         <span id="themeIcon">🔅</span>
       </div>
       <nav class="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="aboutme.html">About Me</a></li>
-          <li><a href="resume.html">Résumé</a></li>
-          <li><a href="projectpage.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+      <li><a href="resume.html">Résumé</a></li>
+      <li><a href="projectpage.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
     </header>
     
     <section class="intro">
@@ -240,9 +240,115 @@ h2 {
   50% { color: #f4f4f4; }
   100% { color: white; }
 }
+
+/* Hamburger icon styling */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem; /* Reduced padding for smaller size */
+}
+
+.hamburger div {
+  width: 30px; /* Adjust width for a smaller look */
+  height: 3px;
+  background-color: white;
+  margin: 3px 0; /* Adjust margin for spacing */
+  transition: 0.4s;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .nav ul {
+    display: none; /* Hide regular navbar links */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+}
+
+/* Full-screen overlay menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 17, 23, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  margin: 1rem 0;
+}
+
+/* Close button styling */
+.overlay .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
 </style>
   
   <script>
+ 
+document.addEventListener('DOMContentLoaded', () => {
+  // Select the header where we will append the hamburger icon
+  const header = document.querySelector('.header');
+  
+  // Create the hamburger menu
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; // Hamburger icon lines
+  header.appendChild(hamburger);
+
+  // Create the overlay menu
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  overlay.innerHTML = `
+    <span class="close-btn">&times;</span> <!-- Close button -->
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="resume.html">Résumé</a>
+    <a href="projectpage.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  `;
+  document.body.appendChild(overlay);
+
+  // Toggle overlay visibility on hamburger click
+  hamburger.addEventListener('click', () => {
+    overlay.classList.toggle('show');
+  });
+
+  // Close overlay when clicking the close button
+  const closeBtn = overlay.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+});
+
+// Stable JS below:
+
 let currentTheme = 'light';
 let currentTextIndex = 0;
 const texts = [
