@@ -57,7 +57,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Center vertically */
+  height: 100vh; 
 }
 
 .header {
@@ -178,7 +178,7 @@ h2 {
 
 .typing-text {
   display: inline-block;
-  color: white; /* Default color */
+  color: white; 
 }
 
 .input {
@@ -188,8 +188,8 @@ h2 {
   border: 1px solid #4d6d91;
   border-radius: 5px;
   font-size: 1rem;
-  color: #000; /* Text color always black */
-  background: #fff; /* White background for input fields */
+  color: #000; 
+  background: #fff; 
 }
 
 .dark-mode {
@@ -201,17 +201,15 @@ h2 {
 .dark-mode .info-list li,
 .dark-mode .btn,
 .dark-mode .typing-text {
-  color: white; /* All text in dark mode */
+  color: white; 
 }
 
-    /* Light Theme */
+   
 :root {
-    /* Light theme variables */
 }
 
-/* Dark Theme */
 [data-theme='dark'] {
-    /* Dark theme variables */
+   
 }
 
 
@@ -241,35 +239,34 @@ h2 {
   100% { color: white; }
 }
 
-/* Hamburger icon styling */
+
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  padding: 0.5rem; /* Reduced padding for smaller size */
+  padding: 0.5rem; 
 }
 
 .hamburger div {
-  width: 30px; /* Adjust width for a smaller look */
+  width: 30px; 
   height: 3px;
   background-color: white;
-  margin: 3px 0; /* Adjust margin for spacing */
+  margin: 3px 0; 
   transition: 0.4s;
 }
 
-/* Responsive behavior */
+
 @media (max-width: 768px) {
   .nav ul {
-    display: none; /* Hide regular navbar links */
+    display: none;
   }
 
   .hamburger {
-    display: flex; /* Show hamburger icon */
+    display: flex; 
   }
 }
 
-/* Full-screen overlay menu */
-.overlay {
+
   position: fixed;
   top: 0;
   left: 0;
@@ -298,7 +295,7 @@ h2 {
   margin: 1rem 0;
 }
 
-/* Close button styling */
+
 .overlay .close-btn {
   position: absolute;
   top: 20px;
@@ -313,16 +310,16 @@ h2 {
   <script>
  
 document.addEventListener('DOMContentLoaded', () => {
-  // Select the header where we will append the hamburger icon
+ 
   const header = document.querySelector('.header');
   
-  // Create the hamburger menu
+  
   const hamburger = document.createElement('div');
   hamburger.classList.add('hamburger');
-  hamburger.innerHTML = `<div></div><div></div><div></div>`; // Hamburger icon lines
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; 
   header.appendChild(hamburger);
 
-  // Create the overlay menu
+  
   const overlay = document.createElement('div');
   overlay.classList.add('overlay');
   overlay.innerHTML = `
@@ -335,12 +332,12 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.body.appendChild(overlay);
 
-  // Toggle overlay visibility on hamburger click
+  
   hamburger.addEventListener('click', () => {
     overlay.classList.toggle('show');
   });
 
-  // Close overlay when clicking the close button
+  
   const closeBtn = overlay.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
     overlay.classList.remove('show');
@@ -360,7 +357,7 @@ const texts = [
   "Hæ, ég er",    // Icelandic
   "مرحبا, أنا",    // Arabic
   "ہیلو، میں ہوں" // Urdu
-]; // Add more phrases as needed
+]; // Add more
 
 function renderHome() {
   hideAllSections();
@@ -436,25 +433,24 @@ function applyTheme(theme) {
   const body = document.body;
   if (theme === 'dark') {
     body.classList.add('dark-mode');
-    document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+    document.getElementById('themeIcon').textContent = '🌙'; // Change Later maybe
   } else {
     body.classList.remove('dark-mode');
-    document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+    document.getElementById('themeIcon').textContent = '🔅'; // --
   }
 }
 
-// Load theme preference on page load
 const savedTheme = localStorage.getItem('theme') || 'light';
 applyTheme(savedTheme);
 
-// Toggle theme and save preference
+
 document.getElementById('themeToggle').addEventListener('click', () => {
   currentTheme = currentTheme === 'light' ? 'dark' : 'light';
   applyTheme(currentTheme);
-  localStorage.setItem('theme', currentTheme); // Save preference
+  localStorage.setItem('theme', currentTheme);
 });
 
-// Initial render
+
 renderHome();
 
 </script>
