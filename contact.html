@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="favicon.png" sizes="any">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Include your CSS styles here */
         .theme-toggle {
             cursor: pointer;
         }
@@ -159,39 +158,36 @@
             color: white;
         }
 
-        /* Dark mode styles for contact items */
+       
         .dark-mode .contact-item {
             background: #FCFCFC;
         }
         
-        /* Hamburger icon styling */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  padding: 0.5rem; /* Reduced padding for smaller size */
+  padding: 0.5rem; 
 }
 
 .hamburger div {
-  width: 30px; /* Adjust width for a smaller look */
+  width: 30px;
   height: 3px;
   background-color: white;
-  margin: 3px 0; /* Adjust margin for spacing */
+  margin: 3px 0;
   transition: 0.4s;
 }
 
-/* Responsive behavior */
+
 @media (max-width: 768px) {
   .nav ul {
-    display: none; /* Hide regular navbar links */
+    display: none; 
   }
 
   .hamburger {
-    display: flex; /* Show hamburger icon */
+    display: flex; 
   }
 }
-
-/* Full-screen overlay menu */
 .overlay {
   position: fixed;
   top: 0;
@@ -220,8 +216,6 @@
   text-decoration: none;
   margin: 1rem 0;
 }
-
-/* Close button styling */
 .overlay .close-btn {
   position: absolute;
   top: 20px;
@@ -253,19 +247,19 @@
         <h1>Contact Me</h1>
 
         <div class="profile-pic">
-            <img src="pfp.jpg" alt="Huzaim Malik"> <!-- Replace with your image path -->
+            <img src="pfp.jpg" alt="Huzaim Malik"> 
         </div>
 
         <div class="contact-grid">
             <div class="contact-item">
                 <a href="/cdn-cgi/l/email-protection#d1b9a4abb0b8bcbce1e091b6bcb0b8bdffb2bebc">
-                    <img src="email.webp" alt="Email Icon"> <!-- Replace with your email icon path -->
+                    <img src="email.webp" alt="Email Icon"> 
                     <div class="tooltip">Primary Email</div>
                 </a>
             </div>
             <div class="contact-item">
                 <a href="/cdn-cgi/l/email-protection#afc2cec6c3efc7dad5cec6c2c2cec3c6c481ccc0c2">
-                    <img src="email.webp" alt="Email Icon"> <!-- Replace with your email icon path -->
+                    <img src="email.webp" alt="Email Icon"> 
                     <div class="tooltip">Secondary Email</div>
                 </a>
             </div>
@@ -313,46 +307,46 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-        // Function to apply the theme
+        
         function applyTheme(theme) {
             const body = document.body;
             if (theme === 'dark') {
                 body.classList.add('dark-mode');
-                document.getElementById('themeIcon').textContent = '🌙'; // Update icon for dark mode
+                document.getElementById('themeIcon').textContent = '🌙'; 
             } else {
                 body.classList.remove('dark-mode');
-                document.getElementById('themeIcon').textContent = '🔅'; // Update icon for light mode
+                document.getElementById('themeIcon').textContent = '🔅'; 
             }
         }
 
-        // Load theme preference on page load
-        const savedTheme = localStorage.getItem('theme') || 'light'; // Fallback to light if not set
+       
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
         applyTheme(savedTheme);
 
-        // Select the toggle button
-        const themeToggleButton = document.getElementById('themeToggle'); // Ensure this ID matches your HTML
+        
+        const themeToggleButton = document.getElementById('themeToggle'); 
 
-        // Toggle theme and save preference
+        
         if (themeToggleButton) {
             themeToggleButton.addEventListener('click', () => {
                 const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
                 const newTheme = currentTheme === 'light' ? 'dark' : 'light';
                 applyTheme(newTheme);
-                localStorage.setItem('theme', newTheme); // Save preference
+                localStorage.setItem('theme', newTheme); 
             });
         }
         
         document.addEventListener('DOMContentLoaded', () => {
-  // Select the header where we will append the hamburger icon
+ 
   const header = document.querySelector('.header');
   
-  // Create the hamburger menu
+  
   const hamburger = document.createElement('div');
   hamburger.classList.add('hamburger');
-  hamburger.innerHTML = `<div></div><div></div><div></div>`; // Hamburger icon lines
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; 
   header.appendChild(hamburger);
 
-  // Create the overlay menu
+  
   const overlay = document.createElement('div');
   overlay.classList.add('overlay');
   overlay.innerHTML = `
@@ -365,12 +359,12 @@
   `;
   document.body.appendChild(overlay);
 
-  // Toggle overlay visibility on hamburger click
+ 
   hamburger.addEventListener('click', () => {
     overlay.classList.toggle('show');
   });
 
-  // Close overlay when clicking the close button
+ 
   const closeBtn = overlay.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
     overlay.classList.remove('show');
