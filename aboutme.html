@@ -1,49 +1,115 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | Huzaim Malik</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🔅</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutme.html">About Me</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <h1>About Me</h1>
+
+    <section class="skills-container">
+      <h2 class="skills-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill"><img src="html.png" alt="HTML"><p>HTML</p></div>
+        <div class="skill"><img src="css.png" alt="CSS"><p>CSS</p></div>
+        <div class="skill"><img src="js.png" alt="JavaScript"><p>JavaScript</p></div>
+        <div class="skill"><img src="java.png" alt="Java"><p>Java</p></div>
+        <div class="skill"><img src="C.png" alt="C"><p>C</p></div>
+        <div class="skill"><img src="ISO_C++_Logo.svg.png" alt="C++"><p>C++</p></div>
+        <div class="skill"><img src="cs.png" alt="C#"><p>C#</p></div>
+        <div class="skill"><img src="python.png" alt="Python"><p>Python</p></div>
+        <div class="skill"><img src="php.png" alt="PHP"><p>PHP</p></div>
+        <div class="skill"><img src="ruby.png" alt="Ruby"><p>Ruby</p></div>
+        <div class="skill"><img src="matlab.png" alt="MATLAB"><p>MATLAB</p></div>
+        <div class="skill"><img src="sql.png" alt="SQL"><p>SQL</p></div>
+        <div class="skill"><img src="mongo.svg" alt="MongoDB"><p>MongoDB</p></div>
+        <div class="skill"><img src="net.png" alt=".NET"><p>.NET</p></div>
+        <div class="skill"><img src="Arduino_Logo.svg.png" alt="Arduino"><p>Arduino</p></div>
+        <div class="skill"><img src="raspberry-pi.svg" alt="Raspberry Pi"><p>Raspberry Pi</p></div>
+        <div class="skill"><img src="swift.png" alt="Swift"><p>Swift</p></div>
+        <div class="skill"><img src="fusion.png" alt="Fusion 360"><p>Fusion 360</p></div>
+        <div class="skill"><img src="solidworks.png" alt="Solidworks"><p>Solidworks</p></div>
+      </div>
+    </section>
+
+    <section class="education-container">
+      <h2 class="education-title">Education</h2>
+      <div class="education-item">
+        <img src="uoft.png" alt="University of Toronto">
+        <h4>University of Toronto, Computer Engineering, Class of 2029</h4>
+      </div>
+      <div class="education-item">
+        <img src="file.png" alt="OSSD">
+        <h4>OSSD with Ontario Scholar, and SHSM diploma. Graduating average of 99.6%</h4>
+      </div>
+      <div class="education-item">
+        <img src="Cambridge.png" alt="GCE A Levels">
+        <h4>GCE A Levels Global Scholar, 7 A*, global scholar distinction</h4>
+      </div>
+      <div class="education-item">
+        <img src="acorn.jpg" alt="SAT Score">
+        <h4>1600 SAT Score, 6 Level 5 scores</h4>
+      </div>
+      <div class="education-item">
+        <img src="IB.png" alt="IB Score">
+        <h4>IB Score of 45 across 6 subjects</h4>
+      </div>
+    </section>
+
+    <div class="journey-container">
+      <h3>My Journey</h3>
+      <div class="about-me">
+        <p>I started coding with code blocks at age 5 and started toying around with web dev at 7, quickly finding I was passionate. I started building robots with my best friend in grade 6 and realized I had found my career path.</p>
+        <p>I also started racing when I was 6 years old and saw go-karts for the first time, which led me to start racing myself. Eventually, I started watching F1 and dreaming of making it to F1, ultimately getting me interested in aerospace engineering.</p>
+        <p>I've continued my journey through computers, coding, and mechanical engineering, and look forward to seeing where I go next!</p>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
   <style>
-    /* General Styles */
+.theme-toggle {
+  cursor: pointer; /* Change cursor to pointer */
+}
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    img {
-      width: 200px; /* Keep image size */
-      height: 200px; /* Keep image size */
-      object-fit: cover; /* Maintain aspect ratio */
-      border-radius: 8px; /* Optional: for styling */
-      transition: transform 0.3s ease; /* Optional: for hover effect */
-    }
-
     body {
       font-family: 'Roboto', sans-serif;
+      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+      color: #f4f4f4;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
-      transition: background 0s;
+      padding: 20px; /* Add padding for better spacing */
     }
 
-    /* Background Gradient for Light Mode */
-    body.light-mode {
-      background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
-      color: #0d1117;
-    }
-
-    /* Dark Mode */
-    body.dark-mode {
-      background: #0d1117;
-      color: #f4f4f4;
-    }
-
-    /* Header & Navigation */
     .header {
       position: absolute;
       top: 0;
@@ -55,7 +121,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       margin: 20px;
-      z-index: 10;
+      z-index: 10; /* Ensure header stays on top */
     }
 
     .nav ul {
@@ -70,434 +136,135 @@
     .nav ul li a {
       color: white;
       text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav ul li a:hover {
+      color: #b5d3e7;
     }
 
     #app {
       text-align: center;
-      margin-top: 100px;
-      max-width: 1200px; /* Set max width */
-      width: 90%; /* Set width to 90% */
+      margin-top: 100px; /* Add margin to avoid header overlap */
+      max-width: 1200px; /* Limit max width for better layout */
+      width: 100%; /* Full width */
     }
 
-    /* Project Section */
-    .project-container {
+    .skills-container, .education-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 2rem 0;
-      width: 100%; /* Full width of the parent container */
+      width: 100%; /* Full width for the sections */
     }
 
-    .project-item {
+    .skills-title, .education-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #b5d3e7;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
+      gap: 1rem;
+      width: 90%; /* Adjust width for grid */
+    }
+
+    .skill {
+      background: #172e49;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .education-item {
       display: flex;
       align-items: center;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
       background: #172e49;
       border-radius: 8px;
-      padding: 2rem; /* Increased padding for more width */
-      width: 100%; /* Make each project item take full width */
-      max-width: 1200px; /* Increase max width */
+      padding: 1rem;
+      width: 90%; /* Adjust width for education items */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s;
     }
 
-    .project-item:hover {
-      transform: translateY(-8px);
+    .education-item img {
+      width: 50px; /* Adjust image size */
+      margin-right: 1rem;
     }
 
-    .project-item img {
-      margin-right: 1.5rem;
+    .journey-container {
+      text-align: center;
+      margin: 2rem 0;
+      width: 90%; /* Control layout */
     }
 
-    .project-item h4 {
-      font-size: 1.25rem; /* Slightly increase font size */
-      color: #b5d3e7;
-      margin-bottom: 0.5rem;
+    .about-me {
+      text-align: left; /* Align text to the left for better readability */
+      line-height: 1.6; /* Improve readability */
     }
 
-    /* Tags */
-    .tags {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
+    .dark-mode {
+      background: #0d1117;
     }
 
-    .tag {
-      background-color: #f4f4f4;
-      color: #22333d;
-      padding: 0.25rem 0.5rem;
-      border-radius: 5px;
-      font-size: 0.85rem;
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode p,
+    .dark-mode .skills-title,
+    .dark-mode .education-title {
+      color: white; /* All text in dark mode */
     }
 
-    /* Theme Toggle */
-    .theme-toggle {
-      cursor: pointer;
-      font-size: 1.5rem;
+    img{
+      width:50px;
+      height: 50px;
     }
 
-    /* Title Styling */
-    h1 {
-      color: white;
-      margin-bottom: 1.5rem;
-    }
-    
-    .theme-toggle {
-            cursor: pointer; /* Change cursor to pointer */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
-            color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px; /* Add padding for better spacing */
-        }
-
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            margin: 20px;
-            z-index: 10; /* Ensure header stays on top */
-        }
-
-        .nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav ul li {
-            margin: 0 1rem;
-        }
-
-        .nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav ul li a:hover {
-            color: #b5d3e7;
-        }
-
-        #app {
-            text-align: center;
-            margin-top: 100px; /* Add margin to avoid header overlap */
-            max-width: 1200px; /* Limit max width for better layout */
-            width: 100%; /* Full width */
-        }
-
-        .skills-container, .education-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 2rem 0;
-            width: 100%; /* Full width for the sections */
-        }
-
-        .skills-title, .education-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #b5d3e7;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
-            gap: 1rem;
-            width: 90%; /* Adjust width for grid */
-        }
-
-        .skill {
-            background: #172e49;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .education-item {
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-            background: #172e49;
-            border-radius: 8px;
-            padding: 1rem;
-            width: 90%; /* Adjust width for education items */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .education-item img {
-            width: 50px; /* Adjust image size */
-            margin-right: 1rem;
-        }
-
-        .journey-container {
-            text-align: center;
-            margin: 2rem 0;
-            width: 90%; /* Control layout */
-        }
-
-        .about-me {
-            text-align: left; /* Align text to the left for better readability */
-            line-height: 1.6; /* Improve readability */
-        }
-
-        .dark-mode {
-            background: #0d1117;
-            color: white; /* All text in dark mode */
-        }
-
-        img {
-            width: 50px;
-            height: 50px;
-        }
-
-    .resume-container {
-  width: 90%;
-  max-width: 800px;
-  margin: 80px auto; /* Add margin-top to push it down */
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+    /* Light Theme */
+:root {
+    /* Light theme variables */
 }
 
-.header {
-  margin-bottom: 20px; /* Optional: Add more space below the header */
+/* Dark Theme */
+[data-theme='dark'] {
+    /* Dark theme variables */
 }
+
   </style>
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body class="light-mode">
-  <div id="app">
-    <header class="header">
-      <div class="theme-toggle" id="themeToggle">
-        <span id="themeIcon">🔅</span>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="aboutme.html">About Me</a></li>
-          <li><a href="resume.html">Résumé</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-<!-- About Me Section -->
-
-<h1>About Me</h1>
-
-        <section class="skills-container">
-            <h2 class="skills-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill"><img src="html.png" alt="HTML"><p>HTML</p></div>
-                <div class="skill"><img src="css.png" alt="CSS"><p>CSS</p></div>
-                <div class="skill"><img src="js.png" alt="JavaScript"><p>JavaScript</p></div>
-                <div class="skill"><img src="java.png" alt="Java"><p>Java</p></div>
-                <div class="skill"><img src="C.png" alt="C"><p>C</p></div>
-                <div class="skill"><img src="ISO_C++_Logo.svg.png" alt="C++"><p>C++</p></div>
-                <div class="skill"><img src="cs.png" alt="C#"><p>C#</p></div>
-                <div class="skill"><img src="python.png" alt="Python"><p>Python</p></div>
-                <div class="skill"><img src="php.png" alt="PHP"><p>PHP</p></div>
-                <div class="skill"><img src="ruby.png" alt="Ruby"><p>Ruby</p></div>
-                <div class="skill"><img src="matlab.png" alt="MATLAB"><p>MATLAB</p></div>
-                <div class="skill"><img src="sql.png" alt="SQL"><p>SQL</p></div>
-                <div class="skill"><img src="mongo.svg" alt="MongoDB"><p>MongoDB</p></div>
-                <div class="skill"><img src="net.png" alt=".NET"><p>.NET</p></div>
-                <div class="skill"><img src="arduino.svg" alt="Arduino"><p>Arduino</p></div>
-                <div class="skill"><img src="raspberry-pi.svg" alt="Raspberry Pi"><p>Raspberry Pi</p></div>
-                <div class="skill"><img src="swift.png" alt="Swift"><p>Swift</p></div>
-                <div class="skill"><img src="fusion.png" alt="Fusion 360"><p>Fusion 360</p></div>
-            </div>
-        </section>
-
-        <section class="education-container">
-            <h2 class="education-title">Education</h2>
-            <div class="education-item">
-                <img src="uoft.png" alt="University of Toronto">
-                <h4>University of Toronto, Computer Engineering, Class of 2029</h4>
-            </div>
-            <div class="education-item">
-                <img src="file.png" alt="OSSD">
-                <h4>OSSD with Ontario Scholar, and SHSM diploma. Graduating average of 99.6%</h4>
-            </div>
-            <div class="education-item">
-                <img src="Cambridge.png" alt="GCE A Levels">
-                <h4>GCE A Levels Global Scholar, 7 A*, global scholar distinction</h4>
-            </div>
-            <div class="education-item">
-                <img src="acorn.jpg" alt="SAT Score">
-                <h4>1600 SAT Score, 6 Level 5 scores</h4>
-            </div>
-            <div class="education-item">
-                <img src="IB.png" alt="IB Score">
-                <h4>IB Score of 45 across 6 subjects</h4>
-            </div>
-        </section>
-
-<!-- Projects -->
-    <h1>Projects</h1>
-
-    <section class="project-container">
-      <!-- Project 1: FIRST Robotics Challenge -->
-      <div class="project-item">
-        <img src="frc.png" alt="FIRST Robotics Challenge">
-        <div>
-          <h4>FIRST Robotics Challenge</h4>
-          <p>Mechanical lead for the FRC team, handling 3D modeling and robot construction.</p>
-          <div class="tags">
-            <span class="tag">WPIlib</span>
-            <span class="tag">Solidworks</span>
-            <span class="tag">3D Modeling</span>
-            <span class="tag">Java</span>
-            <span class="tag">Python</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2: Arduino Web Server (Polar) -->
-      <div class="project-item">
-        <img src="polarsc.png" alt="Polar">
-        <div>
-          <h4>Arduino Web Server (Polar)</h4>
-          <p>A Twitter-like website that allows users to post on a private message board, hosted on an Arduino-based web server</p>
-          <div class="tags">
-            <span class="tag">Arduino</span>
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: UofT Comp Eng Notes -->
-      <div class="project-item">
-        <img src="uninotes.png" alt="UofT Comp Eng Notes">
-        <div>
-          <h4>UofT Comp Eng Notes</h4>
-          <p>Comprehensive notes for University of Toronto's first-year computer engineering courses.</p>
-          <div class="tags">
-            <span class="tag">C++</span>
-            <span class="tag">Python</span>
-            <span class="tag">LaTeX</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4: Portfolio Website -->
-      <div class="project-item">
-        <img src="portfolio.png" alt="Portfolio Website">
-        <div>
-          <h4>Portfolio Website</h4>
-          <p>A personal portfolio website showcasing my projects, skills, and achievements.</p>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 5: FIRST Global Challenge Mentor -->
-      <div class="project-item">
-        <img src="fgc.png" alt="FIRST Global Challenge">
-        <div>
-          <h4>FIRST Global Challenge Mentor</h4>
-          <p>Mentor and test driver for Team Pakistan, overseeing programming and building.</p>
-          <div class="tags">
-            <span class="tag">Mentorship</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">Programming</span>
-            <span class="tag">Team Management</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 6: Formula 4 -->
-      <div class="project-item">
-        <img src="formula4.jpg" alt="Formula 4">
-        <div>
-          <h4>Formula 4</h4>
-          <p>Professional Formula 4 racing experience with multiple victories and a strong finish in the championship.</p>
-          <div class="tags">
-            <span class="tag">Racing</span>
-            <span class="tag">Mechanical Engineering</span>
-            <span class="tag">High Speed</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 7: Programming Reference Sheet -->
-      <div class="project-item">
-        <img src="refsheet.png" alt="Programming Reference Sheet">
-        <div>
-          <h4>Programming Reference Sheet</h4>
-          <p>A comprehensive reference sheet covering syntax for various programming languages.</p>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Python</span>
-            <span class="tag">Ruby</span>
-            <span class="tag">PHP</span>
-            <span class="tag">SQL</span>
-            <span class="tag">C#</span>
-            <span class="tag">Swift</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 8: F1 Game -->
-      <div class="project-item">
-        <img src="redbullrb18.png" alt="F1 Game (screenshot from Fusion360 while designing assets)">
-        <div>
-          <h4>Game Development Suite</h4>
-          <p>A toolkit for game development using Unity and Unreal Engine, with sample projects.</p>
-          <div class="tags">
-            <span class="tag">Unity</span>
-            <span class="tag">C#</span>
-            <span class="tag">Unreal Engine</span>
-            <span class="tag">C++</span>
-            <span class="tag">Photon</span>
-            <span class="tag">Fusion360</span>
-          </div>
-        </div>
-      </div>
- <div class="resume-container">
-      <iframe src="resume.pdf" width="100%" height="800px" style="border:none;"></iframe>
-    </div>
-   
+  
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const themeIcon = document.getElementById('themeIcon');
-
-    themeToggle.addEventListener('click', () => {
+    function toggleTheme() {
+      const body = document.body;
       body.classList.toggle('dark-mode');
-      if (body.classList.contains('dark-mode')) {
-        themeIcon.textContent = '🌙'; // Moon icon for dark mode
-      } else {
-        themeIcon.textContent = '🔅'; // Sun icon for light mode
-      }
-    });
+      const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', currentTheme);
+      document.getElementById('themeIcon').textContent = currentTheme === 'light' ? '🔅' : '🌙';
+    }
+
+    document.getElementById('themeToggle').onclick = toggleTheme;
+
+    // Select the toggle button
+const themeToggleButton = document.getElementById('theme-toggle'); // Adjust this selector as needed
+
+// Function to apply the theme
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+}
+
+// Load theme preference on page load
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+
+// Toggle the theme and save preference
+themeToggleButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme); // Save preference
+});
+
   </script>
-</body>
 </html>
