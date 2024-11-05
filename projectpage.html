@@ -12,13 +12,13 @@
       padding: 0;
       box-sizing: border-box;
     }
-img {
-  width: 1000px; /* Or a specific percentage, e.g., 80% */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 500px; /* Adjust this to set a maximum width */
-  border-radius: 8px; /* Optional: for styling */
-  transition: transform 0.3s ease; /* Optional: for hover effect */
-}
+    img {
+      width: 1000px; /* Or a specific percentage, e.g., 80% */
+      height: auto; /* Maintain aspect ratio */
+      max-width: 500px; /* Adjust this to set a maximum width */
+      border-radius: 8px; /* Optional: for styling */
+      transition: transform 0.3s ease; /* Optional: for hover effect */
+    }
 
     body {
       font-family: 'Roboto', sans-serif;
@@ -260,38 +260,88 @@ img {
         <img src="refsheet.png" alt="Programming Reference Sheet">
         <div>
           <h4>Programming Reference Sheet</h4>
-          <p>A comprehensive guide covering syntax and usage for multiple programming languages.</p>
+          <p>A reference sheet covering various programming languages and frameworks.</p>
           <div class="tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
             <span class="tag">Python</span>
-            <span class="tag">C++</span>
             <span class="tag">Ruby</span>
+            <span class="tag">PHP</span>
             <span class="tag">SQL</span>
+            <span class="tag">Swift</span>
+            <span class="tag">Node.js</span>
           </div>
-                </div>
+        </div>
+      </div>
+
+      <!-- Project 8: Game Development Suite -->
+      <div class="project-item">
+        <img src="gamedesign.png" alt="Game Development Suite">
+        <div>
+          <h4>Game Development Suite</h4>
+          <p>A suite of tools and applications developed for game creation and design.</p>
+          <div class="tags">
+            <span class="tag">Unity</span>
+            <span class="tag">Unreal Engine</span>
+            <span class="tag">C#</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 9: Personal Finance Tracker -->
+      <div class="project-item">
+        <img src="finance.png" alt="Personal Finance Tracker">
+        <div>
+          <h4>Personal Finance Tracker</h4>
+          <p>A web application to track personal finances and budgeting.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 10: Quiz Application -->
+      <div class="project-item">
+        <img src="quiz.png" alt="Quiz Application">
+        <div>
+          <h4>Quiz Application</h4>
+          <p>An interactive web application for creating and taking quizzes.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
       </div>
     </section>
   </div>
 
   <script>
+    // Theme toggling logic
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
     const body = document.body;
 
+    // Check for saved theme in localStorage
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme) {
+      body.classList.remove("light-mode", "dark-mode");
+      body.classList.add(currentTheme);
+      themeIcon.textContent = currentTheme === "dark-mode" ? "🌙" : "🔅";
+    }
+
     themeToggle.addEventListener("click", () => {
-      if (body.classList.contains("dark-mode")) {
-        body.classList.remove("dark-mode");
-        body.classList.add("light-mode");
-        themeIcon.textContent = "🔅"; // Light mode icon
-      } else {
-        body.classList.remove("light-mode");
-        body.classList.add("dark-mode");
-        themeIcon.textContent = "🌙"; // Dark mode icon
-      }
+      body.classList.toggle("dark-mode");
+      body.classList.toggle("light-mode");
+      const theme = body.classList.contains("dark-mode") ? "dark-mode" : "light-mode";
+      localStorage.setItem("theme", theme);
+      themeIcon.textContent = theme === "dark-mode" ? "🌙" : "🔅";
     });
   </script>
 </body>
 </html>
-
