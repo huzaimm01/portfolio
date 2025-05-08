@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Huzaim Malik</title>
+   <link rel="icon" type="image/png" href="favicon.png" sizes="any">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hamburger.css">
+<script src="hamburger.js" defer></script>
+
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">🔅</span>
+      </div>
+      <nav class="nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="aboutme.html">About Me</a></li>
+      <li><a href="resume.html">Résumé</a></li>
+      <li><a href="projectpage.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+    </header>
+    
+    <section class="intro">
+      <h1><span class="typing-text" id="typingText">Hello! I'm </span><span class="name"> Huzaim</span></h1>
+      <p></p>
+      <ul class="info-list">
+        <li><span class="pin">📓</span> Computer Engineering Student</li>
+        <li><span class="pin">🏆</span> Full Stack Developer</li>
+        <li><span class="pin">🏅</span> Multiple-time Hackathon Winner</li>
+        <li><span class="pin">🏁</span> Formula 4 Champion</li>
+        <!--<li><span class="pin">🥋</span> Black-Belt Martial Artist</li> -->
+        <li><span class="pin">🎂</span> 18 Years Old</li>
+        <li><span class="pin">📍</span> Based in Toronto, Ontario</li>
+        
+      </ul>
+    </section>
+  </div>
+</body>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(90deg, rgba(9, 32, 63, 1) 0%, rgba(83, 120, 149, 1) 100%);
+  color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Center vertically */
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin: 20px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav ul li {
+  margin: 0 1rem;
+}
+
+.nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #b5d3e7;
+}
+
+#themeToggle {
+  display: flex;
+  cursor: pointer;
+}
+
+#themeIcon {
+  font-size: 1.5rem;
+  margin: 0 0.2rem;
+}
+
+#app {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  animation: fadeIn 1s ease;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #b5d3e7;
+  margin-bottom: 1rem;
+  animation: slideIn 1s ease;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.info-list li {
+  font-size: 1.2rem;
+  color: #e0e6ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin {
+  margin-right: 0.5rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background: #4d6d91;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background: #365a7f;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.proj {
+  background: #172e49;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.proj:hover {
+  transform: translateY(-10px);
+}
+
+.hidden {
+  display: none;
+}
+
+.typing-text {
+  display: inline-block;
+  color: white; /* Default color */
+}
+
+.input {
+  padding: 0.8rem;
+  width: 100%;
+  margin: 0.5rem 0;
+  border: 1px solid #4d6d91;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #000; /* Text color always black */
+  background: #fff; /* White background for input fields */
+}
+
+.dark-mode {
+    background: #0d1117; 
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode .info-list li,
+.dark-mode .btn,
+.dark-mode .typing-text {
+  color: white; /* All text in dark mode */
+}
+
+    /* Light Theme */
+:root {
+    /* Light theme variables */
+}
+
+/* Dark Theme */
+[data-theme='dark'] {
+    /* Dark theme variables */
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes delete {
+  from { width: 100%; }
+  to { width: 0; }
+}
+
+@keyframes changeColor {
+  0% { color: white; }
+  50% { color: #f4f4f4; }
+  100% { color: white; }
+}
+
+/* Hamburger icon styling */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem; /* Reduced padding for smaller size */
+}
+
+.hamburger div {
+  width: 30px; /* Adjust width for a smaller look */
+  height: 3px;
+  background-color: white;
+  margin: 3px 0; /* Adjust margin for spacing */
+  transition: 0.4s;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .nav ul {
+    display: none; /* Hide regular navbar links */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+}
+
+/* Full-screen overlay menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 17, 23, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  margin: 1rem 0;
+}
+
+/* Close button styling */
+.overlay .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+</style>
+  
+  <script>
+ 
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.header');
+  
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = `<div></div><div></div><div></div>`; 
+  header.appendChild(hamburger);
+
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  overlay.innerHTML = `
+    <span class="close-btn">&times;</span> <!-- Close button -->
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="resume.html">Résumé</a>
+    <a href="projectpage.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  `;
+  document.body.appendChild(overlay);
+
+  hamburger.addEventListener('click', () => {
+    overlay.classList.toggle('show');
+  });
+
+  const closeBtn = overlay.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('show');
+  });
+});
+
+// Stable JS below:
+
+let currentTheme = 'light';
+let currentTextIndex = 0;
+const texts = [
+  "Hello! I'm",     // English
+  "Hola! Soy",    // Spanish
+  "Salut! Je suis", // French
+  "Hej! Jeg er",  // Danish
+  "Hallo! Ich bin", // German
+  "Hæ! ég er",    // Icelandic
+  "مرحب! أنا",    // Arabic
+  "ہیلو! میں ہوں" // Urdu
+]; // Add more phrases as needed
+
+function renderHome() {
+  hideAllSections();
+  document.querySelector('.intro').classList.remove('hidden');
+  startTypingAnimation();
+}
+
+function renderAboutMe() {
+  hideAllSections();
+  document.querySelector('.about').classList.remove('hidden');
+}
+
+function renderProjects() {
+  hideAllSections();
+  document.querySelector('.projects').classList.remove('hidden');
+}
+
+function renderContact() {
+  hideAllSections();
+  document.querySelector('.contact').classList.remove('hidden');
+}
+
+function renderThanks() {
+  hideAllSections();
+  document.querySelector('.thanks').classList.remove('hidden');
+}
+
+function hideAllSections() {
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.classList.add('hidden');
+  });
+}
+
+function startTypingAnimation() {
+  const typingText = document.getElementById('typingText');
+  typingText.textContent = '';
+  typeText(texts[currentTextIndex]);
+}
+
+function typeText(text) {
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      document.getElementById('typingText').textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        currentTextIndex = (currentTextIndex + 1) % texts.length;
+        deleteText(text);
+      }, 1000);
+    }
+  }, 150);
+}
+
+function deleteText(text) {
+  let i = text.length;
+  const interval = setInterval(() => {
+    if (i > 0) {
+      document.getElementById('typingText').textContent = text.substring(0, i - 1);
+      i--;
+    } else {
+      clearInterval(interval);
+      setTimeout(() => {
+        typeText(texts[currentTextIndex]);
+      }, 500);
+    }
+  }, 100);
+}
+
+function applyTheme(theme) {
+  const body = document.body;
+  if (theme === 'dark') {
+    body.classList.add('dark-mode');
+    document.getElementById('themeIcon').textContent = '🌙'; 
+  } else {
+    body.classList.remove('dark-mode');
+    document.getElementById('themeIcon').textContent = '🔅'; 
+  }
+}
+
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+  localStorage.setItem('theme', currentTheme);
+});
+
+
+renderHome();
+
+</script>
+</html>
