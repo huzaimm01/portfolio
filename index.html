@@ -636,6 +636,35 @@
     .overlay.active {
       display: block;
     }
+
+
+
+
+    /*experimental*/
+    .toggle-mode i {
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  display: inline-block;
+}
+
+body.light-mode .toggle-mode i.fa-sun {
+  transform: rotate(360deg);
+}
+
+body:not(.light-mode) .toggle-mode i.fa-moon {
+  transform: rotate(-360deg);
+}
+
+.logo-img {
+  width: 60px; 
+  height: auto;
+  filter: invert(0%);
+  transition: var(--transition);
+}
+
+body.light-mode .logo-img {
+  filter: invert(100%);
+}
+
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -663,7 +692,7 @@
 
   
   <header>
-    <a href="#" class="logo"><img src="" alt="logo"></a>
+    <a href="#" class="logo"><img src="logo.svg" alt="logo"></a>
     <div class="nav-container">
       <nav>
         <button class="close-menu">
@@ -1040,7 +1069,7 @@
   </footer>
 
   <script>
- // Hexagon animation
+ 
   function createHexagons() {
     const hexGrid = document.querySelector('.hexagon-grid');
     const hexCount = 20;
@@ -1064,7 +1093,7 @@
     }
   }
 
-  // Cookie helpers
+  // cookies (in case they break later)
   function setCookie(name, value, days) {
     let expires = "";
     if (days) {
@@ -1086,10 +1115,18 @@
     return null;
   }
 
-  // Typing animation
+ 
   const textArray = [
-    "Hi! I'm", "Bonjour! Je suis", "¡Hola! Soy", "Hallo! Ich bin", "Halló! Ég er",
-    "Hej! Jeg er", "Hei! Minä olen", "مرحبا! أنا", "ہیلو! میں ہوں"
+    "Hi! I'm", // ENG
+    "Bonjour! Je suis", // FR
+    "¡Hola! Soy", // ESP
+    "Hallo! Ich bin", // DTS
+    "Halló! Ég er", // ISK
+    "Hej! Jeg er", // DAN
+    "Hei! Minä olen", // FIN
+    // DO NOT TOUCH ARABIC AND URDU THE WHOLE WEBSITE WILL BREAK
+    "مرحبا! أنا", // ARB
+    "ہیلو! میں ہوں" // URD
   ];
 
   let textIndex = 0;
@@ -1125,7 +1162,7 @@
     setTimeout(typeText, typingDelay);
   }
 
-  // Cursor styling
+  
   const style = document.createElement('style');
   style.innerHTML = `
     .cursor {
@@ -1139,12 +1176,12 @@
   `;
   document.head.appendChild(style);
 
-  // Wait until DOM is fully ready
+  
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.querySelector('.loader')?.classList.add('hide');
 
-      // Theme
+      
       const toggleMode = document.querySelector('.toggle-mode');
       const toggleIcon = toggleMode?.querySelector('i');
       const savedTheme = getCookie('themePreference');
@@ -1169,12 +1206,12 @@
         }
       });
 
-      // Start typing effect if element exists
+      
       if (document.getElementById('typing-prefix')) {
         typeText();
       }
 
-      // Navigation menu
+      
       const hamburger = document.querySelector('.hamburger');
       const closeMenu = document.querySelector('.close-menu');
       const nav = document.querySelector('nav');
@@ -1195,7 +1232,7 @@
       overlay?.addEventListener('click', closeNavMenu);
       menuLinks.forEach(link => link.addEventListener('click', closeNavMenu));
 
-      // Scroll dots
+      
       const sections = document.querySelectorAll('section[id]');
       const scrollDots = document.querySelectorAll('.scroll-dot');
 
@@ -1224,7 +1261,7 @@
         });
       });
 
-      // Contact cards
+      
       document.querySelectorAll('.contact-card').forEach(card => {
         card.addEventListener('click', () => {
           const link = card.getAttribute('onclick')?.match(/window\.location\.href='([^']+)'|window\.open\('([^']+)'/);
@@ -1237,7 +1274,7 @@
         });
       });
 
-      // Spawn hexagons
+      // I knew you (you know who you are) would look back here :)
       createHexagons();
     }, 1500);
   });
