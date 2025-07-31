@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <!-- this is a test-->
@@ -667,6 +668,251 @@ body.light-mode .logo-img {
   filter: invert(100%);
 }
 
+.tools-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 2rem;
+    }
+
+    .category-card {
+      background-color: var(--secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+      position: relative;
+      cursor: pointer;
+      min-height: 150px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .category-card:hover::before {
+      height: 100%;
+    }
+
+    .category-main {
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .category-card.expanded .category-main {
+      padding: 1.5rem 2rem;
+      height: auto;
+      border-bottom: 1px solid rgba(255, 252, 245, 0.1);
+    }
+
+    .category-expanded {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, padding 0.3s ease;
+      padding: 0;
+    }
+
+    .category-card.expanded .category-expanded {
+      max-height: 800px;
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+    }
+
+    .category-expanded .tool-item {
+      background-color: rgba(255, 252, 245, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-expanded .tool-item:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 252, 245, 0.1);
+    }
+
+    .category-expanded .tool-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+
+    .category-expanded .tool-item:hover::before {
+      height: 100%;
+    }
+
+    .category-main .tool-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .category-expanded .tool-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .category-main .tool-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    .category-expanded .tool-name {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    .category-card.expanded {
+      grid-column: 1 / -1;
+      max-width: none;
+    }
+
+    @media (max-width: 768px) {
+      .tools-categories {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .category-card {
+        min-height: 120px;
+      }
+      
+      .category-main {
+        padding: 1.5rem;
+        height: 120px;
+      }
+      
+      .category-card.expanded .category-main {
+        padding: 1rem 1.5rem;
+      }
+      
+      .category-card.expanded .category-expanded {
+        padding: 1rem 1.5rem 1.5rem;
+      }
+      
+      .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+      }
+      
+      .tool-item {
+        padding: 0.8rem;
+      }
+      
+      .category-card .category-expanded .tool-icon {
+        font-size: 1.5rem;
+      }
+      
+      .category-card .category-expanded .tool-name {
+        font-size: 0.8rem;
+      }
+    }
+    
+    #aboutme .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-top: 2rem;
+  justify-items: center;
+}
+
+#aboutme .tool-item {
+  background-color: var(--secondary);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 250px;
+}
+
+#aboutme .tool-item:hover {
+  transform: translateY(-10px);
+}
+
+#aboutme .tool-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background-color: var(--accent);
+  transition: var(--transition);
+}
+
+#aboutme .tool-item:hover::before {
+  height: 100%;
+}
+
+#aboutme .tool-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+#aboutme .tool-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  #aboutme .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  #aboutme .tool-item {
+    padding: 1.5rem 1rem;
+    max-width: none;
+  }
+  
+  #aboutme .tool-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  #aboutme .tool-name {
+    font-size: 1rem;
+  }
+}
   </style>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.png" type="image/x-icon">
@@ -738,7 +984,7 @@ body.light-mode .logo-img {
         <div class="name-animated" id="typing-name">Huzaim!</div>
       </div>
       <h2 class="profession">Engineering Student & Developer</h2>
-      <!-- <p class="description">Engineering Student. Racecar driver. Driven to change the world.</p> -->
+      <p class="description">Engineering Student. Racecar driver. Driven to change the world.</p>
       <a href="#contact" class="cta-button">Let's Connect</a>
     </div>
   </section>
@@ -863,7 +1109,7 @@ body.light-mode .logo-img {
       <div class="tool-icon">
         <i class="fa-solid fa-building-columns"></i>
       </div>
-      <h3 class="tool-name">Comp. &  Mech. Eng. and Physics (Space Physics) Student</h3>
+      <h3 class="tool-name">UofT Comp. & Mech. Eng, Minor in Physics</h3>
     </div>
 
     <!--<div class="tool-item">
@@ -871,21 +1117,21 @@ body.light-mode .logo-img {
         <i class="ph ph-flag-checkered"></i>
       </div>
       <h3 class="tool-name">Formula 4 Champion</h3>
-    </div>-->
+    </div>
 
-   <!-- <div class="tool-item">
+    <div class="tool-item">
       <div class="tool-icon">
         <i class="ph ph-code"></i>
       </div>
       <h3 class="tool-name">Full Stack Developer</h3>
-    </div> -->
+    </div>-->
 
 
     <div class="tool-item">
       <div class="tool-icon">
         <i class="fa-solid fa-cake-candles"></i>
       </div>
-      <h3 class="tool-name">18 Years Old</h3>
+      <h3 class="tool-name">Second Year, Class of 2029</h3>
     </div>
 
     <div class="tool-item">
@@ -895,187 +1141,251 @@ body.light-mode .logo-img {
       <h3 class="tool-name">Based in Toronto</h3>
     </div>
 
-  <!--<div class="tool-item">
-      <div class="tool-icon">
-        <i class="ph ph-globe"></i>
-      </div>
-      <h3 class="tool-name">Polyglot</h3>
-    </div>
-  </div>
 </div>
-  </section>-->
+  </section>
 
 
-  <section id="tools">
-  <h2 class="section-title">Skills & Tools</h2>
-  <div class="tools-grid">
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-html5"></i>
+<section id="tools">
+    <h2 class="section-title">Skills & Tools</h2>
+    <div class="tools-categories">
+      <!-- Programming Category -->
+      <div class="category-card" data-category="programming">
+        <div class="category-main">
+          <div class="tool-icon">
+            <i class="ph ph-code"></i>
+          </div>
+          <h3 class="tool-name">Programming</h3>
+        </div>
+        <div class="category-expanded">
+          <div class="tools-grid">
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-java"></i>
+              </div>
+              <h3 class="tool-name">Java</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="devicon-c-plain"></i>
+              </div>
+              <h3 class="tool-name">C</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="devicon-csharp-plain"></i>
+              </div>
+              <h3 class="tool-name">C#</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="devicon-cplusplus-plain"></i>
+              </div>
+              <h3 class="tool-name">C++</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-brands fa-php"></i>
+              </div>
+              <h3 class="tool-name">PHP</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fas fa-gem"></i>
+              </div>
+              <h3 class="tool-name">Ruby</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-python"></i>
+              </div>
+              <h3 class="tool-name">Python</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-swift"></i>
+              </div>
+              <h3 class="tool-name">Swift</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-html5"></i>
+              </div>
+              <h3 class="tool-name">HTML</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-css3-alt"></i>
+              </div>
+              <h3 class="tool-name">CSS</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-js"></i>
+              </div>
+              <h3 class="tool-name">JavaScript</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-node-js"></i>
+              </div>
+              <h3 class="tool-name">Node.js</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-react"></i>
+              </div>
+              <h3 class="tool-name">React</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-microsoft"></i>
+              </div>
+              <h3 class="tool-name">.NET</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-brands fa-app-store"></i>
+              </div>
+              <h3 class="tool-name">XCode</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-brands fa-git-alt"></i>
+              </div>
+              <h3 class="tool-name">Git</h3>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 class="tool-name">HTML</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-css3-alt"></i>
-      </div>
-      <h3 class="tool-name">CSS</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-js"></i>
-      </div>
-      <h3 class="tool-name">JavaScript</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-node-js"></i>
-      </div>
-      <h3 class="tool-name">Node.js</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-react"></i>
-      </div>
-      <h3 class="tool-name">React</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-java"></i>
-      </div>
-      <h3 class="tool-name">Java</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="devicon-c-plain"></i>
-      </div>
-      <h3 class="tool-name">C</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="devicon-csharp-plain"></i>
-      </div>
-      <h3 class="tool-name">C#</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="devicon-cplusplus-plain"></i>
-      </div>
-      <h3 class="tool-name">C++</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fa-brands fa-php"></i>
-      </div>
-      <h3 class="tool-name">PHP</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fas fa-gem"></i>
-      </div>
-      <h3 class="tool-name">Ruby</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-python"></i>
-      </div>
-      <h3 class="tool-name">Python</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-swift"></i>
-      </div>
-      <h3 class="tool-name">Swift</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fa-brands fa-app-store"></i>
-      </div>
-      <h3 class="tool-name">XCode</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="devicon-matlab-plain"></i>
-      </div>
-      <h3 class="tool-name">MatLab</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fas fa-database"></i>
-      </div>
-      <h3 class="tool-name">SQL</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fas fa-leaf"></i>
-      </div>
-      <h3 class="tool-name">MongoDB</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-microsoft"></i>
-      </div>
-      <h3 class="tool-name">.NET</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fas fa-microchip"></i>
-      </div>
-      <h3 class="tool-name">Arduino</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fab fa-raspberry-pi"></i>
-      </div>
-      <h3 class="tool-name">Raspberry Pi</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fa-solid fa-gear"></i>
-      </div>
-      <h3 class="tool-name">SolidWorks</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fa-solid fa-cubes"></i>
-      </div>
-      <h3 class="tool-name">Fusion360</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-       <i class="fa-solid fa-wind"></i>
-       </div>
-      <h3 class="tool-name">ANSYS</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fa-brands fa-git-alt"></i>
-      </div>
-      <h3 class="tool-name">Git</h3>
-    </div>
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="devicon-tensorflow-original"></i>
-      </div>
-      <h3 class="tool-name">TensorFlow</h3>
-    </div>
 
-    <div class="tool-item">
-      <div class="tool-icon">
-        <i class="fa-brands fa-docker"></i>
+      <!-- Mechanical Category -->
+      <div class="category-card" data-category="mechanical">
+        <div class="category-main">
+          <div class="tool-icon">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+          <h3 class="tool-name">Mechanical</h3>
+        </div>
+        <div class="category-expanded">
+          <div class="tools-grid">
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+              <h3 class="tool-name">SolidWorks</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-cubes"></i>
+              </div>
+              <h3 class="tool-name">Fusion360</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-wind"></i>
+              </div>
+              <h3 class="tool-name">ANSYS</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <h3 class="tool-name">SimFlow</h3>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 class="tool-name">Docker</h3>
-    </div>
- 
 
-  <div class="tool-item">
-      <div class="tool-icon">
-        <i class="devicon-latex-original"></i>
+      <!-- Electrical Category -->
+      <div class="category-card" data-category="electrical">
+        <div class="category-main">
+          <div class="tool-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3 class="tool-name">Electrical</h3>
+        </div>
+        <div class="category-expanded">
+          <div class="tools-grid">
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fas fa-microchip"></i>
+              </div>
+              <h3 class="tool-name">Arduino</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fab fa-raspberry-pi"></i>
+              </div>
+              <h3 class="tool-name">Raspberry Pi</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-wifi"></i>
+              </div>
+              <h3 class="tool-name">ESP32</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <h3 class="tool-name">LTSpice</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-solid fa-code-branch"></i>
+              </div>
+              <h3 class="tool-name">PlatformIO</h3>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 class="tool-name">LaTeX</h3>
+
+      <!-- Data Category -->
+      <div class="category-card" data-category="data">
+        <div class="category-main">
+          <div class="tool-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="tool-name">Data</h3>
+        </div>
+        <div class="category-expanded">
+          <div class="tools-grid">
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="devicon-tensorflow-original"></i>
+              </div>
+              <h3 class="tool-name">TensorFlow</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fa-brands fa-docker"></i>
+              </div>
+              <h3 class="tool-name">Docker</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="devicon-matlab-plain"></i>
+              </div>
+              <h3 class="tool-name">MatLab</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="tool-name">SQL</h3>
+            </div>
+            <div class="tool-item">
+              <div class="tool-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3 class="tool-name">MongoDB</h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div> </div>
-</section>
+  </section>
+
   
   <section id="contact">
     <h2 class="section-title">Let's Connect</h2>
@@ -1348,6 +1658,57 @@ body.light-mode .logo-img {
       createHexagons();
     }, 1500);
   });
+  
+  
+   const blocks = document.querySelectorAll(".glass-block");
+  const infoCards = document.querySelectorAll(".info-card");
+  const lines = document.querySelectorAll(".connector-line");
+
+  blocks.forEach((block, index) => {
+    block.addEventListener("click", () => {
+      const isActive = block.classList.contains("active");
+
+      // Close all blocks
+      blocks.forEach(b => b.classList.remove("active"));
+      infoCards.forEach(card => card.classList.remove("show"));
+      lines.forEach(line => line.classList.remove("visible"));
+
+      if (!isActive) {
+        // Open the clicked one
+        block.classList.add("active");
+        infoCards[index].classList.add("show");
+        lines[index].classList.add("visible");
+      }
+    });
+  });
+  
+  
+  
+  // Category expansion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryCards = document.querySelectorAll('.category-card');
+      
+      categoryCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Prevent expansion if clicking on an inner tool item
+          if (e.target.closest('.tool-item')) {
+            return;
+          }
+          
+          const isExpanded = card.classList.contains('expanded');
+          
+          // Close all other categories
+          categoryCards.forEach(otherCard => {
+            if (otherCard !== card) {
+              otherCard.classList.remove('expanded');
+            }
+          });
+          
+          // Toggle current category
+          card.classList.toggle('expanded', !isExpanded);
+        });
+      });
+    });
 </script>
 
 </body>
