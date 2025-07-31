@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <!-- this is a test-->
@@ -934,12 +935,124 @@ body.light-mode .logo-img {
     font-size: 1rem;
   }
 }
+/* Footer */
+footer {
+  position: relative;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(255, 252, 245, 0.1);
+  height: 80px;
+  transition: height 0.6s ease, padding 0.6s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer.expanded {
+  height: 200px;
+  padding: 3rem 2rem;
+}
+
+.footer-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-flags {
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.3s;
+}
+
+footer.expanded .footer-flags {
+  opacity: 1;
+}
+
+.flag-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flag-img {
+  width: 45px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.flag-img:hover {
+  transform: scale(1.1);
+}
+
+.footer-name {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  padding-left: 100px;
+  transform: translateY(-50%);
+  font-family: 'Robotto', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.3s;
+}
+
+footer.expanded .footer-name {
+  opacity: 1;
+}
+
+.footer-copyright {
+  transition: opacity 0.3s ease;
+}
+
+footer.expanded .footer-copyright {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-flags {
+    right: 10%;
+    gap: 10px;
+  }
+  
+  .flag-img {
+    width: 35px;
+    height: 23px;
+  }
+  
+  footer.expanded {
+    height: 160px;
+  }
+}
+
   </style>
 
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -1459,7 +1572,6 @@ body.light-mode .logo-img {
         <h3 class="contact-type">GitHub</h3>
         <p class="contact-value"></p>
       </div>
-    
 
     <div class="contact-card" onclick="window.open('https://www.thingiverse.com/huzaimm01/designs')">
         <div class="contact-icon">
@@ -1474,8 +1586,19 @@ body.light-mode .logo-img {
 
   
   <footer>
-    <p>&copy; hola</p>
-  </footer>
+  <div class="footer-content">
+    <p class="footer-copyright">&copy; hola</p>
+    <div class="footer-flags">
+      <div class="flag-container">
+        <img src="https://uploads.onecompiler.io/42uc6pwcy/43sa6gg9r/pk.png" alt="Pakistan Flag" class="flag-img">
+      </div>
+      <div class="flag-container">
+        <img src="https://uploads.onecompiler.io/42uc6pwcy/43sa6gg9r/ca.png" alt="Canada Flag" class="flag-img">
+      </div>
+    </div>
+    <div class="footer-name">HUZAIM</div>
+  </div>
+</footer>
 
   <script>
  if (location.pathname.endsWith("/index.html")) {
@@ -1706,13 +1829,12 @@ body.light-mode .logo-img {
     block.addEventListener("click", () => {
       const isActive = block.classList.contains("active");
 
-      // Close all blocks
+    
       blocks.forEach(b => b.classList.remove("active"));
       infoCards.forEach(card => card.classList.remove("show"));
       lines.forEach(line => line.classList.remove("visible"));
 
       if (!isActive) {
-        // Open the clicked one
         block.classList.add("active");
         infoCards[index].classList.add("show");
         lines[index].classList.add("visible");
@@ -1722,31 +1844,50 @@ body.light-mode .logo-img {
   
   
   
-  // Category expansion functionality
+
     document.addEventListener('DOMContentLoaded', function() {
       const categoryCards = document.querySelectorAll('.category-card');
       
       categoryCards.forEach(card => {
         card.addEventListener('click', function(e) {
-          // Prevent expansion if clicking on an inner tool item
           if (e.target.closest('.tool-item')) {
             return;
           }
           
           const isExpanded = card.classList.contains('expanded');
           
-          // Close all other categories
+          
           categoryCards.forEach(otherCard => {
             if (otherCard !== card) {
               otherCard.classList.remove('expanded');
             }
           });
           
-          // Toggle current category
+         
           card.classList.toggle('expanded', !isExpanded);
         });
       });
     });
+    
+    // Footer
+    function handleFooterExpansion() {
+  const footer = document.querySelector('footer');
+  const scrollHeight = document.documentElement.scrollHeight;
+  const scrollTop = document.documentElement.scrollTop;
+  const clientHeight = document.documentElement.clientHeight;
+
+// those who check
+
+  if (scrollHeight - scrollTop - clientHeight < 50) {
+    footer.classList.add('expanded');
+  } else {
+    footer.classList.remove('expanded');
+  }
+}
+
+window.addEventListener('scroll', handleFooterExpansion);
+
+handleFooterExpansion();
 </script>
 
 </body>
