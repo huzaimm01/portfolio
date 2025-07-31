@@ -1455,7 +1455,15 @@ body.light-mode .logo-img {
   </footer>
 
   <script>
- 
+ if (location.pathname.endsWith("/index.html")) {
+    window.location.replace(location.pathname.replace("/index.html", "/"));
+  }
+
+  //
+  //
+  //
+
+  
   function createHexagons() {
     const hexGrid = document.querySelector('.hexagon-grid');
     const hexCount = 20;
