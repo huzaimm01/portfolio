@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="en">
   <!-- this is a test-->
@@ -1044,6 +1045,241 @@ footer.expanded .footer-copyright {
   }
 }
 
+
+
+.desktop-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 80vh;
+  margin: 2rem auto;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 2px solid rgba(255, 252, 245, 0.1);
+}
+
+.desktop-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 252, 245, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 252, 245, 0.02) 0%, transparent 50%),
+    linear-gradient(135deg, var(--primary) 0%, #001426 100%);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 2rem;
+}
+
+.desktop-icon {
+  width: 100px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 10px;
+  padding: 1rem;
+  position: relative;
+}
+
+.desktop-icon:hover {
+  background: rgba(255, 252, 245, 0.1);
+  transform: translateY(-5px);
+}
+
+.icon-image {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8e5d8 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 252, 245, 0.2);
+}
+
+.icon-image i {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.icon-label {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.folder-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 90%;
+  max-width: 800px;
+  height: 70%;
+  background: var(--secondary);
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 252, 245, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.folder-window.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.window-header {
+  height: 50px;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8e5d8 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.window-controls {
+  display: flex;
+  gap: 8px;
+  margin-right: 1rem;
+}
+
+.window-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.control-close { background: #ff5f57; }
+.control-minimize { background: #ffbd2e; }
+.control-maximize { background: #28ca42; }
+
+.window-control:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.window-title {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.window-content {
+  padding: 2rem;
+  height: calc(100% - 50px);
+  overflow-y: auto;
+}
+
+#tools .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1.5rem;
+}
+
+#tools .tool-item {
+  background: rgba(255, 252, 245, 0.05);
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 1px solid rgba(255, 252, 245, 0.1);
+}
+
+#tools .tool-item:hover {
+  background: rgba(255, 252, 245, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#tools .tool-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+#tools .tool-name {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.desktop-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.desktop-container .overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 768px) {
+  .desktop-container {
+    height: 60vh;
+    margin: 1rem auto;
+  }
+  
+  .desktop-screen {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .desktop-icon {
+    width: 80px;
+    height: 100px;
+  }
+  
+  .icon-image {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .icon-image i {
+    font-size: 1.5rem;
+  }
+  
+  .folder-window {
+    width: 95%;
+    height: 80%;
+  }
+  
+  .window-content {
+    padding: 1rem;
+  }
+  
+  #tools .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+}
   </style>
 
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -1290,245 +1526,226 @@ footer.expanded .footer-copyright {
 
 
 <section id="tools">
-    <h2 class="section-title">Skills & Tools</h2>
-    <div class="tools-categories">
-      <!-- Programming Category -->
-      <div class="category-card" data-category="programming">
-        <div class="category-main">
-          <div class="tool-icon">
-            <i class="ph ph-code"></i>
-          </div>
-          <h3 class="tool-name">Programming</h3>
+  <h2 class="section-title">Skills & Tools</h2>
+  
+  <div class="desktop-container">
+    <div class="desktop-screen">
+      <!-- Desktop Icons -->
+      <div class="desktop-icon" data-folder="programming">
+        <div class="icon-image">
+          <i class="ph ph-code"></i>
         </div>
-        <div class="category-expanded">
-          <div class="tools-grid">
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-java"></i>
-              </div>
-              <h3 class="tool-name">Java</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="devicon-c-plain"></i>
-              </div>
-              <h3 class="tool-name">C</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="devicon-csharp-plain"></i>
-              </div>
-              <h3 class="tool-name">C#</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="devicon-cplusplus-plain"></i>
-              </div>
-              <h3 class="tool-name">C++</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-brands fa-php"></i>
-              </div>
-              <h3 class="tool-name">PHP</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fas fa-gem"></i>
-              </div>
-              <h3 class="tool-name">Ruby</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-python"></i>
-              </div>
-              <h3 class="tool-name">Python</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-swift"></i>
-              </div>
-              <h3 class="tool-name">Swift</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-html5"></i>
-              </div>
-              <h3 class="tool-name">HTML</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-css3-alt"></i>
-              </div>
-              <h3 class="tool-name">CSS</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-js"></i>
-              </div>
-              <h3 class="tool-name">JavaScript</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-node-js"></i>
-              </div>
-              <h3 class="tool-name">Node.js</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-react"></i>
-              </div>
-              <h3 class="tool-name">React</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-microsoft"></i>
-              </div>
-              <h3 class="tool-name">.NET</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-brands fa-app-store"></i>
-              </div>
-              <h3 class="tool-name">XCode</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-brands fa-git-alt"></i>
-              </div>
-              <h3 class="tool-name">Git</h3>
-            </div>
-          </div>
-        </div>
+        <div class="icon-label">Programming</div>
       </div>
 
-      <!-- Mechanical Category -->
-      <div class="category-card" data-category="mechanical">
-        <div class="category-main">
-          <div class="tool-icon">
-            <i class="fa-solid fa-gear"></i>
-          </div>
-          <h3 class="tool-name">Mechanical</h3>
+      <div class="desktop-icon" data-folder="mechanical">
+        <div class="icon-image">
+          <i class="ph ph-gear"></i>
         </div>
-        <div class="category-expanded">
-          <div class="tools-grid">
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-gear"></i>
-              </div>
-              <h3 class="tool-name">SolidWorks</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-cubes"></i>
-              </div>
-              <h3 class="tool-name">Fusion360</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-wind"></i>
-              </div>
-              <h3 class="tool-name">ANSYS</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-droplet"></i>
-              </div>
-              <h3 class="tool-name">SimFlow</h3>
-            </div>
-          </div>
-        </div>
+        <div class="icon-label">Mechanical</div>
       </div>
 
-      <!-- Electrical Category -->
-      <div class="category-card" data-category="electrical">
-        <div class="category-main">
-          <div class="tool-icon">
-            <i class="fas fa-microchip"></i>
-          </div>
-          <h3 class="tool-name">Electrical</h3>
+      <div class="desktop-icon" data-folder="electrical">
+        <div class="icon-image">
+          <i class="ph ph-circuitry"></i>
         </div>
-        <div class="category-expanded">
-          <div class="tools-grid">
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fas fa-microchip"></i>
-              </div>
-              <h3 class="tool-name">Arduino</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fab fa-raspberry-pi"></i>
-              </div>
-              <h3 class="tool-name">Raspberry Pi</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-wifi"></i>
-              </div>
-              <h3 class="tool-name">ESP32</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-bolt"></i>
-              </div>
-              <h3 class="tool-name">LTSpice</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-solid fa-code-branch"></i>
-              </div>
-              <h3 class="tool-name">PlatformIO</h3>
-            </div>
-          </div>
-        </div>
+        <div class="icon-label">Electrical</div>
       </div>
 
-      <!-- Data Category -->
-      <div class="category-card" data-category="data">
-        <div class="category-main">
-          <div class="tool-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3 class="tool-name">Data</h3>
+      <div class="desktop-icon" data-folder="data">
+        <div class="icon-image">
+          <i class="ph ph-database"></i>
         </div>
-        <div class="category-expanded">
-          <div class="tools-grid">
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="devicon-tensorflow-original"></i>
-              </div>
-              <h3 class="tool-name">TensorFlow</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fa-brands fa-docker"></i>
-              </div>
-              <h3 class="tool-name">Docker</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="devicon-matlab-plain"></i>
-              </div>
-              <h3 class="tool-name">MatLab</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <h3 class="tool-name">SQL</h3>
-            </div>
-            <div class="tool-item">
-              <div class="tool-icon">
-                <i class="fas fa-leaf"></i>
-              </div>
-              <h3 class="tool-name">MongoDB</h3>
-            </div>
+        <div class="icon-label">Data</div>
+      </div>
+    </div>
+
+    
+    <div class="overlay"></div>
+
+   
+    <div class="folder-window" id="programming-window">
+      <div class="window-header">
+        <div class="window-controls">
+          <div class="window-control control-close"></div>
+          <div class="window-control control-minimize"></div>
+          <div class="window-control control-maximize"></div>
+        </div>
+        <div class="window-title">Programming</div>
+      </div>
+      <div class="window-content">
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-java"></i></div>
+            <h3 class="tool-name">Java</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="devicon-c-plain"></i></div>
+            <h3 class="tool-name">C</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="devicon-csharp-plain"></i></div>
+            <h3 class="tool-name">C#</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="devicon-cplusplus-plain"></i></div>
+            <h3 class="tool-name">C++</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-brands fa-php"></i></div>
+            <h3 class="tool-name">PHP</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-gem"></i></div>
+            <h3 class="tool-name">Ruby</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-python"></i></div>
+            <h3 class="tool-name">Python</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-swift"></i></div>
+            <h3 class="tool-name">Swift</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-html5"></i></div>
+            <h3 class="tool-name">HTML</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-css3-alt"></i></div>
+            <h3 class="tool-name">CSS</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-js"></i></div>
+            <h3 class="tool-name">JavaScript</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-node-js"></i></div>
+            <h3 class="tool-name">Node.js</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-react"></i></div>
+            <h3 class="tool-name">React</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-microsoft"></i></div>
+            <h3 class="tool-name">.NET</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-brands fa-app-store"></i></div>
+            <h3 class="tool-name">XCode</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-brands fa-git-alt"></i></div>
+            <h3 class="tool-name">Git</h3>
           </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="folder-window" id="mechanical-window">
+      <div class="window-header">
+        <div class="window-controls">
+          <div class="window-control control-close"></div>
+          <div class="window-control control-minimize"></div>
+          <div class="window-control control-maximize"></div>
+        </div>
+        <div class="window-title">Mechanical</div>
+      </div>
+      <div class="window-content">
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-gear"></i></div>
+            <h3 class="tool-name">SolidWorks</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-cubes"></i></div>
+            <h3 class="tool-name">Fusion360</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-wind"></i></div>
+            <h3 class="tool-name">ANSYS</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h3 class="tool-name">SimFlow</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="electrical-window">
+      <div class="window-header">
+        <div class="window-controls">
+          <div class="window-control control-close"></div>
+          <div class="window-control control-minimize"></div>
+          <div class="window-control control-maximize"></div>
+        </div>
+        <div class="window-title">Electrical</div>
+      </div>
+      <div class="window-content">
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-microchip"></i></div>
+            <h3 class="tool-name">Arduino</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fab fa-raspberry-pi"></i></div>
+            <h3 class="tool-name">Raspberry Pi</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-wifi"></i></div>
+            <h3 class="tool-name">ESP32</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3 class="tool-name">LTSpice</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-solid fa-code-branch"></i></div>
+            <h3 class="tool-name">PlatformIO</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder-window" id="data-window">
+      <div class="window-header">
+        <div class="window-controls">
+          <div class="window-control control-close"></div>
+          <div class="window-control control-minimize"></div>
+          <div class="window-control control-maximize"></div>
+        </div>
+        <div class="window-title">Data</div>
+      </div>
+      <div class="window-content">
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-icon"><i class="devicon-tensorflow-original"></i></div>
+            <h3 class="tool-name">TensorFlow</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fa-brands fa-docker"></i></div>
+            <h3 class="tool-name">Docker</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="devicon-matlab-plain"></i></div>
+            <h3 class="tool-name">MatLab</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-database"></i></div>
+            <h3 class="tool-name">SQL</h3>
+          </div>
+          <div class="tool-item">
+            <div class="tool-icon"><i class="fas fa-leaf"></i></div>
+            <h3 class="tool-name">MongoDB</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   
   <section id="contact">
@@ -1889,6 +2106,54 @@ footer.expanded .footer-copyright {
 window.addEventListener('scroll', handleFooterExpansion);
 
 handleFooterExpansion();
+
+
+
+
+// Window
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const desktopIcons = document.querySelectorAll('.desktop-icon');
+  const folderWindows = document.querySelectorAll('.folder-window');
+  const overlay = document.querySelector('.desktop-container .overlay');
+  const closeButtons = document.querySelectorAll('.control-close');
+
+  desktopIcons.forEach(icon => {
+    icon.addEventListener('click', function() {
+      const folderType = this.getAttribute('data-folder');
+      const targetWindow = document.getElementById(folderType + '-window');
+      
+      
+      folderWindows.forEach(window => window.classList.remove('active'));
+      
+      
+      targetWindow.classList.add('active');
+      overlay.classList.add('active');
+    });
+  });
+
+ 
+  function closeWindow() {
+    folderWindows.forEach(window => window.classList.remove('active'));
+    overlay.classList.remove('active');
+  }
+
+  closeButtons.forEach(button => {
+    button.addEventListener('click', closeWindow);
+  });
+
+  overlay.addEventListener('click', closeWindow);
+
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeWindow();
+    }
+  });
+});
+
+
 </script>
 
 </body>
