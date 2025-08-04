@@ -1,10 +1,9 @@
-    
-    :root {
+ :root {
       --primary: #00111c;
       --secondary: #002137;
       --accent: #FFFCF5;
-      --text-primary: #f6f7eb;
-      --text-secondary: #cbd0bd;
+      --text-primary: #EAF0F6;
+      --text-secondary: #A9B4C2;
       --transition: all 0.3s ease;
       --shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
     }
@@ -13,8 +12,8 @@
       --primary: #00111c;
       --secondary: #002137;
       --accent: #FFFCF5;
-      --text-primary: #f6f7eb;
-      --text-secondary: #cbd0bd;
+      --text-primary: #EAF0F6;
+      --text-secondary: #A9B4C2;
     }
 
     .light-mode {
