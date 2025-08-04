@@ -288,7 +288,7 @@
     .projects-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 20px;
       margin-top: 2rem;
     }
 
@@ -299,7 +299,7 @@
       transition: var(--transition);
       box-shadow: var(--shadow);
       position: relative;
-      height: 470px;
+      height: 500px;
     }
 
     .project-card:hover {
@@ -309,7 +309,7 @@
     .project-image {
       width: 100%;
       height: 180px;
-      object-fit: fill;
+      object-fit: cover;
     }
 
     .project-content {
@@ -346,12 +346,14 @@
     .project-links {
       display: flex;
       gap: 15px;
+      padding-bottom: 10px;
     }
 
     .project-link {
       color: var(--text-primary);
       font-size: 1.2rem;
       transition: var(--transition);
+      padding-bottom: 10px;
     }
 
     .project-link:hover {
