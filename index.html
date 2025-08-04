@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <!-- this is a test-->
@@ -17,10 +14,17 @@
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="style.css">
+
+
+  <!-- Fonts -->
+   <!--Titillium-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
-
+  <!--Space Grotesk-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
   
@@ -30,9 +34,7 @@
   </div>
 --->
   
-  <div class="overlay"></div>
-
-  
+<div class="overlay"></div>
   <div class="scroll-indicator">
     <div class="scroll-dot active" data-section="hero"></div>
     <div class="scroll-line"></div>
@@ -43,44 +45,42 @@
     <div class="scroll-dot" data-section="tools"></div>
     <div class="scroll-line"></div>
     <div class="scroll-dot" data-section="contact"></div>
-  </div>
+</div>
 
   
   <header>
-   <!--- Logo.  Not a fan of how it looks -->
-  <!--<a href="#" class="logo"><img src="favicon.ico" alt="logo"></a>
-  --->
+   <!--- Logo.  Not a fan of how it looks
+    <a href="#" class="logo"><img src="favicon.ico" alt="logo"></a>
+    --->
 
     <div class="nav-container">
-      <nav>
-        <button class="close-menu">
-          <i class="fas fa-times"></i>
-        </button>
-        <ul>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#aboutme">About Me</a></li>
-          <li><a href="#tools">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+        <nav>
+          <button class="close-menu">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#aboutme">About Me</a></li>
+            <li><a href="#tools">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
     </div>
+
     <div class="nav-utility">
-    <button class="toggle-mode">
-      <i class="fas fa-moon"></i>
-    </button>
-    <div class="hamburger">
-      <i class="fas fa-bars"></i>
-    </div>
+        <button class="toggle-mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </header>
 
- 
+ <!-- Main (Name, etc) -->
   <section class="hero" id="hero">
-    <div class="hexagon-grid">
-      
-    </div>
+    <div class="hexagon-grid"></div>
     <div class="hero-content">
-      
       <div class="typing-container">
         <div class="typing-prefix" id="typing-prefix">Hi! I'm</div>
         <div class="name-animated" id="typing-name">Huzaim!</div>
@@ -94,28 +94,28 @@
  
   
 
-  
+  <!-- Projects Section -->
   <section id="projects">
     <h2 class="section-title">Projects</h2>
-    <div class="projects-container">
+      <div class="projects-container">
 
 
-      <div class="project-card">
-        <img src="images/frc.jpg" alt="FRC" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">FIRST Robotics Challenge</h3>
-          <p class="project-description">Mechanical lead for the FRC team, handling 3D modeling and robot construction.</p>
-          <div class="project-tags">
-            <span class="project-tag">WPILib</span>
-            <span class="project-tag">SolidWorks</span>
-            <span class="project-tag">Manufacturing</span>
-            <span class="project-tag">Git</span>
-          </div>
+        
+        <div class="project-card">
+            <img src="images/frc.jpg" alt="FRC" class="project-image">
+          <div class="project-content">
+            <h3 class="project-title">FIRST Robotics Challenge</h3>
+              <p class="project-description">Mechanical lead for the FRC team, handling 3D modeling and robot construction.</p>
+            <div class="project-tags">
+              <span class="project-tag">WPILib</span>
+              <span class="project-tag">SolidWorks</span>
+              <span class="project-tag">Manufacturing</span>
+              <span class="project-tag">Git</span>
+            </div>
           
-          <div class="project-links">
+            <div class="project-links">
             <a href="https://github.com/team9562" class="project-link"><i class="fab fa-github"></i></a>
             <a href="https://www.frc9562.ca" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-          
           </div>
         </div>
       </div>
