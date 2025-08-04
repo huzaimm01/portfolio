@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <style>
+    
     :root {
       --primary: #00111c;
       --secondary: #002137;
@@ -307,6 +308,7 @@
     .tool-name {
       font-size: 1.2rem;
       font-weight: bold;
+      padding-top: 50px;
     }
 
     .projects-container {
@@ -358,6 +360,13 @@
       font-size: 0.9rem;
     }
 
+    .project-description-one {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      padding-top: 50px;
+    }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
@@ -385,10 +394,12 @@
       color: var(--text-primary);
       font-size: 1.2rem;
       transition: var(--transition);
+      text-decoration: none;
     }
 
     .project-link:hover {
       color: var(--accent);
+      text-decoration: none;
     }
 
     .contact-container {
@@ -506,8 +517,11 @@
         font-size: 1.2rem;
         display: block;
         padding: 0.5rem 0;
+        text-decoration: none;
       }
-
+      a{
+         text-decoration: none;
+      }
       .hero-content {
         text-align: center;
         align-items: center;
@@ -1053,9 +1067,9 @@ footer.expanded .footer-copyright {
   max-width: 1200px;
   height: 80vh;
   margin: 2rem auto;
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  background: #001426;
   border-radius: 20px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
   overflow: hidden;
   border: 2px solid rgba(255, 252, 245, 0.1);
 }
@@ -1067,7 +1081,7 @@ footer.expanded .footer-copyright {
   background: 
     radial-gradient(circle at 20% 50%, rgba(255, 252, 245, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 252, 245, 0.02) 0%, transparent 50%),
-    linear-gradient(135deg, var(--primary) 0%, #001426 100%);
+    linear-gradient(135deg, #00111c 0%, #001426 100%);
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -1083,7 +1097,7 @@ footer.expanded .footer-copyright {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   border-radius: 10px;
   padding: 1rem;
   position: relative;
@@ -1097,7 +1111,7 @@ footer.expanded .footer-copyright {
 .icon-image {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--accent) 0%, #e8e5d8 100%);
+  background: linear-gradient(135deg, #FFFCF5 0%, #e8e5d8 100%);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -1109,13 +1123,13 @@ footer.expanded .footer-copyright {
 
 .icon-image i {
   font-size: 2rem;
-  color: var(--primary);
+  color: #00111c;
 }
 
 .icon-label {
   font-size: 0.9rem;
   text-align: center;
-  color: var(--text-primary);
+  color: #f6f7eb;
   font-weight: 500;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -1128,7 +1142,7 @@ footer.expanded .footer-copyright {
   width: 90%;
   max-width: 800px;
   height: 70%;
-  background: var(--secondary);
+  background: #002137;
   border-radius: 15px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 252, 245, 0.1);
@@ -1147,7 +1161,7 @@ footer.expanded .footer-copyright {
 
 .window-header {
   height: 50px;
-  background: linear-gradient(135deg, var(--accent) 0%, #e8e5d8 100%);
+  background: linear-gradient(135deg, #FFFCF5 0%, #e8e5d8 100%);
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -1165,7 +1179,7 @@ footer.expanded .footer-copyright {
   height: 12px;
   border-radius: 50%;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .control-close { background: #ff5f57; }
@@ -1178,7 +1192,7 @@ footer.expanded .footer-copyright {
 }
 
 .window-title {
-  color: var(--primary);
+  color: #00111c;
   font-weight: bold;
   font-size: 1rem;
 }
@@ -1193,6 +1207,104 @@ footer.expanded .footer-copyright {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 1.5rem;
+}
+
+#tools .tool-item {
+  background: rgba(255, 252, 245, 0.05);
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 252, 245, 0.1);
+}
+
+#tools .tool-item:hover {
+  background: rgba(255, 252, 245, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#tools .tool-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #FFFCF5;
+}
+
+#tools .tool-name {
+  font-size: 0.9rem;
+  color: #f6f7eb;
+  font-weight: 500;
+}
+
+.desktop-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.desktop-container .overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 768px) {
+  .desktop-container {
+    height: 60vh;
+    margin: 1rem auto;
+    background: #001426;
+  }
+  
+  .desktop-screen {
+    padding: 1rem;
+    gap: 1rem;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(255, 252, 245, 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 252, 245, 0.02) 0%, transparent 50%),
+      linear-gradient(135deg, #00111c 0%, #001426 100%);
+  }
+  
+  .desktop-icon {
+    width: 80px;
+    height: 100px;
+  }
+  
+  .icon-image {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FFFCF5 0%, #e8e5d8 100%);
+  }
+  
+  .icon-image i {
+    font-size: 1.5rem;
+    color: #00111c;
+  }
+  
+  .icon-label {
+    color: #f6f7eb;
+  }
+  
+  .folder-window {
+    width: 95%;
+    height: 80%;
+    background: #002137;
+  }
+  
+  .window-content {
+    padding: 1rem;
+  }
+  
+  #tools .tools-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  }
 }
 
 #tools .tool-item {
@@ -1232,8 +1344,6 @@ footer.expanded .footer-copyright {
   background: rgba(0, 0, 0, 0.3);
   opacity: 0;
   pointer-events: none;
-  transition: var(--transition);
-  z-index: 999;
 }
 
 .desktop-container .overlay.active {
@@ -1317,8 +1427,8 @@ footer.expanded .footer-copyright {
   
   <header>
    <!--- Logo.  Not a fan of how it looks -->
-  <a href="#" class="logo"><img src="favicon.ico" alt="logo"></a>
-  <!----->
+  <!--<a href="#" class="logo"><img src="favicon.ico" alt="logo"></a>
+  --->
 
     <div class="nav-container">
       <nav>
@@ -1462,19 +1572,17 @@ footer.expanded .footer-copyright {
         </div>
       </div>
 
-      <a href="projects.html" class="project-link"></a>
+      
       <div class="tool-item">
+        <a href="projects.html" class="project-link" style="text-decoration: none;">
       <div class="tool-icon-one">
         <i class="fa-solid fa-ellipsis"></i>
       </div>
-      <h3 class="tool-name">There's more!</h3>
-      <p class="project-description">Explore everything I'm working on at the dedicated Project Page!</p>
-      <div class="project-links">
-            <a href="https://github.com/huzaimm01/portfolio/" class="project-link"><i class="fab fa-github"></i></a>
-            <i class="fas fa-external-link-alt"></i>
-          </div>
+      <h3 class="tool-name">More Projects</h3>
+      <!--<h3 class="tool-name">Explore everything I'm working on at the dedicated Project Page!</h3>-->
         </div>
       </div>
+      </a>
     </div>
   </div>
   </a>
