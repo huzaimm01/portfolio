@@ -195,3 +195,25 @@
       createHexagons();
     }, 1500);
   });
+
+
+  // Footer
+    function handleFooterExpansion() {
+  const footer = document.querySelector('footer');
+  const scrollHeight = document.documentElement.scrollHeight;
+  const scrollTop = document.documentElement.scrollTop;
+  const clientHeight = document.documentElement.clientHeight;
+
+// those who check
+
+  if (scrollHeight - scrollTop - clientHeight < 50) {
+    footer.classList.add('expanded');
+  } else {
+    footer.classList.remove('expanded');
+  }
+}
+
+window.addEventListener('scroll', handleFooterExpansion);
+
+handleFooterExpansion();
+
