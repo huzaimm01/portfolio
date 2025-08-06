@@ -1564,3 +1564,56 @@ body.dark-mode .nav-close {
     display: none;
   }
 }
+
+
+.profession {
+    font-size: 1.8rem;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  .description {
+    font-size: 1rem;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  section {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-prefix {
+    font-size: 1.5rem;
+    height: 30px;
+  }
+
+  .name-animated {
+    font-size: 2rem;
+    height: 45px;
+  }
+
+  .profession {
+    font-size: 1.5rem;
+  }
+
+  .hero {
+    padding: 0 5%;
+  }
+}
+
+input, select, textarea {
+  font-size: 16px !important;
+  -webkit-text-size-adjust: 100%;
+}
+
+.cursor {
+  font-weight: bold;
+  animation: blink 1s infinite;
+  position: relative;
+  display: inline-block;
+  width: 0;
+}
