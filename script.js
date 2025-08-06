@@ -332,4 +332,201 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Airplane
+
+// Nav
+
+
+function initDynamicNavTitle() {
+  const navTitle = document.createElement('div');
+  navTitle.className = 'nav-section-title';
+  navTitle.textContent = '';
+  
+  const header = document.querySelector('header');
+  if (header) {
+    header.appendChild(navTitle);
+  }
+  
+  const sections = [
+    { id: 'hero', title: 'Home', offset: 0 },
+    { id: 'projects', title: 'Projects', offset: 100 },
+    { id: 'aboutme', title: 'About Me', offset: 100 },
+    { id: 'tools', title: 'Skills & Tools', offset: 100 },
+    { id: 'contact', title: 'Contact', offset: 100 }
+  ];
+  
+  let currentSection = '';
+  let isTransitioning = false;
+  
+  function getCurrentSection() {
+    const scrollTop = window.pageYOffset;
+    const viewportHeight = window.innerHeight;
+    
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = document.getElementById(sections[i].id);
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = scrollTop + rect.top;
+        
+        if (scrollTop >= sectionTop - sections[i].offset) {
+          return sections[i];
+        }
+      }
+    }
+    
+    return sections[0];
+  }
+  
+  function updateNavTitle(newSection) {
+    if (newSection.id === currentSection || isTransitioning) return;
+    
+    isTransitioning = true;
+    
+    if (currentSection === '') {
+      navTitle.textContent = newSection.title;
+      navTitle.classList.add('visible');
+      currentSection = newSection.id;
+      isTransitioning = false;
+      return;
+    }
+    
+    navTitle.classList.remove('visible');
+    navTitle.classList.add('exiting');
+    
+    setTimeout(() => {
+      navTitle.textContent = newSection.title;
+      navTitle.classList.remove('exiting');
+      navTitle.classList.add('entering');
+      
+      setTimeout(() => {
+        navTitle.classList.remove('entering');
+        navTitle.classList.add('visible');
+        currentSection = newSection.id;
+        isTransitioning = false;
+      }, 50);
+    }, 200);
+  }
+  
+  let ticking = false;
+  
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const newSection = getCurrentSection();
+        updateNavTitle(newSection);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  
+  const initialSection = getCurrentSection();
+  updateNavTitle(initialSection);
+  
+  window.addEventListener('scroll', onScroll, { passive: true });
+  
+  window.addEventListener('hashchange', () => {
+    setTimeout(() => {
+      const newSection = getCurrentSection();
+      updateNavTitle(newSection);
+    }, 100);
+  });
+}
+
+function initFullScreenNav() {
+  const overlay = document.createElement('div');
+  overlay.className = 'nav-overlay';
+  
+  const menu = document.createElement('div');
+  menu.className = 'nav-overlay-menu';
+  
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'nav-close';
+  closeBtn.innerHTML = '×';
+  
+  const menuItems = [
+    { text: 'HOME', href: '#hero' },
+    { text: 'PROJECTS', href: '#projects' },
+    { text: 'ABOUT', href: '#aboutme' },
+    { text: 'SKILLS', href: '#tools' },
+    { text: 'CONTACT', href: '#contact' }
+  ];
+  
+  menuItems.forEach(item => {
+    const link = document.createElement('a');
+    link.className = 'nav-overlay-item';
+    link.textContent = item.text;
+    link.href = item.href;
+    
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeOverlay();
+      
+      setTimeout(() => {
+        const target = document.querySelector(item.href);
+        if (target) {
+          const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+          const targetPosition = target.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 300);
+    });
+    
+    menu.appendChild(link);
+  });
+  
+  overlay.appendChild(closeBtn);
+  overlay.appendChild(menu);
+  document.body.appendChild(overlay);
+  
+  function openOverlay() {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeOverlay() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  const header = document.querySelector('header');
+  if (header) {
+    header.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!e.target.closest('.nav-container nav') && 
+            !e.target.closest('.nav-utility button')) {
+          openOverlay();
+        }
+      }
+    });
+  }
+
+  closeBtn.addEventListener('click', closeOverlay);
+  
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      closeOverlay();
+    }
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeOverlay();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initDynamicNavTitle();
+  initFullScreenNav();
+});
+
+window.addEventListener('resize', () => {
+  setTimeout(() => {
+    const event = new Event('scroll');
+    window.dispatchEvent(event);
+  }, 100);
+});
