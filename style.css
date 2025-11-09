@@ -1617,3 +1617,17 @@ input, select, textarea {
   display: inline-block;
   width: 0;
 }
+
+.g-indicator {
+  position: fixed;
+  left: calc(var(--scroll-indicator-left, 50px) + 30px); 
+  transform: translateY(-50%);
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.1s ease-out;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1000;
+}

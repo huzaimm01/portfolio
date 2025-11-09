@@ -530,3 +530,42 @@ window.addEventListener('resize', () => {
     window.dispatchEvent(event);
   }, 100);
 });
+
+const gIndicator = document.createElement('div');
+gIndicator.className = 'g-indicator';
+document.body.appendChild(gIndicator);
+
+let lastScrollPosition = 0;
+let scrollTimeout;
+
+window.addEventListener('scroll', () => {
+  const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollDirection = currentScrollPosition > lastScrollPosition ? 'down' : 'up';
+  
+
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const indicatorRect = scrollIndicator.getBoundingClientRect();
+  
+
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollProgress = currentScrollPosition / scrollHeight;
+  
+ 
+  const topPosition = indicatorRect.top + (scrollProgress * indicatorRect.height);
+  const leftPosition = indicatorRect.right + 10; 
+  
+  gIndicator.textContent = scrollDirection === 'down' ? '+g' : '-g';
+  gIndicator.style.top = `${topPosition}px`;
+  gIndicator.style.left = `${leftPosition}px`;
+  gIndicator.style.opacity = '1';
+  
+  
+  clearTimeout(scrollTimeout);
+  
+  
+  scrollTimeout = setTimeout(() => {
+    gIndicator.style.opacity = '0';
+  }, 500);
+  
+  lastScrollPosition = currentScrollPosition;
+});
