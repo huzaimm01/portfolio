@@ -312,7 +312,9 @@
       transition: var(--transition);
       box-shadow: var(--shadow);
       position: relative;
-      height: 470px;
+      min-height: 470px;  /* ← Changed to min-height */
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
