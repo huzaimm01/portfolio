@@ -569,3 +569,79 @@ window.addEventListener('scroll', () => {
   
   lastScrollPosition = currentScrollPosition;
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const categoryNodes = document.querySelectorAll('.category-node');
+  const skillBranches = document.querySelectorAll('.skill-branch');
+  
+  let activeCategory = null;
+
+ 
+  function drawConnections() {
+    const root = document.querySelector('.root-node');
+    if (!root) return;
+
+    const rootRect = root.getBoundingClientRect();
+    const rootCenterX = rootRect.left + rootRect.width / 2;
+    const rootCenterY = rootRect.bottom;
+
+    categoryNodes.forEach(node => {
+      const circle = node.querySelector('.node-circle');
+      const svg = node.querySelector('.connection-line');
+      const path = svg.querySelector('.line-path');
+      
+      const circleRect = circle.getBoundingClientRect();
+      const circleCenterX = circleRect.left + circleRect.width / 2;
+      const circleCenterY = circleRect.top + circleRect.height / 2;
+
+      const containerRect = svg.parentElement.parentElement.getBoundingClientRect();
+      
+      const startX = rootCenterX - containerRect.left;
+      const startY = rootCenterY - containerRect.top - 100;
+      const endX = circleCenterX - containerRect.left;
+      const endY = circleCenterY - containerRect.top + 200;
+
+      const midY = (startY + endY) / 2;
+      
+      const d = `M ${startX} ${startY} Q ${startX} ${midY}, ${endX} ${endY}`;
+      path.setAttribute('d', d);
+    });
+  }
+
+ 
+  setTimeout(drawConnections, 100);
+  window.addEventListener('resize', drawConnections);
+
+  categoryNodes.forEach(node => {
+    node.addEventListener('click', function() {
+      const category = this.getAttribute('data-category');
+      
+      
+      if (activeCategory === category) {
+        this.classList.remove('active');
+        skillBranches.forEach(branch => branch.classList.remove('active'));
+        activeCategory = null;
+        return;
+      }
+      
+      
+      categoryNodes.forEach(n => n.classList.remove('active'));
+      skillBranches.forEach(branch => branch.classList.remove('active'));
+      
+      
+      this.classList.add('active');
+      
+      
+      const targetBranch = document.getElementById(category + '-branch');
+      if (targetBranch) {
+        setTimeout(() => {
+          targetBranch.classList.add('active');
+        }, 300);
+      }
+      
+      activeCategory = category;
+    });
+  });
+});
