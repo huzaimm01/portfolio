@@ -1674,10 +1674,11 @@ html {
 
 
 
+
 .skills-tree-container {
   position: relative;
   width: 100%;
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1685,43 +1686,42 @@ html {
 }
 
 
-.tree-root {
-  position: relative;
-  margin-bottom: 4rem;
-  z-index: 10;
+.tree-connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.root-node {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: var(--secondary);
-  border: 3px solid var(--accent);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  cursor: pointer;
+.tree-connections path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  opacity: 0;
+  filter: url(#glow);
   transition: all 0.3s ease;
-  box-shadow: 0 0 30px rgba(255, 252, 245, 0.3);
-  position: relative;
 }
 
-.root-node i {
-  font-size: 2.5rem;
-  color: var(--accent);
+.tree-connections path.active {
+  opacity: 0.6;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 0.4s ease forwards;
 }
 
-.root-node span {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
+.tree-connections path.hover {
+  opacity: 1;
+  stroke-width: 3;
+  filter: url(#glow) drop-shadow(0 0 10px var(--accent));
 }
 
-.root-node:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 50px rgba(255, 252, 245, 0.5);
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 
@@ -1733,6 +1733,7 @@ html {
   width: 100%;
   max-width: 1000px;
   position: relative;
+  z-index: 5;
 }
 
 .category-node {
@@ -1742,13 +1743,12 @@ html {
   align-items: center;
   gap: 1rem;
   cursor: pointer;
-  z-index: 5;
 }
 
 .node-circle {
   width: 90px;
   height: 90px;
-  border-radius: 50%;
+  border-radius: 15px;
   background: var(--secondary);
   border: 2px solid rgba(255, 252, 245, 0.2);
   display: flex;
@@ -1756,6 +1756,7 @@ html {
   justify-content: center;
   transition: all 0.3s ease;
   position: relative;
+  z-index: 10;
 }
 
 .node-circle i {
@@ -1792,48 +1793,11 @@ html {
 }
 
 
-.connection-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0;
-}
-
-.connection-line path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 2;
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  filter: drop-shadow(0 0 8px var(--accent));
-  opacity: 0.6;
-}
-
-.category-node.active .connection-line {
-  opacity: 1;
-}
-
-.category-node.active .connection-line path {
-  animation: drawLine 1s ease forwards;
-}
-
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-
-
-
 .skill-branches {
   position: relative;
   width: 100%;
   max-width: 1200px;
+  z-index: 5;
 }
 
 .skill-branch {
@@ -1842,11 +1806,12 @@ html {
   gap: 2rem;
   padding: 2rem;
   opacity: 0;
+  position: relative;
 }
 
 .skill-branch.active {
   display: grid;
-  animation: fadeInBranch 0.5s ease forwards;
+  animation: fadeInBranch 0.3s ease forwards;
 }
 
 @keyframes fadeInBranch {
@@ -1864,16 +1829,17 @@ html {
   padding: 1rem;
   background: var(--secondary);
   border: 2px solid rgba(255, 252, 245, 0.1);
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(20px) scale(0.8);
+  z-index: 10;
 }
 
 .skill-branch.active .skill-node {
-  animation: popIn 0.5s ease forwards;
-  animation-delay: calc(var(--delay) * 0.05s);
+  animation: popIn 0.4s ease forwards;
+  animation-delay: calc(var(--delay) * 0.03s);
 }
 
 @keyframes popIn {
@@ -1913,7 +1879,7 @@ html {
   transform: scale(1.2);
 }
 
-/* Pulsing glow effect */
+
 @keyframes pulse {
   0%, 100% {
     box-shadow: 0 0 20px rgba(255, 252, 245, 0.3);
@@ -1927,25 +1893,17 @@ html {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 768px) {
   .category-nodes {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
-  .root-node {
-    width: 100px;
-    height: 100px;
-  }
-
-  .root-node i {
-    font-size: 2rem;
-  }
-
   .node-circle {
     width: 70px;
     height: 70px;
+    border-radius: 12px;
   }
 
   .node-circle i {
@@ -1960,6 +1918,7 @@ html {
 
   .skill-node {
     padding: 0.75rem;
+    border-radius: 10px;
   }
 
   .skill-node i {

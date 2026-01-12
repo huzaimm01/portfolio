@@ -575,53 +575,83 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function() {
   const categoryNodes = document.querySelectorAll('.category-node');
   const skillBranches = document.querySelectorAll('.skill-branch');
+  const svg = document.querySelector('.tree-connections');
   
   let activeCategory = null;
+  let skillNodePathMap = new Map(); 
 
- 
-  function drawConnections() {
-    const root = document.querySelector('.root-node');
-    if (!root) return;
-
-    const rootRect = root.getBoundingClientRect();
-    const rootCenterX = rootRect.left + rootRect.width / 2;
-    const rootCenterY = rootRect.bottom;
-
-    categoryNodes.forEach(node => {
-      const circle = node.querySelector('.node-circle');
-      const svg = node.querySelector('.connection-line');
-      const path = svg.querySelector('.line-path');
-      
-      const circleRect = circle.getBoundingClientRect();
-      const circleCenterX = circleRect.left + circleRect.width / 2;
-      const circleCenterY = circleRect.top + circleRect.height / 2;
-
-      const containerRect = svg.parentElement.parentElement.getBoundingClientRect();
-      
-      const startX = rootCenterX - containerRect.left;
-      const startY = rootCenterY - containerRect.top - 100;
-      const endX = circleCenterX - containerRect.left;
-      const endY = circleCenterY - containerRect.top + 200;
-
-      const midY = (startY + endY) / 2;
-      
-      const d = `M ${startX} ${startY} Q ${startX} ${midY}, ${endX} ${endY}`;
-      path.setAttribute('d', d);
+  function clearConnections() {
+    const existingPaths = svg.querySelectorAll('path:not([id])');
+    existingPaths.forEach(path => {
+      path.classList.remove('active');
+      setTimeout(() => path.remove(), 200);
     });
+    skillNodePathMap.clear();
   }
 
- 
-  setTimeout(drawConnections, 100);
-  window.addEventListener('resize', drawConnections);
+  function drawSkillConnections(categoryNode, skillNodes) {
+    clearConnections();
+
+    const categoryCircle = categoryNode.querySelector('.node-circle');
+    const categoryRect = categoryCircle.getBoundingClientRect();
+    const containerRect = svg.getBoundingClientRect();
+
+    
+    const categoryCenterX = categoryRect.left + categoryRect.width / 2 - containerRect.left;
+    const categoryCenterY = categoryRect.bottom - containerRect.top;
+
+    skillNodes.forEach((skillNode, index) => {
+      const skillRect = skillNode.getBoundingClientRect();
+      const skillCenterX = skillRect.left + skillRect.width / 2 - containerRect.left;
+      
+      const skillTopY = skillRect.top - containerRect.top;
+
+      
+      const controlPointY = categoryCenterY + (skillTopY - categoryCenterY) * 0.4;
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      const d = `M ${categoryCenterX} ${categoryCenterY} Q ${categoryCenterX} ${controlPointY}, ${skillCenterX} ${skillTopY}`;
+      
+      path.setAttribute('d', d);
+      path.setAttribute('class', 'connection-path');
+      
+      
+      skillNodePathMap.set(skillNode, path);
+      
+     
+      setTimeout(() => {
+        path.classList.add('active');
+      }, index * 30);
+
+      svg.appendChild(path);
+    });
+
+   
+    skillNodes.forEach(skillNode => {
+      skillNode.addEventListener('mouseenter', function() {
+        const path = skillNodePathMap.get(this);
+        if (path) {
+          path.classList.add('hover');
+        }
+      });
+
+      skillNode.addEventListener('mouseleave', function() {
+        const path = skillNodePathMap.get(this);
+        if (path) {
+          path.classList.remove('hover');
+        }
+      });
+    });
+  }
 
   categoryNodes.forEach(node => {
     node.addEventListener('click', function() {
       const category = this.getAttribute('data-category');
       
-      
+  
       if (activeCategory === category) {
         this.classList.remove('active');
         skillBranches.forEach(branch => branch.classList.remove('active'));
+        clearConnections();
         activeCategory = null;
         return;
       }
@@ -629,19 +659,42 @@ document.addEventListener('DOMContentLoaded', function() {
       
       categoryNodes.forEach(n => n.classList.remove('active'));
       skillBranches.forEach(branch => branch.classList.remove('active'));
+      clearConnections();
       
       
       this.classList.add('active');
-      
-      
+     
+     
       const targetBranch = document.getElementById(category + '-branch');
       if (targetBranch) {
         setTimeout(() => {
           targetBranch.classList.add('active');
-        }, 300);
+          
+          
+          setTimeout(() => {
+            const skillNodes = targetBranch.querySelectorAll('.skill-node');
+            drawSkillConnections(this, skillNodes);
+          }, 300);
+        }, 100);
       }
       
       activeCategory = category;
     });
+  });
+
+ 
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      if (activeCategory) {
+        const activeNode = document.querySelector(`.category-node[data-category="${activeCategory}"]`);
+        const activeBranch = document.getElementById(activeCategory + '-branch');
+        if (activeNode && activeBranch) {
+          const skillNodes = activeBranch.querySelectorAll('.skill-node');
+          drawSkillConnections(activeNode, skillNodes);
+        }
+      }
+    }, 250);
   });
 });
