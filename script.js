@@ -698,3 +698,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 250);
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const stack = document.querySelector('.experience-stack');
+  if (!stack) return;
+
+  const cards = stack.querySelectorAll('.experience-card');
+  const upBtn = document.querySelector('.exp-arrow.up');
+  const downBtn = document.querySelector('.exp-arrow.down');
+  let current = 0;
+
+  function updateDisplay() {
+    cards.forEach((card, i) => {
+      card.classList.remove('active', 'next', 'prev');
+      
+      if (i === current) {
+        card.classList.add('active');
+      } else if (i === (current + 1) % cards.length) {
+        card.classList.add('next');
+      } else {
+        card.classList.add('prev');
+      }
+    });
+  }
+
+  downBtn?.addEventListener('click', () => {
+    current = (current + 1) % cards.length;
+    updateDisplay();
+  });
+
+  upBtn?.addEventListener('click', () => {
+    current = (current - 1 + cards.length) % cards.length;
+    updateDisplay();
+  });
+
+  updateDisplay(); 
+});

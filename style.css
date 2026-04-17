@@ -1929,3 +1929,141 @@ html {
     font-size: 0.75rem;
   }
 }
+
+
+#experience .experience-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 2rem auto;
+  gap: 30px;
+}
+
+#experience .experience-stack {
+  position: relative;
+  flex: 1;
+  height: 350px; 
+  perspective: 1000px;
+}
+
+
+#experience .experience-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem;
+  border-radius: 20px;
+  
+
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+
+  border: 1px solid rgba(255, 252, 245, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#experience .experience-card.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+  z-index: 10;
+  border: 1px solid rgba(255, 252, 245, 0.2);
+}
+
+#experience .experience-card.next {
+  opacity: 0.2;
+  transform: translateY(20px) scale(0.96);
+  z-index: 5;
+}
+
+
+#experience h2 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+#experience h3 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-primary); opacity: 0.9; }
+#experience p { color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; }
+
+
+#experience .tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+.experience-arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#experience .exp-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 252, 245, 0.2);
+  background: rgba(255, 252, 245, 0.05);
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+#experience .exp-arrow:hover {
+  background: rgba(255, 252, 245, 0.15);
+  border-color: var(--accent);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 252, 245, 0.2);
+}
+
+
+@media (max-width: 768px) {
+  #experience .experience-wrapper {
+    flex-direction: column;
+  }
+  
+  .experience-arrows {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  #experience .experience-stack {
+    height: 400px; 
+  }
+}
+
+.tag.cpp { background: #00599C; color: #E6F3FF; }
+.tag.typescript { background: #3178C6; color: #EAF4FF; }
+.tag.java { background: #E76F00; color: #FFF4E6; }
+.tag.linux { background: #FCC624; color: #1A1A1A; }
+.tag.git { background: #F1502F; color: #FFF0ED; }
+
+
+.tag.ansys { background: #FFB71B; color: #1A1A1A; }
+.tag.ltspice { background: #8E44AD; color: #F5E9FF; }
+.tag.solidworks { background: #D32F2F; color: #FFECEC; }
+.tag.rtos { background: #00A896; color: #E6FFFB; }
+.tag.tia { background: #009999; color: #E6FFFF; }
