@@ -2051,8 +2051,18 @@ html {
   }
   
   #experience .experience-stack {
-    height: 400px; 
+    width: 100%;
+    align-self: stretch;
+    height: 420px;
   }
+
+  #experience .experience-card {
+    padding: 1.5rem;
+  }
+
+  #experience h2 { font-size: 1.4rem; }
+  #experience h3 { font-size: 1rem; }
+  #experience p  { font-size: 0.85rem; }
 }
 
 .tag.cpp { background: #00599C; color: #E6F3FF; }
