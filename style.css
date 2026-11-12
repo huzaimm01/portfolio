@@ -2077,3 +2077,55 @@ html {
 .tag.solidworks { background: #D32F2F; color: #FFECEC; }
 .tag.rtos { background: #00A896; color: #E6FFFB; }
 .tag.tia { background: #009999; color: #E6FFFF; }
+
+#experience .experience-card {
+  /* a real tint (not 3% white) so text behind can't punch through */
+  background:
+    linear-gradient(135deg, rgba(255, 252, 245, 0.12), rgba(255, 252, 245, 0.03)),
+    rgba(0, 33, 55, 0.6);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 252, 245, 0.18);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 252, 245, 0.15); /* glassy top edge */
+}
+
+
+#experience .experience-card .card-inner {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+#experience .experience-card.active .card-inner {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.2s; /* fade in after the old card has gone */
+}
+
+#experience .experience-card.next {
+  opacity: 0.35;
+}
+
+#experience p  { color: var(--text-primary); opacity: 0.85; }
+
+body.light-mode #experience .experience-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.35)),
+    rgba(240, 240, 240, 0.4);
+  border: 1px solid rgba(0, 17, 28, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+}
+body.light-mode #experience p { color: var(--text-primary); opacity: 0.8; }
+
+#experience { position: relative; }
+#experience::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(0, 120, 200, 0.35), transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
+}
