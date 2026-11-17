@@ -315,14 +315,14 @@ document.addEventListener('DOMContentLoaded', function() {
  
   function closeWindow() {
     folderWindows.forEach(window => window.classList.remove('active'));
-    overlay.classList.remove('active');
+    overlay?.classList.remove('active');
   }
 
   closeButtons.forEach(button => {
     button.addEventListener('click', closeWindow);
   });
 
-  overlay.addEventListener('click', closeWindow);
+  overlay?.addEventListener('click', closeWindow);
 
   
   document.addEventListener('keydown', function(e) {
@@ -700,53 +700,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const stack = document.querySelector('.experience-stack');
-  if (!stack) return;
+  // Horizontal carousels: any track with [data-carousel] gets its prev/next
+  // buttons wired (buttons carry [data-carousel-prev="<id>"] /
+  // [data-carousel-next="<id>"]). Buttons scroll by one card and disable
+  // at the ends. Touch swipe works natively via overflow-x scrolling.
+  document.querySelectorAll('[data-carousel]').forEach((track) => {
+    const id = track.getAttribute('data-carousel');
+    const prev = document.querySelector('[data-carousel-prev="' + id + '"]');
+    const next = document.querySelector('[data-carousel-next="' + id + '"]');
+    if (!prev || !next) return;
 
-  const cards = stack.querySelectorAll('.experience-card');
-  const upBtn = document.querySelector('.exp-arrow.up');
-  const downBtn = document.querySelector('.exp-arrow.down');
-  let current = 0;
+    const step = () => {
+      const card = track.querySelector(':scope > *');
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 24;
+      return card ? card.getBoundingClientRect().width + gap : 320;
+    };
 
-  function updateDisplay() {
-    cards.forEach((card, i) => {
-      card.classList.remove('active', 'next', 'prev');
-      
-      if (i === current) {
-        card.classList.add('active');
-      } else if (i === (current + 1) % cards.length) {
-        card.classList.add('next');
-      } else {
-        card.classList.add('prev');
-      }
-    });
-  }
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+    };
 
-  downBtn?.addEventListener('click', () => {
-    current = (current + 1) % cards.length;
-    updateDisplay();
+    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   });
-
-  upBtn?.addEventListener('click', () => {
-    current = (current - 1 + cards.length) % cards.length;
-    updateDisplay();
-  });
-
-  // Keep the stack exactly as tall as its tallest card (plus room for the
-  // next card's peek), so no card is ever cut off and the section never
-  // scrolls on its own. Re-measure when fonts load or the window resizes,
-  // since wrapping changes card heights.
-  function fitStack() {
-    let tallest = 0;
-    cards.forEach((card) => {
-      tallest = Math.max(tallest, card.offsetHeight);
-    });
-    if (tallest > 0) stack.style.height = tallest + 48 + 'px';
-  }
-  fitStack();
-  window.addEventListener('resize', fitStack);
-  window.addEventListener('load', fitStack);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitStack);
-
-  updateDisplay(); 
 });
