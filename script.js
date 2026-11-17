@@ -700,15 +700,30 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Horizontal carousels: any track with [data-carousel] gets its prev/next
-  // buttons wired (buttons carry [data-carousel-prev="<id>"] /
-  // [data-carousel-next="<id>"]). Buttons scroll by one card and disable
-  // at the ends. Touch swipe works natively via overflow-x scrolling.
+  // Conveyor-belt carousels: any track with [data-carousel] auto-scrolls
+  // continuously through its cards and loops seamlessly. The belt pauses
+  // while the user holds, drags or swipes it, while hovering it on desktop,
+  // and for a few seconds after a button press, then it resumes on its own.
+  // Prev/next buttons scroll by one card. Touch swipe works natively via
+  // overflow-x scrolling. The arrow buttons are hidden on mobile via CSS.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   document.querySelectorAll('[data-carousel]').forEach((track) => {
     const id = track.getAttribute('data-carousel');
     const prev = document.querySelector('[data-carousel-prev="' + id + '"]');
     const next = document.querySelector('[data-carousel-next="' + id + '"]');
     if (!prev || !next) return;
+
+    // Duplicate the cards once (clones are aria-hidden) so the belt can
+    // wrap seamlessly: when the scroll position passes the original set,
+    // jump back by exactly one set's width and the eye can't tell.
+    const originalCount = track.children.length;
+    Array.from(track.children).forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.classList.add('carousel-clone');
+      track.appendChild(clone);
+    });
 
     const step = () => {
       const card = track.querySelector(':scope > *');
@@ -716,16 +731,90 @@ document.addEventListener('DOMContentLoaded', () => {
       return card ? card.getBoundingClientRect().width + gap : 320;
     };
 
-    const update = () => {
-      const max = track.scrollWidth - track.clientWidth;
-      prev.disabled = track.scrollLeft <= 2;
-      next.disabled = track.scrollLeft >= max - 2;
+    // Exact width of one full set of cards: distance between the first
+    // original and the first clone. Falls back to half the scroll width.
+    let cachedSetWidth = 0;
+    const measure = () => {
+      const first = track.children[0];
+      const firstClone = track.children[originalCount];
+      if (first && firstClone) {
+        const w = firstClone.offsetLeft - first.offsetLeft;
+        if (w > 0) { cachedSetWidth = w; return; }
+      }
+      cachedSetWidth = track.scrollWidth / 2;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    if (document.fonts) document.fonts.ready.then(measure);
+
+    const SPEED_PX_PER_SEC = 45;  // gentle belt speed
+    const RESUME_AFTER_MS = 8000; // idle time after a swipe/button before it resumes
+    let pausedUntil = 0;          // belt runs once now passes this timestamp
+    let holding = false;          // pointer/touch currently down on the track
+    let hovering = false;         // pointer resting over the track (desktop)
+    let inView = true;            // track visible in the viewport
+    let lastTick = null;
+
+    const beltRunning = () =>
+      !reduceMotion && !holding && !hovering && inView && !document.hidden &&
+      Date.now() > pausedUntil && cachedSetWidth > track.clientWidth + 2;
+
+    const pauseFor = (ms) => { pausedUntil = Date.now() + ms; };
+
+    // Scroll-snap fights a continuously moving belt: the browser keeps
+    // pulling the position back to the nearest snap point. So snap is off
+    // while the belt runs and back on whenever it pauses, which also lets
+    // the row settle onto a card after a swipe.
+    let snapOff = false;
+    const setSnap = (off) => {
+      if (off === snapOff) return;
+      snapOff = off;
+      track.style.scrollSnapType = off ? 'none' : '';
     };
 
-    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-    track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    const tick = (now) => {
+      const running = beltRunning();
+      setSnap(running);
+      if (lastTick !== null && running) {
+        const dt = Math.min((now - lastTick) / 1000, 0.1);
+        track.scrollLeft += SPEED_PX_PER_SEC * dt;
+        if (track.scrollLeft >= cachedSetWidth) track.scrollLeft -= cachedSetWidth;
+      }
+      lastTick = now;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    // Grabbing or swiping the belt stops it; it resumes a few seconds
+    // after the user lets go.
+    track.addEventListener('pointerdown', () => { holding = true; }, { passive: true });
+    window.addEventListener('pointerup', () => {
+      if (holding) { holding = false; pauseFor(RESUME_AFTER_MS); }
+    }, { passive: true });
+    track.addEventListener('wheel', () => pauseFor(RESUME_AFTER_MS), { passive: true });
+
+    // Resting the mouse on the belt pauses it while it stays there.
+    if (window.matchMedia('(hover: hover)').matches) {
+      track.addEventListener('pointerenter', () => { hovering = true; });
+      track.addEventListener('pointerleave', () => { hovering = false; });
+    }
+
+    // Don't spin a belt nobody can see.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        inView = entries[0].isIntersecting;
+      }, { threshold: 0.05 }).observe(track);
+    }
+
+    // Buttons jump one card and stop the belt for a few seconds.
+    prev.addEventListener('click', () => {
+      pauseFor(RESUME_AFTER_MS);
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      pauseFor(RESUME_AFTER_MS);
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
   });
 });
