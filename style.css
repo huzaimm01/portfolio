@@ -2443,3 +2443,19 @@ body.light-mode .project-card {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255, 252, 245, 0.2);
 }
+
+/* ---- Conveyor-belt carousels, Nov 17 2026 ----
+   Tracks auto-scroll and loop (clones added by JS). Snap is proximity so
+   it settles on a card when the belt pauses instead of fighting the
+   motion. Arrow buttons are desktop-only: hidden on phones/tablets. */
+.projects-container,
+#experience .experience-stack {
+  scroll-snap-type: x proximity;
+}
+
+@media (max-width: 768px) {
+  .experience-arrows,
+  .carousel-arrows {
+    display: none;
+  }
+}
