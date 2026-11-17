@@ -732,5 +732,21 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDisplay();
   });
 
+  // Keep the stack exactly as tall as its tallest card (plus room for the
+  // next card's peek), so no card is ever cut off and the section never
+  // scrolls on its own. Re-measure when fonts load or the window resizes,
+  // since wrapping changes card heights.
+  function fitStack() {
+    let tallest = 0;
+    cards.forEach((card) => {
+      tallest = Math.max(tallest, card.offsetHeight);
+    });
+    if (tallest > 0) stack.style.height = tallest + 48 + 'px';
+  }
+  fitStack();
+  window.addEventListener('resize', fitStack);
+  window.addEventListener('load', fitStack);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitStack);
+
   updateDisplay(); 
 });
