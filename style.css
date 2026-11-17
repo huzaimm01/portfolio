@@ -2129,3 +2129,97 @@ body.light-mode #experience p { color: var(--text-primary); opacity: 0.8; }
   z-index: -1;
   pointer-events: none;
 }
+
+/* ---- Responsive single-scroll + experience carousel fixes, Nov 17 2026 ----
+   Root cause of the nested scrolls: a mobile rule set `section {
+   overflow-x: hidden }`, which makes overflow-y compute to `auto`, so any
+   section taller than its box became its own scroller instead of growing
+   the page. `clip` contains horizontal overflow without creating a scroll
+   container, so the page is the only thing that scrolls. These top-level
+   rules run last, so they win over the nested rules above. */
+section {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  height: auto;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* Keep the decorative hexagons inside the hero so they can't stretch it. */
+.hexagon-grid {
+  overflow: hidden;
+}
+
+#experience {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* Experience carousel: arrows always sit below the card, centred, never
+   overlapping the card text. The stack height is set by script.js
+   (fitStack) to the tallest card, so no card is ever cut off. */
+#experience .experience-wrapper {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+#experience .experience-stack {
+  width: 100%;
+  height: auto;
+  min-height: 280px;
+  /* `flex: 1` from the base rule sets flex-basis to 0%, which makes the
+     flex layout ignore `height` (including the height script.js sets).
+     Turn flex off so the stack sizes to its tallest card. */
+  flex: none;
+}
+
+.experience-arrows {
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  /* Hide the desktop scroll dots on phones; they overlapped the hero text. */
+  .scroll-indicator,
+  .g-indicator {
+    display: none !important;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+
+  .typing-container {
+    height: auto;
+  }
+
+  .typing-prefix {
+    height: auto;
+  }
+
+  .name-animated {
+    height: auto;
+    line-height: 1.1;
+  }
+
+  .profession {
+    font-size: 1.4rem;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+  }
+
+  /* Project cards: size to their content instead of a fixed 470px
+     min-height that left big empty space on phones. */
+  .project-card {
+    min-height: 0;
+    height: auto;
+    max-height: none;
+  }
+}
