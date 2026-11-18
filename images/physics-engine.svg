@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="360" viewBox="0 0 840 360">
+<style>text{font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;}</style>
+<rect width="840" height="360" fill="#0b1226"/>
+<rect width="840" height="30" fill="#101a33"/>
+<line x1="0" y1="30" x2="840" y2="30" stroke="#26355c"/>
+<circle cx="18" cy="15" r="5" fill="#ff5f57"/><circle cx="36" cy="15" r="5" fill="#febc2e"/><circle cx="54" cy="15" r="5" fill="#28c840"/>
+<text x="68" y="19" fill="#8b96b8" font-size="12">physicsengine — Python</text>
+<!-- axes -->
+<line x1="60" y1="300" x2="800" y2="300" stroke="#26355c" stroke-width="2"/>
+<line x1="60" y1="300" x2="60" y2="50" stroke="#26355c" stroke-width="2"/>
+<text x="786" y="322" fill="#8b96b8" font-size="14">x</text>
+<text x="40" y="58" fill="#8b96b8" font-size="14">y</text>
+<!-- trajectory: dotted parabola -->
+<path d="M 80 290 Q 420 -40 780 290" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="7 7"/>
+<!-- ball on the curve with motion trail -->
+<circle cx="420" cy="128" r="16" fill="#f59e0b"/>
+<circle cx="392" cy="140" r="10" fill="#f59e0b" opacity="0.45"/>
+<circle cx="368" cy="156" r="6" fill="#f59e0b" opacity="0.25"/>
+<!-- velocity vector (tangent) -->
+<line x1="420" y1="128" x2="540" y2="96" stroke="#4ade80" stroke-width="3"/>
+<polygon points="540,96 522,92 528,110" fill="#4ade80"/>
+<text x="548" y="96" fill="#4ade80" font-size="16">v&#8320;</text>
+<!-- gravity vector -->
+<line x1="420" y1="148" x2="420" y2="238" stroke="#f87171" stroke-width="3"/>
+<polygon points="420,238 412,220 428,220" fill="#f87171"/>
+<text x="432" y="210" fill="#f87171" font-size="16">g</text>
+<text x="60" y="340" fill="#8b96b8" font-size="13">2D rigid-body dynamics · collision detection · from scratch</text>
+</svg>
