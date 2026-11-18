@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- this is a test-->
-   <!-- ok nice-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <style>
-  </style>
-
+  <title>Huzaim Malik | Computer Engineering</title>
+  <meta name="description" content="Huzaim Malik — Computer Engineering student at . Embedded systems, robotics, verification and cars.">
+  <meta property="og:title" content="Huzaim Malik | Computer Engineering">
+  <meta property="og:description" content="Computer Engineering student at . Embedded systems, robotics, verification and cars.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.huzaim.ca/">
+  <meta property="og:image" content="https://www.huzaim.ca/images/website.png">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -88,7 +90,7 @@
         <div class="name-animated" id="typing-name">Huzaim!</div>
       </div>
       <h2 class="profession">Engineering Student & Developer</h2>
-      <!--<p class="description">Engineering Student. Racecar driver. Driven to change the world.</p>-->
+      <p class="description">Computer Engineering student at . I build embedded systems, robots, and things that move.</p>
       <a href="#contact" class="cta-button">Let's Connect</a>
     </div>
   </section>
@@ -104,6 +106,7 @@
         <div class="card-inner">
           <h2>Bloomberg</h2>
           <h3>Software Engineering Intern</h3>
+          <p class="experience-date">May – Aug 2025 · May – Aug 2026</p>
           <p>Wrote, Tested and Debugged code in C++, Python, TypeScript and React. Collaborated with other interns and engineers to work on code reviews. Mentored younger interns with tools such as git and adjusting to a work environment. Utilized internal APIs, tools and services to integrate features and keep systems running smoothly.</p>
           <div class="tag-container">
             <span class="tag cpp">C++</span>
@@ -119,6 +122,7 @@
         <div class="card-inner">
           <h2>Technology Links</h2>
           <h3>Engineering Intern</h3>
+          <p class="experience-date">Aug 2025</p>
           <p>Assisted in designing, testing and troubleshooting applications of electric circuits and embedded hardware systems. Supported integration of laboratory and industrial equipment components for clients. Collaborated to debug mechanical issues and optimize system performance, working cross departmentally using tools such as RTOS and Siemens TIA. Worked on documentation including schematics, wiring diagrams, mechanical designs and algorithmic test/installation reports.</p>
           <div class="tag-container">
             <span class="tag ansys">ANSYS</span>
@@ -135,6 +139,7 @@
         <div class="card-inner">
           <h2>Quantum Computing Research & Fabrication</h2>
           <h3>Research Co-Op Student</h3>
+          <p class="experience-date">Sep – Dec 2026</p>
           <p>Assist with research, fabrication, testing and characterization of hardware systems for quantum computing applications. Support the development and integration of experimental systems, troubleshooting hardware and software issues throughout the research process. Work across electrical, mechanical and computational aspects of experimental setups and contribute to technical documentation, data analysis and testing procedures. Further details of the research remain confidential.</p>
           <div class="tag-container">
             <span class="tag ansys">ANSYS</span>
@@ -169,13 +174,81 @@
           <h3 class="project-title">SRAM BIST Controller</h3>
           <p class="project-description">Co-designed an FSM-based built-in self-test controller for a 256Kx16 SRAM in SystemVerilog. It writes address-dependent XOR patterns to even, then odd, addresses and reads them back in descending order, flagging any mismatch. Built with Seher Mian.</p>
           <div class="project-tags">
-            <span class="project-tag">SystemVerilog</span>
-            <span class="project-tag">FSM</span>
-            <span class="project-tag">SRAM</span>
-            <span class="project-tag">Verification</span>
+            <span class="project-tag tag-systemverilog">SystemVerilog</span>
+            <span class="project-tag tag-sram">SRAM</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/seherm01/sram-bist-controller" class="project-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/telemetry-hud.svg" alt="Telemetry HUD code" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">Telemetry Device for Cars</h3>
+          <p class="project-description">A touchscreen HUD for your car: GPS speed, live G-forces, compass and turn analysis, built on Arduino with a GPS module and IMU.</p>
+          <div class="project-tags">
+            <span class="project-tag tag-arduino">Arduino</span>
+            <span class="project-tag tag-cpp">C++</span>
+            <span class="project-tag tag-gps">GPS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/huzaimm01/telemetry" class="project-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/streakd.svg" alt="Streak'd dashboard" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">Streak'd</h3>
+          <p class="project-description">A daily league tracker for friend groups. React frontend, Node API and MongoDB Atlas, with auth, streaks, leaderboards and a 26-week activity heat map. Live and in use.</p>
+          <div class="project-tags">
+            <span class="project-tag tag-react">React</span>
+            <span class="project-tag tag-nodejs">Node.js</span>
+            <span class="project-tag tag-mongodb">MongoDB</span>
+            <span class="project-tag tag-render">Render</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/huzaimm01/streakd" class="project-link"><i class="fab fa-github"></i></a>
+            <a href="https://huzaimm01.github.io/streakd/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/database.png" alt="F1 Database" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">F1 Database + Companion App</h3>
+          <p class="project-description">Formula One database with companion app with information such as Race Entries, Winners, Pole, Lap Times, etc. The companion app has mathematical projections for the next race, as well as a polished UI to handle queries.</p>
+          <div class="project-tags">
+            <span class="project-tag tag-mongodb">MongoDB</span>
+            <span class="project-tag tag-flask">Flask</span>
+            <span class="project-tag tag-python">Python</span>
+            <span class="project-tag tag-html">HTML</span>
+            <span class="project-tag tag-css">CSS</span>
+            <span class="project-tag tag-javascript">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/huzaimm01/f1-database" class="project-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/roadster.png" alt="EV Roadster" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">EV Roadster</h3>
+          <p class="project-description">A literal car. Designed in Fusion. CNC'd into reality. Driven by arduino, three transmissions, and an undying fire to be better than the rest.</p>
+          <div class="project-tags">
+            <span class="project-tag tag-fusion360">Fusion 360</span>
+            <span class="project-tag tag-arduino">Arduino</span>
+            <span class="project-tag tag-raspberrypi">Raspberry Pi</span>
+            <span class="project-tag tag-cpp">C++</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/huzaimm01/EV-Roadster" class="project-link"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
@@ -186,32 +259,13 @@
           <h3 class="project-title">FIRST Robotics Challenge</h3>
           <p class="project-description">Mechanical lead for the FRC team, handling 3D modeling and robot construction.</p>
           <div class="project-tags">
-            <span class="project-tag">WPILib</span>
-            <span class="project-tag">SolidWorks</span>
-            <span class="project-tag">Manufacturing</span>
-            <span class="project-tag">Git</span>
+            <span class="project-tag tag-wpilib">WPILib</span>
+            <span class="project-tag tag-solidworks">SolidWorks</span>
+            <span class="project-tag tag-git">Git</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/team9562" class="project-link"><i class="fab fa-github"></i></a>
             <a href="https://www.frc9562.ca" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/website.png" alt="Portfolio" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">Portfolio Website</h3>
-          <p class="project-description">Website. To demonstrate my skills. Hosted on GitHub pages. Deployable.</p>
-          <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">Git</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/huzaimm01/portfolio" class="project-link"><i class="fab fa-github"></i></a>
-            <a href="https://www.huzaimmalik.com" class="project-link"><i class="fas fa-external-link-alt"></i></a>
           </div>
         </div>
       </div>
@@ -222,9 +276,8 @@
           <h3 class="project-title">FIRST Global Challenge</h3>
           <p class="project-description">Mentor and test driver for Team Pakistan, overseeing programming, design and building.</p>
           <div class="project-tags">
-            <span class="project-tag">Robot Construction</span>
-            <span class="project-tag">WPILib</span>
-            <span class="project-tag">SolidWorks</span>
+            <span class="project-tag tag-wpilib">WPILib</span>
+            <span class="project-tag tag-solidworks">SolidWorks</span>
           </div>
           <div class="project-links">
             <a href="https://first.global/2024-nations/pakistan-2024/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
@@ -238,14 +291,48 @@
           <h3 class="project-title">Polar - A Deployable, Small-Scale Social Media Platform</h3>
           <p class="project-description">A Social Media Platform to be used with friends or in small groups. Deployable. Hosted initially on Arduino Uno, but can be deployed anywhere. Uses HTML, CSS, JS and PHP</p>
           <div class="project-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">PHP</span>
+            <span class="project-tag tag-html">HTML</span>
+            <span class="project-tag tag-css">CSS</span>
+            <span class="project-tag tag-javascript">JavaScript</span>
+            <span class="project-tag tag-php">PHP</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/huzaimm01/Polar" class="project-link"><i class="fab fa-github"></i></a>
             <a href="https://huzaimm01.github.io/Polar/" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/website.png" alt="Portfolio" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">Portfolio Website</h3>
+          <p class="project-description">The site you are looking at. Designed and built from scratch with HTML, CSS and JavaScript, hosted on GitHub Pages.</p>
+          <div class="project-tags">
+            <span class="project-tag tag-html">HTML</span>
+            <span class="project-tag tag-css">CSS</span>
+            <span class="project-tag tag-javascript">JavaScript</span>
+            <span class="project-tag tag-git">Git</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/huzaimm01/portfolio" class="project-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.huzaim.ca" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/physics-engine.svg" alt="Physics Engine diagram" class="project-image">
+        <div class="project-content">
+          <h3 class="project-title">Physics Engine</h3>
+          <p class="project-description">Custom-built, math-driven physics engine for realistic model simulation. In progress.</p>
+          <div class="project-tags">
+            <span class="project-tag tag-python">Python</span>
+            <span class="project-tag tag-pythonocc">PythonOCC</span>
+            <span class="project-tag tag-pygui">PyGUI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/huzaimm01/physicsengine" class="project-link"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
@@ -256,64 +343,13 @@
           <h3 class="project-title">F1 Inspired Video Game</h3>
           <p class="project-description">A Co-Op video game where one player is a driver, and the other is a Race Engineer. Uses custom-made models for cars and tracks. Built in C#.</p>
           <div class="project-tags">
-            <span class="project-tag">C#</span>
-            <span class="project-tag">C++</span>
-            <span class="project-tag">Fusion360</span>
+            <span class="project-tag tag-csharp">C#</span>
+            <span class="project-tag tag-unity">Unity</span>
+            <span class="project-tag tag-fusion360">Fusion 360</span>
           </div>
           <div class="project-links">
             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
             <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/roadster.png" alt="EV Roadster" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">EV Roadster</h3>
-          <p class="project-description">A literal car. Designed in Fusion. CNC'd into reality. Driven by arduino, three transmissions, and an undying fire to be better than the rest.</p>
-          <div class="project-tags">
-            <span class="project-tag">Fusion</span>
-            <span class="project-tag">Arduino & Raspberry Pi</span>
-            <span class="project-tag">C++</span>
-            <span class="project-tag">Manufacturing</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/huzaimm01/EV-Roadster" class="project-link"><i class="fab fa-github"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/database.png" alt="F1 Database" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">F1 Database + Companion App</h3>
-          <p class="project-description">Formula One database with companion app with information such as Race Entries, Winners, Pole, Lap Times, etc. The companion app has mathematical projections for the next race, as well as a polished UI to handle queries.</p>
-          <div class="project-tags">
-            <span class="project-tag">MongoDB</span>
-            <span class="project-tag">Flask (Python)</span>
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JavaScript</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/huzaimm01/f1-database" class="project-link"><i class="fab fa-github"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="images/physicsengine" alt="Telemetry Device" class="project-image">
-        <div class="project-content">
-          <h3 class="project-title">Telemetry Device for Cars</h3>
-          <p class="project-description">A small device that uses software, pre-entered info and physics to calculate racing telemtry values for your vehicle. Helps with manual shifting with estimated RPMs, Speed Control, as well as GPS features such as trap lane detection and warnings.</p>
-          <div class="project-tags">
-            <span class="project-tag">Arduino</span>
-            <span class="project-tag">C++</span>
-            <span class="project-tag">React</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/huzaimm01/physicsengine" class="project-link"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
@@ -444,6 +480,7 @@
         <div class="skill-node" style="--delay: 13"><i class="fab fa-microsoft"></i><span>.NET</span></div>
         <div class="skill-node" style="--delay: 14"><i class="fa-brands fa-app-store"></i><span>XCode</span></div>
         <div class="skill-node" style="--delay: 15"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+        <div class="skill-node" style="--delay: 16"><i class="fa-solid fa-wave-square"></i><span>SystemVerilog</span></div>
       </div>
 
       <!-- Mechanical Skills -->
@@ -461,6 +498,8 @@
         <div class="skill-node" style="--delay: 2"><i class="fa-solid fa-wifi"></i><span>ESP32</span></div>
         <div class="skill-node" style="--delay: 3"><i class="fa-solid fa-bolt"></i><span>LTSpice</span></div>
         <div class="skill-node" style="--delay: 4"><i class="fa-solid fa-code-branch"></i><span>PlatformIO</span></div>
+        <div class="skill-node" style="--delay: 5"><i class="fa-solid fa-table-cells"></i><span>FPGA</span></div>
+        <div class="skill-node" style="--delay: 6"><i class="fa-solid fa-memory"></i><span>SRAM/DRAM/BRAM</span></div>
       </div>
 
       <!-- Data Skills -->
@@ -480,12 +519,12 @@
   <section id="contact">
     <h2 class="section-title">Let's Connect</h2>
     <div class="contact-container">
-      <div class="contact-card" onclick="window.location.href='mailto:mail@huzaimmalik.com'">
+      <div class="contact-card" onclick="window.location.href='mailto:hello@huzaim.ca'">
         <div class="contact-icon">
           <i class="fas fa-envelope"></i>
         </div>
         <h3 class="contact-type">Email 1</h3>
-        <p class="contact-value"></p>
+        <p class="contact-value">hello@huzaim.ca</p>
       </div>
 
        <div class="contact-card" onclick="window.location.href='mailto:huzaimm01@gmail.com'">
@@ -493,7 +532,7 @@
           <i class="fas fa-envelope"></i>
         </div>
         <h3 class="contact-type">Email 2</h3>
-        <p class="contact-value"></p>
+        <p class="contact-value">huzaimm01@gmail.com</p>
       </div>
 
       <div class="contact-card" onclick="window.location.href='tel: +16475940139'">

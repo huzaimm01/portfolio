@@ -2459,3 +2459,38 @@ body.light-mode .project-card {
     display: none;
   }
 }
+
+/* ---- Brand-colour project tags + experience dates (Nov 17, 2026) ---- */
+.experience-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #8b96b8);
+  margin: 0.25rem 0 0.75rem;
+  letter-spacing: 0.3px;
+}
+
+/* Brand colours shared with the experience tags where the tech overlaps */
+.tag.cpp, .project-tag.tag-cpp { background: #00599C; color: #E6F3FF; }
+.tag.git, .project-tag.tag-git { background: #F1502F; color: #FFF0ED; }
+.tag.solidworks, .project-tag.tag-solidworks { background: #D32F2F; color: #FFECEC; }
+
+.project-tag.tag-arduino { background: #00979D; color: #E6FFFF; }
+.project-tag.tag-raspberrypi { background: #C51A4A; color: #FFE9F0; }
+.project-tag.tag-csharp { background: #68217A; color: #F3E8FF; }
+.project-tag.tag-css { background: #1572B6; color: #E8F4FF; }
+.project-tag.tag-flask { background: #212121; color: #FFFFFF; }
+.project-tag.tag-python { background: #3776AB; color: #EAF3FF; }
+.project-tag.tag-fusion360 { background: #FF6A00; color: #FFFFFF; }
+.project-tag.tag-html { background: #E34F26; color: #FFF1EB; }
+.project-tag.tag-javascript { background: #F7DF1E; color: #1A1A1A; }
+.project-tag.tag-mongodb { background: #47A248; color: #EAF7EA; }
+.project-tag.tag-php { background: #777BB4; color: #F0F0FA; }
+.project-tag.tag-react { background: #61DAFB; color: #062A33; }
+.project-tag.tag-sram { background: #455A64; color: #ECEFF1; }
+.project-tag.tag-systemverilog { background: #7B1FA2; color: #F3E5F5; }
+.project-tag.tag-wpilib { background: #1565C0; color: #E8F1FF; }
+.project-tag.tag-nodejs { background: #339933; color: #EAF7EA; }
+.project-tag.tag-render { background: #46E3B7; color: #062A1F; }
+.project-tag.tag-gps { background: #00838F; color: #E0F7FA; }
+.project-tag.tag-unity { background: #4A4A4A; color: #FFFFFF; }
+.project-tag.tag-pythonocc { background: #E67E22; color: #FFFFFF; }
+.project-tag.tag-pygui { background: #607D8B; color: #ECEFF1; }
