@@ -1,0 +1,23 @@
+# Secrets / credentials — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+credentials*.json
+*secret*
+*token*.json
+
+# OS / editor artefacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Build / dependency artefacts (none in use today; guard the future)
+node_modules/
+dist/
+build/
